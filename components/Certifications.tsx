@@ -61,7 +61,6 @@ const Certifications = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="card-bg rounded-xl p-3 sm:p-4 shadow-lg card-hover"
               whileHover={{ scale: 1.05, y: -5 }}
@@ -73,6 +72,8 @@ const Certifications = () => {
                 ]
               }}
               transition={{
+                duration: 0.8,
+                delay: index * 0.1,
                 boxShadow: {
                   duration: 2,
                   repeat: Infinity,
