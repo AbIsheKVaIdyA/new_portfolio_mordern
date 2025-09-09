@@ -91,7 +91,10 @@ const Projects = () => {
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                          const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (nextElement) {
+                            nextElement.style.display = 'flex';
+                          }
                         }}
                       />
                       <div className="text-center text-gray-500 hidden absolute inset-0 flex items-center justify-center">
@@ -164,7 +167,10 @@ const Projects = () => {
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                          const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (nextElement) {
+                            nextElement.style.display = 'flex';
+                          }
                         }}
                       />
                       <div className="text-center text-gray-500 hidden absolute inset-0 flex items-center justify-center">

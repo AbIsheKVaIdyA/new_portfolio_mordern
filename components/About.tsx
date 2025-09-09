@@ -35,7 +35,10 @@ const About = () => {
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) {
+                    nextElement.style.display = 'flex';
+                  }
                 }}
               />
               <div className="w-full h-full bg-gray-800 flex items-center justify-center text-gray-400 text-xl sm:text-2xl hidden">
