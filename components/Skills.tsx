@@ -13,7 +13,7 @@ const Skills = () => {
     {
       title: 'Backend Development',
       icon: Server,
-      skills: ['Spring Boot', 'Python', 'Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Microservices']
+      skills: ['Spring Boot', 'Python', 'Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Microservices', 'Postman']
     },
     {
       title: 'Cloud & DevOps',
@@ -23,7 +23,7 @@ const Skills = () => {
     {
       title: 'Cybersecurity',
       icon: Shield,
-      skills: ['Penetration Testing', 'Vulnerability Assessment', 'Security Auditing', 'Red Team Operations', 'Network Security']
+      skills: ['Penetration Testing', 'Vulnerability Assessment', 'Security Auditing', 'Red Team Operations', 'Network Security', 'Burp Suite', 'Nmap', 'Linux', 'Operating Systems']
     }
   ]
 

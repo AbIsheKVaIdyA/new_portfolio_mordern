@@ -1,14 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Home, User, Code, Briefcase, FolderOpen, Award, Mail } from 'lucide-react'
+import { Home, User, Code, Briefcase, FolderOpen, Trophy, Award, Mail } from 'lucide-react'
 
 const VerticalNav = () => {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'certifications', 'contact']
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'awards', 'certifications', 'contact']
       const scrollPosition = window.scrollY + 200
       
       for (const section of sections) {
@@ -33,6 +33,7 @@ const VerticalNav = () => {
     { name: 'Skills', href: '#skills', id: 'skills', icon: Code },
     { name: 'Experience', href: '#experience', id: 'experience', icon: Briefcase },
     { name: 'Projects', href: '#projects', id: 'projects', icon: FolderOpen },
+    { name: 'Awards', href: '#awards', id: 'awards', icon: Trophy },
     { name: 'Certifications', href: '#certifications', id: 'certifications', icon: Award },
     { name: 'Contact', href: '#contact', id: 'contact', icon: Mail },
   ]

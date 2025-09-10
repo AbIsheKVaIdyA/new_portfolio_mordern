@@ -10,7 +10,7 @@ const Projects = () => {
       description: 'Built a comprehensive social networking platform with user profiles, connections, posts, and real-time messaging. Implemented secure authentication, scalable architecture, and responsive design.',
       image: '/linkedin.png',
       technologies: ['React', 'Next.js', 'Spring Boot', 'MongoDB', 'AWS', 'Docker'],
-      github: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/linkedIn-clone',
       demo: 'https://linkedin-clone-zeta-one.vercel.app/'
     },
     {
@@ -18,7 +18,7 @@ const Projects = () => {
       description: 'Developed a full-stack e-commerce platform similar to Walmart with product catalog, shopping cart, payment integration, and inventory management. Implemented secure checkout process and real-time inventory tracking.',
       image: '/walmart.png',
       technologies: ['React', 'Node.js', 'Express.js', 'PostgreSQL', 'Stripe API', 'Redis'],
-      github: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/Walmart-Clone',
       demo: 'https://walmart-clone-jade.vercel.app/'
     },
     {
@@ -26,7 +26,7 @@ const Projects = () => {
       description: 'Created a Dropbox-inspired cloud storage platform with file upload, download, sharing, and folder management capabilities. Implemented secure file storage and user authentication.',
       image: '/dropbox.png',
       technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'AWS S3', 'JWT'],
-      github: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/dropbox-clone',
       demo: 'https://dropbox-clone-eta.vercel.app/'
     },
     {
@@ -34,7 +34,7 @@ const Projects = () => {
       description: 'Designed and developed a modern, responsive portfolio website showcasing professional experience, projects, and skills. Features clean UI/UX design, smooth animations, and mobile-first responsive layout.',
       image: '/old portfolio.png',
       technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
-      github: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/portfolio1.0',
       demo: 'https://portfolio-first-eta.vercel.app/'
     }
   ]
@@ -69,7 +69,7 @@ const Projects = () => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 18,
+                  duration: 40,
                   ease: "linear",
                 },
               }}
