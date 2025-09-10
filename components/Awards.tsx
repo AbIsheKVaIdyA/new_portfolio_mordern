@@ -78,7 +78,7 @@ const Awards = () => {
             >
               {/* First set of awards */}
               {awards.map((award, index) => (
-                <div
+                <motion.div
                   key={`first-${index}`}
                   className="flex-shrink-0 w-48 sm:w-56 md:w-64 group cursor-pointer"
                   whileHover={{ scale: 1.05, y: -5 }}
@@ -136,12 +136,12 @@ const Awards = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
               
               {/* Second set of awards for seamless loop */}
               {awards.map((award, index) => (
-                <div
+                <motion.div
                   key={`second-${index}`}
                   className="flex-shrink-0 w-48 sm:w-56 md:w-64 group cursor-pointer"
                   whileHover={{ scale: 1.05, y: -5 }}
@@ -199,7 +199,7 @@ const Awards = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
             
