@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Code, Server, Globe, Monitor } from 'lucide-react'
+import { Shield, Code, Server, Globe } from 'lucide-react'
 
 const Skills = () => {
   const skillCategories = [
@@ -43,7 +43,7 @@ const Skills = () => {
           <div className="w-16 h-0.5 bg-gray-600 mx-auto mb-8"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}

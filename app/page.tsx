@@ -5,6 +5,7 @@ import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
 import Projects from '@/components/Projects'
 import Awards from '@/components/Awards'
+import ActiveProjects from '@/components/ActiveProjects'
 import Certifications from '@/components/Certifications'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -15,10 +16,11 @@ export default function Home() {
       <VerticalNav />
       <Hero />
       <About />
-      <Skills />
       <Experience />
       <Projects />
       <Awards />
+      <ActiveProjects />
+      <Skills />
       <Certifications />
       <Contact />
       <Footer />

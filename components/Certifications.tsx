@@ -6,14 +6,6 @@ import { Award, ExternalLink, CheckCircle } from 'lucide-react'
 const Certifications = () => {
   const certifications = [
     {
-      name: 'CISSP',
-      issuer: 'ISC2',
-      year: '2025',
-      status: 'in-progress',
-      credentialId: 'In Progress',
-      link: '#'
-    },
-    {
       name: 'CompTIA Security+',
       issuer: 'CompTIA',
       year: '2025',
