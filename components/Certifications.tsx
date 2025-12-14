@@ -7,6 +7,16 @@ import { useState } from 'react'
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null)
   
+  // Helper function to encode image path for URLs with special characters
+  const encodeImagePath = (path: string) => {
+    if (!path) return path;
+    // Split path and filename, encode only the filename part
+    const parts = path.split('/');
+    const filename = parts[parts.length - 1];
+    const encodedFilename = encodeURIComponent(filename);
+    return parts.slice(0, -1).join('/') + '/' + encodedFilename;
+  }
+  
   const certifications = [
     {
       name: 'CompTIA Security+',
@@ -93,10 +103,11 @@ const Certifications = () => {
               {cert.image && (
                 <div className="relative mb-3 rounded-lg overflow-hidden border border-gray-700">
                   <img 
-                    src={cert.image} 
+                    src={encodeImagePath(cert.image)} 
                     alt={cert.name}
                     className="w-full h-32 object-cover"
                     onError={(e) => {
+                      console.error('Image failed to load:', cert.image);
                       e.currentTarget.style.display = 'none';
                     }}
                   />
@@ -167,10 +178,11 @@ const Certifications = () => {
               {/* Certificate Image */}
               <div className="relative">
                 <img
-                  src={selectedCert.image}
+                  src={encodeImagePath(selectedCert.image)}
                   alt={selectedCert.name}
                   className="w-full h-auto max-h-[95vh] object-contain rounded-lg shadow-2xl"
                   onError={(e) => {
+                    console.error('Modal image failed to load:', selectedCert.image);
                     e.currentTarget.style.display = 'none';
                   }}
                 />
