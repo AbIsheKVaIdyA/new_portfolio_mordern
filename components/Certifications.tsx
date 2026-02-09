@@ -1,22 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, ExternalLink, CheckCircle, X } from 'lucide-react'
+import { Award, CheckCircle, X } from 'lucide-react'
 import { useState } from 'react'
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null)
-  
-  // Helper function to encode image path for URLs with special characters
-  const encodeImagePath = (path: string) => {
-    if (!path) return path;
-    // Split path and filename, encode only the filename part
-    const parts = path.split('/');
-    const filename = parts[parts.length - 1];
-    const encodedFilename = encodeURIComponent(filename);
-    return parts.slice(0, -1).join('/') + '/' + encodedFilename;
+
+  // Encode filename for URL (spaces/special chars) - same approach for all certificates
+  const certImageSrc = (path: string) => {
+    if (!path) return ''
+    const parts = path.split('/')
+    const file = parts[parts.length - 1]
+    return parts.slice(0, -1).join('/') + '/' + encodeURIComponent(file)
   }
-  
+
   const certifications = [
     {
       name: 'CompTIA Security+',
@@ -28,12 +26,12 @@ const Certifications = () => {
       link: '#'
     },
     {
-      name: 'ISC2 CC',
+      name: 'ISC2 Certified in Cybersecurity',
       issuer: 'ISC2',
       year: '2025',
-      status: 'in-progress',
+      status: 'completed',
       credentialId: null,
-      image: null,
+      image: '/digitalcert.jpg',
       link: '#'
     },
     {
@@ -99,17 +97,13 @@ const Certifications = () => {
                 }
               }}
             >
-              {/* Certificate Image Preview */}
+              {/* Certificate Image Preview - small, same card size as others */}
               {cert.image && (
-                <div className="relative mb-3 rounded-lg overflow-hidden border border-gray-700">
-                  <img 
-                    src={encodeImagePath(cert.image)} 
+                <div className="relative mb-3 rounded-lg overflow-hidden border border-gray-700 bg-gray-900 h-24">
+                  <img
+                    src={certImageSrc(cert.image)}
                     alt={cert.name}
-                    className="w-full h-32 object-cover"
-                    onError={(e) => {
-                      console.error('Image failed to load:', cert.image);
-                      e.currentTarget.style.display = 'none';
-                    }}
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               )}
@@ -157,34 +151,31 @@ const Certifications = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6"
             onClick={() => setSelectedCert(null)}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-5xl max-h-[95vh] bg-transparent"
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-2 right-2 z-10 w-8 h-8 bg-gray-800/50 hover:bg-gray-700/50 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-all duration-200"
+                className="absolute -top-2 -right-2 z-10 w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center text-white border border-gray-600 shadow-lg transition-all duration-200"
+                aria-label="Close"
               >
-                <X size={18} />
+                <X size={20} />
               </button>
 
               {/* Certificate Image */}
-              <div className="relative">
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-700 bg-white">
                 <img
-                  src={encodeImagePath(selectedCert.image)}
+                  src={certImageSrc(selectedCert.image)}
                   alt={selectedCert.name}
-                  className="w-full h-auto max-h-[95vh] object-contain rounded-lg shadow-2xl"
-                  onError={(e) => {
-                    console.error('Modal image failed to load:', selectedCert.image);
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  className="w-full h-auto max-h-[85vh] object-contain block"
                 />
               </div>
             </motion.div>

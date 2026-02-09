@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, Mail } from 'lucide-react'
+import { Download, Mail, Github, Linkedin } from 'lucide-react'
 import TechStack from './TechStack'
 
 const Hero = () => {
@@ -55,6 +55,39 @@ const Hero = () => {
               View Resume
             </motion.a>
           </div>
+
+          {/* Social links */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex items-center justify-center gap-6 mt-6"
+          >
+            <motion.a
+              href="https://github.com/AbIsheKVaIdyA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 bg-gray-800/50 text-gray-300 hover:text-white hover:border-gray-500 hover:bg-gray-700/50 transition-all duration-200 px-3 py-2 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="GitHub"
+            >
+              <Github size={18} />
+              GitHub
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/abhishek-vaidya-73075424a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-600 bg-gray-800/50 text-gray-300 hover:text-white hover:border-gray-500 hover:bg-gray-700/50 transition-all duration-200 px-3 py-2 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+              LinkedIn
+            </motion.a>
+          </motion.div>
         </motion.div>
         
         {/* Tech Stack Bar */}
