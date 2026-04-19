@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en" className={cn('dark', inter.variable, jetbrainsMono.variable)}>
       <body className={cn(inter.className, 'min-h-screen bg-background antialiased')}>
         {children}
+        <Analytics />
       </body>
     </html>
   )
