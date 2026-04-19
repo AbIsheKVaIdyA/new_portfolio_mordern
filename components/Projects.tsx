@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Binary, ExternalLink, Github, Shield } from 'lucide-react'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
@@ -111,10 +112,12 @@ const Projects = () => {
                           {project.clearance}
                         </span>
                       </div>
-                      <img
+                      <Image
                         src={project.image}
                         alt=""
-                        className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                        fill
+                        className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                         onError={(e) => {
                           e.currentTarget.style.opacity = '0'
                         }}

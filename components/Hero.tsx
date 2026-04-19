@@ -88,7 +88,7 @@ const Hero = () => {
 
           <motion.div variants={fade} transition={{ duration: 0.45 }} className="mt-8">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              // live_signals — weather · audio · git
+              {'// live_signals — weather · audio · git'}
             </p>
             <SignalBar />
           </motion.div>
@@ -161,7 +161,7 @@ const Hero = () => {
           className="mt-14"
         >
           <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            // toolchain_signal
+            {'// toolchain_signal'}
           </p>
           <TechStack />
         </motion.div>

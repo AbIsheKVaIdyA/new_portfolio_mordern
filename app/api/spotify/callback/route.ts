@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+import { getSpotifyRedirectUri } from '@/lib/spotify-redirect'
+
 export const dynamic = 'force-dynamic'
 
 function htmlPage(body: string) {
@@ -50,11 +52,13 @@ export async function GET(request: Request) {
 
   const clientId = process.env.SPOTIFY_CLIENT_ID
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI?.trim()
+  const redirectUri = getSpotifyRedirectUri(request)
 
-  if (!clientId || !clientSecret || !redirectUri) {
+  if (!clientId || !clientSecret) {
     return new NextResponse(
-      htmlPage(`<h1>Server misconfiguration</h1><p>SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, or SPOTIFY_REDIRECT_URI is missing.</p>`),
+      htmlPage(
+        `<h1>Server misconfiguration</h1><p>SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET is missing.</p>`
+      ),
       { status: 500, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
     )
   }
@@ -85,7 +89,10 @@ export async function GET(request: Request) {
 
   if (!tokenRes.ok) {
     return new NextResponse(
-      htmlPage(`<h1>Token exchange failed (${tokenRes.status})</h1><pre>${raw}</pre><p class="warn">Check that SPOTIFY_REDIRECT_URI matches the Redirect URI in Spotify Dashboard exactly (including https, path, no trailing slash mismatch).</p>`),
+      htmlPage(`<h1>Token exchange failed (${tokenRes.status})</h1><pre>${raw}</pre>
+<p class="warn">Add this exact URL under <strong>Redirect URIs</strong> in your Spotify app settings (character-for-character: https vs http, www, no extra slash):</p>
+<pre>${redirectUri}</pre>
+<p><a href="https://developer.spotify.com/dashboard">Spotify Developer Dashboard</a> · <a href="/">Back to site</a></p>`),
       { status: 400, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
     )
   }

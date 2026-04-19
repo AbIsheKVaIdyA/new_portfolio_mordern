@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server'
 
+import { getSpotifyRedirectUri } from '@/lib/spotify-redirect'
+
 export const dynamic = 'force-dynamic'
 
 const SCOPES = ['user-read-currently-playing', 'user-read-playback-state'].join(' ')
 
 /**
- * Step 1: Visit this URL on your deployed site (after setting SPOTIFY_REDIRECT_URI).
+ * Step 1: Visit this URL on your deployed site.
+ * Add the exact redirect URI (see getSpotifyRedirectUri) to Spotify Dashboard.
  * You'll be sent to Spotify, then back to /api/spotify/callback with a refresh token to copy.
  */
 export async function GET(request: Request) {
   const clientId = process.env.SPOTIFY_CLIENT_ID
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI?.trim()
+  const redirectUri = getSpotifyRedirectUri(request)
   const setupSecret = process.env.SPOTIFY_SETUP_SECRET
 
   if (setupSecret) {
@@ -23,11 +26,11 @@ export async function GET(request: Request) {
     }
   }
 
-  if (!clientId || !redirectUri) {
+  if (!clientId) {
     return NextResponse.json(
       {
         error:
-          'Set SPOTIFY_CLIENT_ID and SPOTIFY_REDIRECT_URI in env. Redirect URI must match Spotify Dashboard exactly (e.g. https://yourdomain.com/api/spotify/callback).',
+          'Set SPOTIFY_CLIENT_ID in env. Optionally set SPOTIFY_REDIRECT_URI to match Spotify Dashboard exactly (e.g. https://yourdomain.com/api/spotify/callback); if omitted, origin + /api/spotify/callback is used.',
       },
       { status: 500 }
     )
