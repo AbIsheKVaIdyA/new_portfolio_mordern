@@ -27,11 +27,22 @@ export async function GET() {
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
   const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN
 
-  if (!clientId || !clientSecret || !refreshToken) {
+  if (!clientId || !clientSecret) {
     return NextResponse.json({
       ok: false,
       configured: false,
-      message: 'Add SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REFRESH_TOKEN to .env.local',
+      message: 'Add SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET',
+    })
+  }
+
+  if (!refreshToken) {
+    return NextResponse.json({
+      ok: false,
+      configured: false,
+      needsRefreshToken: true,
+      message:
+        'Open /api/spotify/auth on your deployed site once to get SPOTIFY_REFRESH_TOKEN (see .env.example).',
+      setupPath: '/api/spotify/auth',
     })
   }
 

@@ -14,6 +14,8 @@ type WeatherPayload = {
 type SpotifyPayload = {
   ok: boolean
   configured?: boolean
+  needsRefreshToken?: boolean
+  setupPath?: string
   playing?: boolean
   track?: { name: string; artists: string; url: string; image: string | null }
   message?: string
@@ -106,15 +108,17 @@ export function SignalBar() {
       {/* Spotify */}
       <a
         href={
-          spotify?.playing && spotify.track?.url
-            ? spotify.track.url
-            : 'https://open.spotify.com/'
+          spotify?.needsRefreshToken
+            ? spotify.setupPath || '/api/spotify/auth'
+            : spotify?.playing && spotify.track?.url
+              ? spotify.track.url
+              : 'https://open.spotify.com/'
         }
-        target="_blank"
-        rel="noopener noreferrer"
+        target={spotify?.needsRefreshToken ? '_self' : '_blank'}
+        rel={spotify?.needsRefreshToken ? undefined : 'noopener noreferrer'}
         className={cn(
           'group relative block overflow-hidden rounded-xl border border-primary/20 bg-card/60 px-4 py-3 backdrop-blur-sm transition hover:border-primary/40',
-          !spotify?.playing && 'pointer-events-auto'
+          spotify?.needsRefreshToken && 'border-amber-500/30 hover:border-amber-500/50'
         )}
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 transition group-hover:opacity-100" />
@@ -131,9 +135,16 @@ export function SignalBar() {
           )}
           <div className="min-w-0 flex-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">spotify.now</p>
-            {spotify?.configured === false ? (
+            {spotify?.needsRefreshToken ? (
+              <>
+                <p className="mt-1 text-sm font-medium text-amber-200/90">Tap to connect Spotify</p>
+                <p className="mt-0.5 font-mono text-[10px] leading-snug text-muted-foreground">
+                  One-time login → copy refresh token into Vercel
+                </p>
+              </>
+            ) : spotify?.configured === false ? (
               <p className="mt-1 font-mono text-[11px] leading-snug text-muted-foreground">
-                Add Spotify env vars for live playback
+                Add SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET
               </p>
             ) : spotify?.playing && spotify.track ? (
               <>
