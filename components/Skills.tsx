@@ -2,74 +2,83 @@
 
 import { motion } from 'framer-motion'
 import { Shield, Code, Server, Globe } from 'lucide-react'
+import { SectionHeading } from '@/components/SectionHeading'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: 'Frontend',
       icon: Code,
-      skills: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS']
+      skills: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
     },
     {
-      title: 'Backend Development',
+      title: 'Backend',
       icon: Server,
-      skills: ['Spring Boot', 'Python', 'Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Microservices', 'Postman']
+      skills: ['Spring Boot', 'Python', 'Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Microservices', 'Postman'],
     },
     {
-      title: 'Cloud & DevOps',
+      title: 'Cloud & data',
       icon: Globe,
-      skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'MongoDB', 'PostgreSQL', 'Redis']
+      skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'MongoDB', 'PostgreSQL', 'Redis'],
     },
     {
-      title: 'Cybersecurity',
+      title: 'Security',
       icon: Shield,
-      skills: ['Penetration Testing', 'Vulnerability Assessment', 'Security Auditing', 'Red Team Operations', 'Network Security', 'Burp Suite', 'Nmap', 'Linux', 'Operating Systems']
-    }
+      skills: [
+        'Penetration testing',
+        'Vulnerability assessment',
+        'Security auditing',
+        'Red team mindset',
+        'Network security',
+        'Burp Suite',
+        'Nmap',
+        'Linux',
+      ],
+    },
   ]
 
   return (
-    <section id="skills" className="container-custom section-bg-alt">
-      <div className="container-inner">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-            Technical Skills
-          </h2>
-          <div className="w-16 h-0.5 bg-gray-600 mx-auto mb-8"></div>
-        </motion.div>
+    <section id="skills" className="section-bg-alt container-custom">
+      <div className="container-wide">
+        <SectionHeading
+          eyebrow="// stack"
+          title="Technical skills"
+          subtitle="Grouped by how I actually use them — from UI to cloud to offensive tooling."
+          className="text-center"
+          align="center"
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="card-bg rounded-xl p-4 sm:p-6 shadow-lg card-hover"
+              transition={{ duration: 0.4, delay: index * 0.06 }}
             >
-              <div className="flex items-center mb-3 sm:mb-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3 sm:mr-4 border border-gray-700">
-                  <category.icon size={16} className="text-gray-300 sm:w-5 sm:h-5" />
-                </div>
-                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">
-                  {category.title}
-                </h3>
-              </div>
-              
-              <ul className="space-y-1">
-                {category.skills.map((skill) => (
-                  <li key={skill} className="text-white text-xs sm:text-sm flex items-center">
-                    <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white rounded-full mr-2 sm:mr-3 flex-shrink-0"></span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+              <Card className="card-hover h-full border-border/60 bg-card/70 backdrop-blur-sm">
+                <CardHeader className="flex flex-row items-center gap-3 space-y-0 pb-2">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-border/80 bg-muted/50">
+                    <category.icon className="size-5 text-primary" aria-hidden />
+                  </div>
+                  <CardTitle className="text-base font-semibold">{category.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    {category.skills.map((skill) => (
+                      <li
+                        key={skill}
+                        className="flex items-center gap-2 font-mono text-xs text-muted-foreground sm:text-sm"
+                      >
+                        <span className="size-1 shrink-0 rounded-full bg-primary/80" />
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

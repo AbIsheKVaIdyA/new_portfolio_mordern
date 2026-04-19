@@ -1,156 +1,127 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Zap, Users, Shield, Globe, Building, ArrowRight, Sparkles } from 'lucide-react'
+import { ExternalLink, Sparkles } from 'lucide-react'
+import { SectionHeading } from '@/components/SectionHeading'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const ActiveProjects = () => {
   const projects = [
     {
-      title: 'VD Cafe - Restaurant Management',
-      description: 'Complete restaurant management system with menu ordering, table management, and payment processing.',
+      title: 'VD Cafe — Restaurant Management',
+      description: 'Menu ordering, tables, and payments — end-to-end ops for a real venue.',
       status: 'Live',
-      statusColor: 'bg-green-500',
-      icon: Building,
-      technologies: ['React', 'Node.js', 'MongoDB', 'Payment Gateway'],
-      link: 'https://www.pixelora.org/'
+      accent: 'bg-emerald-500',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Payments'],
+      link: 'https://www.pixelora.org/',
     },
     {
       title: 'Chore Management App',
-      description: 'Smart chore management system for households with automatic assignment and progress tracking.',
-      status: 'In Development',
-      statusColor: 'bg-yellow-500',
-      icon: Users,
-      technologies: ['React Native', 'Firebase', 'AI Integration'],
-      link: 'https://www.pixelora.org/'
+      description: 'Household chores with smart assignment and progress tracking.',
+      status: 'In development',
+      accent: 'bg-amber-400',
+      technologies: ['React Native', 'Firebase', 'AI'],
+      link: 'https://www.pixelora.org/',
     },
     {
       title: 'College ERP System',
-      description: 'Comprehensive college management system with class scheduling, bus routes, and canteen management.',
-      status: 'In Development',
-      statusColor: 'bg-blue-500',
-      icon: Globe,
+      description: 'Scheduling, transit, and canteen — campus operations in one place.',
+      status: 'In development',
+      accent: 'bg-sky-500',
       technologies: ['Next.js', 'PostgreSQL', 'Redis', 'Docker'],
-      link: 'https://www.pixelora.org/'
+      link: 'https://www.pixelora.org/',
     },
     {
       title: 'Furniture Store Website',
-      description: 'E-commerce platform for furniture store with product catalog, ordering system, and dealer management.',
-      status: 'In Development',
-      statusColor: 'bg-purple-500',
-      icon: Shield,
+      description: 'Catalog, ordering, and dealer workflows for a retail network.',
+      status: 'In development',
+      accent: 'bg-violet-500',
       technologies: ['React', 'Stripe', 'AWS', 'Microservices'],
-      link: 'https://www.pixelora.org/'
-    }
+      link: 'https://www.pixelora.org/',
+    },
   ]
 
   return (
-    <section id="active-projects" className="container-custom section-bg">
-      <div className="container-inner">
+    <section id="active-projects" className="section-bg container-custom">
+      <div className="container-wide">
+        <SectionHeading
+          eyebrow="// pixelora"
+          title="Active builds"
+          subtitle={
+            <>
+              Side projects and client work via{' '}
+              <a
+                href="https://www.pixelora.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                Pixelora
+              </a>
+              — shipping while completing my degree.
+            </>
+          }
+          className="text-center"
+          align="center"
+        />
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-10 flex justify-center"
         >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-block"
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center justify-center gap-2">
-              <Sparkles className="text-yellow-500 animate-pulse" size={24} />
-              Building Tomorrow's Solutions Today
-              <Sparkles className="text-yellow-500 animate-pulse" size={24} />
-            </h2>
-            <div className="w-16 h-0.5 bg-gray-600 mx-auto mb-6"></div>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-gray-400 text-sm max-w-2xl mx-auto mb-4"
-          >
-            Actively contributing to innovative software solutions while pursuing cybersecurity studies. 
-            Building modern applications that solve real-world problems.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <a
-              href="https://www.pixelora.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200 text-xs border border-gray-600 hover:border-gray-500 px-3 py-1 rounded-lg"
-            >
-              <ExternalLink size={12} />
-              Check out our projects at Pixelora.org
-            </a>
-          </motion.div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-4 py-2 font-mono text-xs text-muted-foreground">
+            <Sparkles className="size-4 text-primary" aria-hidden />
+            Building in public
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="card-bg rounded-xl p-4 shadow-lg card-hover group"
+              transition={{ duration: 0.4, delay: index * 0.06 }}
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700">
-                    <project.icon size={16} className="text-gray-300" />
-                  </div>
+              <Card className="card-hover h-full border-border/60 bg-card/70 backdrop-blur-sm">
+                <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0 pb-2">
                   <div>
-                    <h3 className="text-base font-bold text-white mb-1">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 ${project.statusColor} rounded-full animate-pulse`}></div>
-                      <span className="text-gray-400 text-xs">{project.status}</span>
+                    <CardTitle className="text-lg font-semibold">{project.title}</CardTitle>
+                    <div className="mt-2 flex items-center gap-2">
+                      <span className={cn('size-2 animate-pulse rounded-full', project.accent)} aria-hidden />
+                      <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
                     </div>
                   </div>
-                </div>
-                <motion.a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200"
-                  whileHover={{ scale: 1.1 }}
-                  title="Visit Project"
-                >
-                  <ExternalLink size={14} className="text-gray-300" />
-                </motion.a>
-              </div>
-
-              <p className="text-gray-300 text-sm mb-3 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50"
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(buttonVariants({ variant: 'outline', size: 'icon-sm' }), 'shrink-0 border-border/80')}
+                    aria-label={`Open ${project.title}`}
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                    <ExternalLink className="size-4" />
+                  </a>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="font-mono text-[10px] uppercase">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )

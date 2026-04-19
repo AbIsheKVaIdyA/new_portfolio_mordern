@@ -2,6 +2,11 @@
 
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react'
+import { SectionHeading } from '@/components/SectionHeading'
+import { Card, CardContent } from '@/components/ui/card'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { Link003 } from '@/components/ui/skiper-ui/skiper40'
 
 const Contact = () => {
   const contactInfo = [
@@ -9,105 +14,96 @@ const Contact = () => {
       icon: Mail,
       label: 'Email',
       value: 'abhishekcv.us@gmail.com',
-      link: 'mailto:abhishekcv.us@gmail.com'
+      link: 'mailto:abhishekcv.us@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
       value: '+1 (945) 367-2111',
-      link: 'tel:+19453672111'
+      link: 'tel:+19453672111',
     },
     {
       icon: MapPin,
       label: 'Location',
       value: 'Dallas, Texas',
-      link: '#'
-    }
+      link: '#contact',
+    },
   ]
 
   const socialLinks = [
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      link: 'https://www.linkedin.com/in/abhishek-vaidya-73075424a/'
+      link: 'https://www.linkedin.com/in/abhishek-vaidya-73075424a/',
     },
     {
       icon: Github,
       label: 'GitHub',
-      link: 'https://github.com/AbIsheKVaIdyA'
-    }
+      link: 'https://github.com/AbIsheKVaIdyA',
+    },
   ]
 
   return (
-    <section id="contact" className="container-custom section-bg-alt">
+    <section id="contact" className="section-bg-alt container-custom pb-24">
       <div className="container-inner">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-6 sm:mb-8 px-4">
-            I am open to cybersecurity and full-stack development opportunities and would love to connect.
-          </p>
-          <div className="w-16 h-0.5 bg-gray-600 mx-auto mb-8"></div>
-        </motion.div>
+        <SectionHeading
+          eyebrow="// handshake"
+          title="Let’s talk"
+          subtitle="Open to cybersecurity and full-stack roles — happy to chat about teams, tech, and threat models."
+          className="text-center"
+          align="center"
+        />
 
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-2xl gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="grid gap-4 sm:grid-cols-3"
           >
-            {/* Contact Information */}
-            <div>
-              <h3 className="text-xl font-bold text-white mb-8 text-center">
-                Contact Information
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {contactInfo.map((info, index) => (
-                  <a
-                    key={index}
-                    href={info.link}
-                    className="flex flex-col items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-gray-900/50 border border-gray-800 rounded-xl hover:bg-gray-900/70 transition-all duration-300 text-center"
-                  >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700">
-                      <info.icon size={18} className="text-gray-300 sm:w-5 sm:h-5" />
+            {contactInfo.map((info) => (
+              <a key={info.label} href={info.link} className="group block">
+                <Card className="h-full border-border/60 bg-card/70 transition hover:border-primary/30">
+                  <CardContent className="flex flex-col items-center gap-3 pt-6 text-center">
+                    <div className="flex size-12 items-center justify-center rounded-2xl border border-border/60 bg-muted/50 transition group-hover:border-primary/40">
+                      <info.icon className="size-5 text-primary" aria-hidden />
                     </div>
-                    <div>
-                      <p className="text-xs text-gray-400 mb-1">{info.label}</p>
-                      <p className="text-white font-medium text-xs sm:text-sm break-all">{info.value}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{info.label}</p>
+                    <p className="text-sm font-medium text-foreground break-all">{info.value}</p>
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+          </motion.div>
 
-            {/* Social Media */}
-            <div>
-              <h3 className="text-xl font-bold text-white mb-8 text-center">
-                Social Media
-              </h3>
-              <div className="flex justify-center gap-4 sm:gap-6">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-900/50 border border-gray-800 rounded-full flex items-center justify-center hover:bg-gray-800 hover:border-gray-700 transition-all duration-300 hover:scale-110"
-                    title={social.label}
-                  >
-                    <social.icon size={18} className="text-gray-300 sm:w-5 sm:h-5" />
-                  </a>
-                ))}
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-border/60 bg-muted/20 px-6 py-8 text-center"
+          >
+            <p className="font-mono text-xs text-muted-foreground">
+              Prefer a direct line? Email me —{' '}
+              <Link003 href="mailto:abhishekcv.us@gmail.com" className="text-primary">
+                abhishekcv.us@gmail.com
+              </Link003>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: 'secondary', size: 'sm' }),
+                    'gap-2 rounded-full no-underline'
+                  )}
+                >
+                  <s.icon className="size-4" />
+                  {s.label}
+                </a>
+              ))}
             </div>
           </motion.div>
         </div>
