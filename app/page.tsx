@@ -15,10 +15,17 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="cyber-frame min-h-screen overflow-x-hidden">
       <CyberAtmosphere />
       <VerticalNav />
-      <main className="relative z-[2] lg:pl-[min(280px,100%)]">
+      <main className="relative z-[2] lg:pl-20">
+        <div className="pointer-events-none absolute inset-0 cyber-noise" aria-hidden />
+        <div
+          className="pointer-events-none sticky top-0 z-20 hidden h-7 items-center justify-end border-b border-primary/15 bg-background/55 px-5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary/85 backdrop-blur-md md:flex"
+          aria-hidden
+        >
+          threat-level: monitored <span className="ml-2 cyber-blink">■</span>
+        </div>
         <Hero />
         <About />
         <Skills />

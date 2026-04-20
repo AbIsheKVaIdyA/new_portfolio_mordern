@@ -7,6 +7,13 @@ const parser = new Parser({
   timeout: 12000,
 })
 
+function extractFirstImageUrl(html: string): string {
+  if (!html) return ''
+  const srcMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i)
+  if (!srcMatch?.[1]) return ''
+  return srcMatch[1]
+}
+
 export async function GET() {
   const username = process.env.MEDIUM_USERNAME || 'abhishekcv.us'
   const feedUrl =
@@ -15,12 +22,20 @@ export async function GET() {
   try {
     const feed = await parser.parseURL(feedUrl)
 
-    const posts = (feed.items || []).slice(0, 8).map((item) => ({
-      title: item.title || 'Untitled',
-      link: item.link || '#',
-      pubDate: item.pubDate || item.isoDate || '',
-      snippet: (item.contentSnippet || '').replace(/\s+/g, ' ').slice(0, 220),
-    }))
+    const posts = (feed.items || []).slice(0, 8).map((item) => {
+      const image =
+        extractFirstImageUrl(item.content || '') ||
+        extractFirstImageUrl(item['content:encoded' as keyof typeof item] as string) ||
+        ''
+
+      return {
+        title: item.title || 'Untitled',
+        link: item.link || '#',
+        pubDate: item.pubDate || item.isoDate || '',
+        snippet: (item.contentSnippet || '').replace(/\s+/g, ' ').slice(0, 220),
+        image,
+      }
+    })
 
     return NextResponse.json(
       { ok: true, posts, feedTitle: feed.title || 'Medium' },

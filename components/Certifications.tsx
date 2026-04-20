@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, CheckCircle, Lock, ShieldCheck } from 'lucide-react'
+import Image from 'next/image'
+import { Award, CheckCircle, Clock3, Lock, ShieldCheck } from 'lucide-react'
 import { useState } from 'react'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Badge } from '@/components/ui/badge'
@@ -66,6 +67,9 @@ const Certifications = () => {
     },
   ]
 
+  const completed = certifications.filter((cert) => cert.status === 'completed')
+  const pipeline = certifications.filter((cert) => cert.status === 'in-progress')
+
   return (
     <section id="certifications" className="section-bg-alt container-custom relative">
       <div className="pointer-events-none absolute inset-0 deploy-matrix opacity-[0.35]" aria-hidden />
@@ -79,8 +83,76 @@ const Certifications = () => {
           cyber
         />
 
+        <div className="mb-6 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            onClick={() => completed[0]?.image && setSelectedCert(completed[0])}
+            className="group relative overflow-hidden rounded-2xl border border-primary/30 bg-card/85 text-left shadow-[0_0_60px_-26px_oklch(0.78_0.14_195/0.5)] backdrop-blur-sm transition hover:border-primary/45"
+          >
+            <div className="absolute left-4 top-4 z-10">
+              <Badge className="border-primary/40 bg-background/80 font-mono text-[10px] uppercase tracking-wider text-primary">
+                featured credential
+              </Badge>
+            </div>
+            <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-primary/15 bg-muted/40">
+              {completed[0]?.image ? (
+                <Image
+                  src={certImageSrc(completed[0].image)}
+                  alt={completed[0].name}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                />
+              ) : null}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            </div>
+            <div className="space-y-3 p-5 sm:p-6">
+              <h3 className="text-xl font-semibold tracking-tight text-foreground">{completed[0]?.name}</h3>
+              <p className="font-mono text-xs text-muted-foreground">
+                {completed[0]?.issuer} · {completed[0]?.year}
+              </p>
+              <p className="inline-flex items-center gap-2 font-mono text-xs text-primary">
+                <CheckCircle className="size-3.5" aria-hidden />
+                Open full credential artifact
+              </p>
+            </div>
+          </motion.button>
+
+          <div className="space-y-4 rounded-2xl border border-border/50 bg-card/65 p-5 backdrop-blur-sm sm:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">certification pipeline</p>
+            {pipeline.map((cert, index) => (
+              <motion.div
+                key={cert.name}
+                initial={{ opacity: 0, x: 12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="rounded-xl border border-border/50 bg-background/35 p-4"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">{cert.name}</h4>
+                    <p className="mt-1 text-xs text-muted-foreground">{cert.issuer}</p>
+                  </div>
+                  <Badge variant="secondary" className="font-mono text-[9px] uppercase">
+                    queued
+                  </Badge>
+                </div>
+                <p className="mt-3 inline-flex items-center gap-2 font-mono text-[11px] text-muted-foreground">
+                  <Clock3 className="size-3.5 text-primary/80" aria-hidden />
+                  Target year: {cert.year}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {certifications.map((cert, index) => (
+          {completed.slice(1).map((cert, index) => (
             <motion.div
               key={cert.name}
               initial={{ opacity: 0, y: 20 }}
@@ -124,24 +196,18 @@ const Certifications = () => {
 
                   {cert.image && (
                     <div className="relative mt-4 h-36 overflow-hidden rounded-xl border border-primary/15 bg-muted/50 sm:h-40">
-                      <img
+                      <Image
                         src={certImageSrc(cert.image)}
-                        alt=""
-                        className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                        alt={cert.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
                       <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded border border-primary/30 bg-background/80 px-2 py-0.5 font-mono text-[9px] text-primary">
                         <ShieldCheck className="size-3" aria-hidden />
                         preview
                       </div>
-                    </div>
-                  )}
-
-                  {!cert.image && (
-                    <div className="relative mt-4 flex h-36 items-center justify-center rounded-xl border border-dashed border-primary/25 bg-muted/20 sm:h-40">
-                      <p className="max-w-xs text-center font-mono text-xs text-muted-foreground">
-                        In progress — artifact will mount here when issued.
-                      </p>
                     </div>
                   )}
 
@@ -180,9 +246,11 @@ const Certifications = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="rounded-lg border border-border/50 bg-white p-2 shadow-inner"
               >
-                <img
+                <Image
                   src={certImageSrc(selectedCert.image)}
                   alt={selectedCert.name}
+                  width={1400}
+                  height={990}
                   className="max-h-[85vh] w-full object-contain"
                 />
               </motion.div>

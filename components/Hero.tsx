@@ -59,7 +59,9 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            <span className="font-mono text-lg text-primary/90 sm:text-xl">[ DEFEND · BUILD · SHIP ]</span>
+            <span className="font-mono text-lg text-primary/90 sm:text-xl">
+              [ DEFEND · BUILD · SHIP ] <span className="cyber-blink">_</span>
+            </span>
             <br />
             <span className="mt-2 inline-block">
               Hello, I&apos;m{' '}

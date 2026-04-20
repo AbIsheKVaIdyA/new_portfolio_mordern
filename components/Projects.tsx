@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Binary, ExternalLink, Github, Shield } from 'lucide-react'
 import { SectionHeading } from '@/components/SectionHeading'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -58,12 +58,7 @@ const Projects = () => {
     },
   ]
 
-  const slots = [
-    'lg:col-span-7',
-    'lg:col-span-5',
-    'lg:col-span-5',
-    'lg:col-span-7',
-  ] as const
+  const [featured, ...others] = projects
 
   return (
     <section id="projects" className="section-bg-alt container-custom relative overflow-hidden">
@@ -74,7 +69,7 @@ const Projects = () => {
         <SectionHeading
           eyebrow="// mission.deployments"
           title="Featured deployments"
-          subtitle="Static showcase of flagship builds — pair with the GitHub table above for live repo telemetry."
+          subtitle="A curated set of launches with stronger product framing, stack clarity, and direct access to source/live systems."
           className="text-center"
           align="center"
           cyber
@@ -89,99 +84,148 @@ const Projects = () => {
           <span>clearance: public</span>
         </div>
 
-        <div className="grid auto-rows-fr gap-5 lg:grid-cols-12 lg:gap-6">
-          {projects.map((project, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, type: 'spring', stiffness: 110, damping: 20 }}
+          className="mb-6"
+        >
+          <TiltCard className="group h-full" intensity={7}>
+            <Card className="overflow-hidden border-primary/30 bg-card/85 shadow-[0_0_0_1px_oklch(0.78_0.14_195/0.18),0_28px_70px_-36px_rgba(0,0,0,0.75)] backdrop-blur-md transition-shadow duration-300 hover:shadow-[0_0_60px_-18px_oklch(0.78_0.14_195/0.35)]">
+              <div className="grid lg:grid-cols-[1.2fr_1fr]">
+                <div className="relative min-h-[250px] overflow-hidden border-b border-primary/15 bg-muted/40 lg:min-h-[340px] lg:border-b-0 lg:border-r">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    onError={(e) => {
+                      e.currentTarget.style.opacity = '0'
+                    }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/35 to-primary/10 lg:bg-gradient-to-r lg:from-transparent lg:to-background/40" />
+                </div>
+
+                <CardContent className="flex flex-col justify-between space-y-4 p-6">
+                  <div>
+                    <div className="mb-3 flex flex-wrap gap-1.5">
+                      <span className="inline-flex items-center gap-1.5 rounded border border-primary/35 bg-background/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-primary backdrop-blur-sm sm:text-[10px]">
+                        <Shield className="size-3" aria-hidden />
+                        {featured.posture}
+                      </span>
+                      <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-emerald-400/95 sm:text-[10px]">
+                        {featured.clearance}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground">{featured.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{featured.description}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {featured.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="border-primary/20 font-mono text-[10px] uppercase tracking-wide text-muted-foreground"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <a
+                      href={featured.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }), 'gap-2 bg-background/95 no-underline')}
+                    >
+                      <Github className="size-4" />
+                      Source
+                    </a>
+                    <a
+                      href={featured.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(buttonVariants({ size: 'sm' }), 'gap-2 no-underline')}
+                    >
+                      <ExternalLink className="size-4" />
+                      Live
+                    </a>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          </TiltCard>
+        </motion.div>
+
+        <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {others.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: index * 0.07, type: 'spring', stiffness: 120, damping: 22 }}
-              className={cn('min-h-0', slots[index])}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="min-h-0"
             >
-              <TiltCard className="group h-full" intensity={index === 0 ? 7 : 6}>
-                <div className="cyber-corner-tl relative h-full">
-                  <Card className="flex h-full flex-col overflow-hidden border-primary/25 bg-card/80 shadow-[0_0_0_1px_oklch(0.78_0.14_195/0.18),0_25px_60px_-35px_rgba(0,0,0,0.65)] backdrop-blur-md transition-shadow duration-300 hover:shadow-[0_0_50px_-18px_oklch(0.78_0.14_195/0.35)]">
-                    <div className="relative aspect-[16/10] overflow-hidden border-b border-primary/15 bg-muted lg:aspect-video">
-                      <div className="absolute left-2 top-2 z-10 flex flex-wrap gap-1.5">
-                        <span className="flex items-center gap-1.5 rounded border border-primary/35 bg-background/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-primary backdrop-blur-sm sm:text-[10px]">
-                          <Shield className="size-3" aria-hidden />
-                          {project.posture}
-                        </span>
-                        <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-emerald-400/95 sm:text-[10px]">
-                          {project.clearance}
-                        </span>
-                      </div>
-                      <Image
-                        src={project.image}
-                        alt=""
-                        fill
-                        className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        onError={(e) => {
-                          e.currentTarget.style.opacity = '0'
-                        }}
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-primary/10" />
-                      <div className="absolute bottom-3 left-3 right-3 flex gap-2">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(
-                            buttonVariants({ variant: 'secondary', size: 'sm' }),
-                            'flex-1 gap-2 bg-background/95 no-underline backdrop-blur'
-                          )}
-                        >
-                          <Github className="size-4" />
-                          Source
-                        </a>
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(buttonVariants({ size: 'sm' }), 'flex-1 gap-2 no-underline')}
-                        >
-                          <ExternalLink className="size-4" />
-                          Live
-                        </a>
-                      </div>
+              <TiltCard className="group h-full" intensity={6}>
+                <Card className="flex h-full flex-col overflow-hidden border-primary/25 bg-card/80 shadow-[0_0_0_1px_oklch(0.78_0.14_195/0.18),0_25px_60px_-35px_rgba(0,0,0,0.65)] backdrop-blur-md transition-shadow duration-300 hover:shadow-[0_0_50px_-18px_oklch(0.78_0.14_195/0.35)]">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-primary/15 bg-muted">
+                    <div className="absolute left-2 top-2 z-10 flex flex-wrap gap-1.5">
+                      <span className="inline-flex items-center gap-1 rounded border border-primary/35 bg-background/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-primary">
+                        {project.posture}
+                      </span>
                     </div>
-                    <CardContent className="flex flex-1 flex-col space-y-3 pt-5">
-                      <h3 className="text-lg font-semibold tracking-tight text-foreground">{project.title}</h3>
-                      <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="outline"
-                            className="border-primary/20 font-mono text-[10px] uppercase tracking-wide text-muted-foreground"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                    <CardFooter className="mt-auto justify-end gap-3 border-t border-border/50 bg-muted/20 py-3">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      onError={(e) => {
+                        e.currentTarget.style.opacity = '0'
+                      }}
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                  </div>
+                  <CardContent className="flex flex-1 flex-col space-y-3 pt-5">
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground">{project.title}</h3>
+                    <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="border-primary/20 font-mono text-[10px] uppercase tracking-wide text-muted-foreground"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="mt-2 grid grid-cols-2 gap-2">
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs text-primary underline-offset-4 hover:underline"
+                        className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }), 'gap-2 no-underline')}
                       >
-                        repo
+                        <Github className="size-4" />
+                        Source
                       </a>
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                        className={cn(buttonVariants({ size: 'sm' }), 'gap-2 no-underline')}
                       >
-                        deployment
+                        <ExternalLink className="size-4" />
+                        Live
                       </a>
-                    </CardFooter>
-                  </Card>
-                </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </TiltCard>
             </motion.div>
           ))}

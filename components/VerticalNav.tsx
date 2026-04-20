@@ -72,21 +72,26 @@ export default function VerticalNav() {
         href={item.href}
         onClick={onNavigate}
         className={cn(
-          'group flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors',
-          active
-            ? 'bg-primary/15 text-primary'
-            : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+          'group relative flex h-11 items-center rounded-xl px-3 transition-all duration-300',
+          active ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
         )}
       >
         <item.icon
-          className={cn('size-4 shrink-0 transition-transform', active && 'text-primary')}
+          className={cn('size-4 shrink-0 transition-transform duration-300 group-hover:scale-110', active && 'text-primary')}
           aria-hidden
         />
-        <span className="font-medium">{item.name}</span>
+        <span
+          className={cn(
+            'pointer-events-none absolute left-[calc(100%+0.5rem)] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md border border-border/70 bg-background/95 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider opacity-0 shadow-lg backdrop-blur transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100',
+            active && 'border-primary/45 text-primary'
+          )}
+        >
+          {item.name}
+        </span>
         {active && (
           <motion.span
             layoutId="nav-active"
-            className="ml-auto h-1.5 w-1.5 rounded-full bg-primary"
+            className="absolute right-2 h-1.5 w-1.5 rounded-full bg-primary"
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
           />
         )}
@@ -96,25 +101,23 @@ export default function VerticalNav() {
 
   return (
     <>
-      {/* Desktop — Brittany-style rail */}
-      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-[min(100%,280px)] flex-col justify-between border-r border-border/60 bg-background/80 px-8 py-10 backdrop-blur-xl lg:flex">
-        <div>
+      {/* Desktop full-height rail with hover-reveal items */}
+      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-20 flex-col items-center justify-between border-r border-border/60 bg-background/80 px-3 py-6 backdrop-blur-xl lg:flex">
+        <div className="pointer-events-none absolute inset-0 deploy-matrix opacity-[0.18]" aria-hidden />
+        <div className="w-full">
           <a href="#home" className="block">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">Portfolio</p>
-            <p className="mt-2 text-lg font-semibold tracking-tight text-foreground">Abhishek Vaidya</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Cybersecurity · Full Stack
-            </p>
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-primary">AV</p>
+            <p className="mt-1 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-primary/70">soc</p>
           </a>
-          <Separator className="my-8 bg-border/60" />
-          <nav className="flex flex-col gap-0.5" aria-label="Primary">
+          <Separator className="my-5 bg-border/60" />
+          <nav className="flex flex-col gap-1" aria-label="Primary">
             {NAV_ITEMS.map((item) => (
               <NavLink key={item.id} item={item} />
             ))}
           </nav>
         </div>
-        <div className="font-mono text-[10px] leading-relaxed text-muted-foreground/80">
-          <span className="text-primary">●</span> system ready
+        <div className="font-mono text-[9px] leading-relaxed text-muted-foreground/80">
+          <span className="text-primary cyber-blink">●</span>
         </div>
       </aside>
 

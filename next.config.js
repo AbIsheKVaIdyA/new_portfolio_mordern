@@ -6,6 +6,8 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'avatars.githubusercontent.com', pathname: '/**' },
       { protocol: 'https', hostname: 'i.scdn.co', pathname: '/**' },
+      { protocol: 'https', hostname: 'miro.medium.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'cdn-images-1.medium.com', pathname: '/**' },
     ],
   },
 }
