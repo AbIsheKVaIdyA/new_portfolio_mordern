@@ -12,51 +12,18 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
+import { profile } from '@/data/profile'
 
-const AWARDS = [
-  {
-    title: 'Appreciation Certificate',
-    company: 'Tata Consultancy Services',
-    year: '2024',
-    image: '/Appreciation_Certificate_page-0001.jpg',
-    category: 'Recognition',
-  },
-  {
-    title: 'Best Team Award',
-    company: 'Tata Consultancy Services',
-    year: '2024',
-    image: '/Best_Team_Award_page-0001.jpg',
-    category: 'Teamwork',
-  },
-  {
-    title: 'On the Spot (Team) Award',
-    company: 'Tata Consultancy Services',
-    year: '2024',
-    image: '/On_the_Spot_(Team)_Award_page-0001.jpg',
-    category: 'Recognition',
-  },
-  {
-    title: 'Star of the Month Award',
-    company: 'Tata Consultancy Services',
-    year: '2024',
-    image: '/Star_of_the_Month_Award_page-0001.jpg',
-    category: 'Performance',
-  },
-  {
-    title: 'Star Team Award',
-    company: 'Tata Consultancy Services',
-    year: '2024',
-    image: '/Star_Team_Award_pages-to-jpg-0001.jpg',
-    category: 'Team Excellence',
-  },
-] as const
+type AwardEntry = (typeof profile.awards)[number]
+
+const AWARDS = profile.awards
 
 function AwardThumb({
   award,
   onOpen,
   layout = 'strip',
 }: {
-  award: (typeof AWARDS)[number]
+  award: AwardEntry
   onOpen: () => void
   layout?: 'strip' | 'grid'
 }) {
@@ -163,26 +130,19 @@ const Awards = () => {
       </div>
 
       <Dialog open={!!selectedAward} onOpenChange={(open) => !open && setSelectedAward(null)}>
-        <DialogContent className="max-w-4xl border-primary/20 bg-card p-2 shadow-[0_0_60px_-20px_oklch(0.78_0.14_195/0.4)] sm:p-4">
+        <DialogContent className="flex max-h-[95vh] w-[min(98vw,72rem)] max-w-[min(98vw,72rem)] flex-col gap-3 overflow-hidden border-primary/20 bg-card p-3 sm:p-4">
           {selectedAward && (
             <>
-              <DialogHeader className="px-2 pt-2">
-                <DialogTitle className="text-left font-mono text-base tracking-tight">
-                  ▸ {selectedAward.title}
-                </DialogTitle>
+              <DialogHeader className="shrink-0 px-1">
+                <DialogTitle className="text-left text-base sm:text-lg">{selectedAward.title}</DialogTitle>
               </DialogHeader>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.25 }}
-                className="rounded-lg border border-border/40 bg-background/50 p-2"
-              >
+              <div className="min-h-0 flex-1 overflow-auto rounded-lg border border-border/40 bg-background/50 p-2 sm:p-3">
                 <img
                   src={selectedAward.image}
                   alt={selectedAward.title}
-                  className="max-h-[80vh] w-full object-contain"
+                  className="mx-auto h-auto max-h-[calc(95vh-6rem)] w-full object-contain"
                 />
-              </motion.div>
+              </div>
             </>
           )}
         </DialogContent>

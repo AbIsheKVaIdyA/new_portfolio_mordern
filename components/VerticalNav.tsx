@@ -7,7 +7,6 @@ import {
   Code,
   Briefcase,
   BookOpen,
-  Github,
   FolderOpen,
   Trophy,
   Rocket,
@@ -20,6 +19,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { ViewModeToggle } from '@/components/ViewModeToggle'
 
 const NAV_ITEMS = [
   { name: 'Home', href: '#home', id: 'home', icon: Home },
@@ -27,7 +27,6 @@ const NAV_ITEMS = [
   { name: 'Skills', href: '#skills', id: 'skills', icon: Code },
   { name: 'Experience', href: '#experience', id: 'experience', icon: Briefcase },
   { name: 'Blog', href: '#writing', id: 'writing', icon: BookOpen },
-  { name: 'GitHub', href: '#github-pulse', id: 'github-pulse', icon: Github },
   { name: 'Projects', href: '#projects', id: 'projects', icon: FolderOpen },
   { name: 'Awards', href: '#awards', id: 'awards', icon: Trophy },
   { name: 'Active', href: '#active-projects', id: 'active-projects', icon: Rocket },
@@ -116,19 +115,23 @@ export default function VerticalNav() {
             ))}
           </nav>
         </div>
-        <div className="font-mono text-[9px] leading-relaxed text-muted-foreground/80">
-          <span className="text-primary cyber-blink">●</span>
+        <div className="flex w-full flex-col items-center gap-3">
+          <ViewModeToggle compact vertical />
+          <div className="font-mono text-[9px] leading-relaxed text-muted-foreground/80">
+            <span className="text-primary cyber-blink">●</span>
+          </div>
         </div>
       </aside>
 
       {/* Mobile header */}
-      <header className="fixed left-0 right-0 top-0 z-40 flex items-center justify-between border-b border-border/60 bg-background/85 px-4 py-3 backdrop-blur-xl lg:hidden">
-        <a href="#home" className="min-w-0">
+      <header className="fixed left-0 right-0 top-0 z-40 flex items-center justify-between gap-2 border-b border-border/60 bg-background/85 px-4 py-3 backdrop-blur-xl lg:hidden">
+        <a href="#home" className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold text-foreground">Abhishek Vaidya</p>
           <p className="truncate font-mono text-[10px] uppercase tracking-wider text-primary">
             Cybersecurity · Full Stack
           </p>
         </a>
+        <ViewModeToggle compact className="shrink-0" />
         <Button
           type="button"
           variant="outline"

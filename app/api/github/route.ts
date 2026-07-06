@@ -6,15 +6,24 @@ const UA = 'Portfolio/1.0 (github.com/AbIsheKVaIdyA)'
 
 export async function GET() {
   const username = process.env.GITHUB_USERNAME || 'AbIsheKVaIdyA'
+  const token = process.env.GITHUB_TOKEN
 
   try {
-    const headers = { Accept: 'application/vnd.github+json', 'User-Agent': UA }
+    const headers: Record<string, string> = {
+      Accept: 'application/vnd.github+json',
+      'User-Agent': UA,
+      'X-GitHub-Api-Version': '2022-11-28',
+    }
+    if (token) headers.Authorization = `Bearer ${token}`
 
     const [userRes, reposRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${encodeURIComponent(username)}`, { headers }),
+      fetch(`https://api.github.com/users/${encodeURIComponent(username)}`, {
+        headers,
+        next: { revalidate: 3600 },
+      }),
       fetch(
         `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&type=owner&per_page=10`,
-        { headers }
+        { headers, next: { revalidate: 3600 } }
       ),
     ])
 

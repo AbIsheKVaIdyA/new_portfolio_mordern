@@ -35,20 +35,20 @@
     --font-sans: var(--font-sans);
   }
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --background: #fafafa;
+    --foreground: oklch(0.18 0.02 260);
+    --card: #ffffff;
+    --card-foreground: oklch(0.18 0.02 260);
+    --popover: #ffffff;
+    --popover-foreground: oklch(0.18 0.02 260);
+    --primary: oklch(0.52 0.22 275);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.96 0.01 260);
+    --secondary-foreground: oklch(0.25 0.02 260);
+    --muted: oklch(0.96 0.005 260);
+    --muted-foreground: oklch(0.48 0.02 260);
+    --accent: oklch(0.58 0.2 255);
+    --accent-foreground: oklch(0.99 0 0);
     --destructive: oklch(0.577 0.245 27.325);
     --destructive-foreground: oklch(0.985 0 0);
     --border: oklch(0.922 0 0);
@@ -123,7 +123,42 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-cyan-300 to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-violet-600 via-blue-600 to-violet-500 bg-clip-text text-transparent;
+  }
+
+  .dev-surface {
+    @apply rounded-2xl border border-black/[0.06] bg-white shadow-sm;
+  }
+
+  .security-grid {
+    background-image:
+      linear-gradient(to right, oklch(0.78 0.14 195 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.78 0.14 195 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .security-scanlines {
+    background: repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 3px,
+      oklch(0.78 0.14 195 / 0.03) 3px,
+      oklch(0.78 0.14 195 / 0.03) 4px
+    );
+    animation: security-scan-drift 12s linear infinite;
+  }
+
+  @keyframes security-scan-drift {
+    from { transform: translateY(0); }
+    to { transform: translateY(8px); }
+  }
+
+  html[data-view='developer'] .gradient-text {
+    @apply from-violet-600 via-blue-600 to-violet-500;
+  }
+
+  html[data-view='security'] .gradient-text {
+    @apply from-primary via-cyan-300 to-accent;
   }
 
   .card-hover {

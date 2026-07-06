@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Terminal } from 'lucide-react'
 
 const LINES = [
-  { prompt: 'whoami', out: 'abhishek_vaidya | MS Cybersecurity @ UT Dallas | full-stack' },
-  { prompt: 'sec_profile --brief', out: 'React · Next.js · Spring Boot · AWS/Azure · Docker · JWT/OAuth patterns' },
-  { prompt: 'certs --pipeline', out: 'Security+ · CC · AWS Sec Specialty & CCP (in progress) · CISSP prep' },
+  { prompt: 'whoami', out: 'abhishek_vaidya | full-stack engineer · M.S. Cybersecurity @ UT Dallas' },
+  { prompt: 'stack --prod', out: 'React · Next.js 14 · Spring Boot · Firebase · Docker · PostgreSQL' },
+  { prompt: 'recent_ship', out: 'UTD learning platform (university-wide) · Boeing HR rebuild @ TCS' },
 ]
 
 export function TerminalBlock() {
@@ -49,7 +49,7 @@ export function TerminalBlock() {
     <div className="mt-8 overflow-hidden rounded-xl border border-primary/25 bg-black/50 font-mono text-xs shadow-[0_0_40px_-12px_oklch(0.78_0.14_195/0.35)] backdrop-blur-md sm:text-sm">
       <div className="flex items-center gap-2 border-b border-border/50 bg-muted/30 px-3 py-2">
         <Terminal className="size-3.5 text-primary" aria-hidden />
-        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">secure_shell — bash</span>
+        <span className="text-[10px] uppercase tracking-widest text-muted-foreground">dev_shell — bash</span>
         <span className="ml-auto flex gap-1.5">
           <span className="size-2.5 rounded-full bg-red-500/80" />
           <span className="size-2.5 rounded-full bg-amber-400/80" />

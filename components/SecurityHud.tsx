@@ -2,6 +2,7 @@
 
 import { Activity, Fingerprint, Lock, Radar, Shield } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useViewMode } from '@/contexts/ViewModeContext'
 
 const items = [
   { icon: Shield, label: 'Defense in depth', state: 'HARDENED' },
@@ -12,6 +13,9 @@ const items = [
 ] as const
 
 export function SecurityHud() {
+  const { view } = useViewMode()
+  if (view !== 'security') return null
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
