@@ -1,4 +1,4 @@
-import { profile, type BulletTag, type Profile, type ProjectEntry, type TaggedBullet } from '@/data/profile'
+import { profile, type Profile, type ProjectEntry, type TaggedBullet } from '@/data/profile'
 import type { ViewMode } from '@/lib/view-mode'
 
 export function getBulletsForView(bullets: readonly TaggedBullet[], view: ViewMode): TaggedBullet[] {
@@ -28,6 +28,8 @@ export function getProjectCaseStudy(project: ProjectEntry) {
       : `Build a production-grade ${project.title.toLowerCase()} with scalable architecture and reliable user experience.`,
     solution: project.description,
     architecture: `${project.stack.slice(0, 4).join(' + ')} architecture with modular services and clear data boundaries.`,
+    architectureLayers: project.stack.slice(0, 5),
+    keyFeatures: project.stack.slice(0, 4),
     challenges: [
       'Balancing feature velocity with reliability and maintainability.',
       'Designing secure data flows across frontend, API, and persistence layers.',
@@ -61,10 +63,6 @@ export function getProjectsForView(view: ViewMode) {
   return [...profile.projects].sort((a, b) => a.sortOrder[view] - b.sortOrder[view])
 }
 
-export function getExperienceEntries() {
-  return profile.experience
-}
-
 export function getFeaturedExperience() {
   return profile.experience.find((e) => e.featured) ?? profile.experience[0]
 }
@@ -90,17 +88,6 @@ export function getSectionCopy(
     title: s.title,
     subtitle: s.subtitle[view],
   }
-}
-
-export function skillProficiency(skill: string, index: number): number {
-  const senior = ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Spring Boot', 'Docker', 'AWS', 'Burp Suite', 'OWASP Top 10']
-  if (senior.includes(skill)) return 5
-  if (index < 3) return 4
-  return 3
-}
-
-export function bulletTagsForEntry(bullets: readonly TaggedBullet[]): BulletTag[] {
-  return Array.from(new Set(bullets.map((b) => b.tag)))
 }
 
 export { profile }

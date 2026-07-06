@@ -111,7 +111,7 @@
 
 @layer components {
   .container-custom {
-    @apply py-16 sm:py-20 lg:py-28 px-4 sm:px-6;
+    @apply py-20 sm:py-24 lg:py-32 px-4 sm:px-6;
   }
 
   .container-inner {
@@ -130,11 +130,30 @@
     @apply rounded-2xl border border-black/[0.06] bg-white shadow-sm;
   }
 
-  .security-grid {
+  .dev-mesh-bg {
     background-image:
-      linear-gradient(to right, oklch(0.78 0.14 195 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.78 0.14 195 / 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
+      radial-gradient(ellipse 80% 55% at 20% -10%, oklch(0.55 0.2 285 / 14%), transparent),
+      radial-gradient(ellipse 70% 45% at 90% 10%, oklch(0.55 0.16 250 / 12%), transparent),
+      radial-gradient(ellipse 50% 40% at 50% 100%, oklch(0.55 0.12 300 / 8%), transparent);
+  }
+
+  .dev-grid {
+    background-size: 2rem 2rem;
+    background-image:
+      linear-gradient(to right, oklch(0.45 0.15 285 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.45 0.15 285 / 0.05) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
+  }
+
+  .dev-scanlines {
+    background: repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 4px,
+      oklch(0.45 0.15 285 / 0.025) 4px,
+      oklch(0.45 0.15 285 / 0.025) 5px
+    );
+    animation: security-scan-drift 16s linear infinite;
   }
 
   .security-scanlines {
@@ -159,10 +178,6 @@
 
   html[data-view='security'] .gradient-text {
     @apply from-primary via-cyan-300 to-accent;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/25;
   }
 
   .section-bg {
@@ -191,26 +206,6 @@
     @apply relative transition-colors duration-300;
   }
 
-  .cyber-scanlines {
-    background: repeating-linear-gradient(
-      180deg,
-      transparent,
-      transparent 2px,
-      oklch(0.55 0.12 195 / 0.04) 2px,
-      oklch(0.55 0.12 195 / 0.04) 3px
-    );
-    animation: cyber-scan-drift 9s linear infinite;
-  }
-
-  @keyframes cyber-scan-drift {
-    from {
-      transform: translateY(-4px);
-    }
-    to {
-      transform: translateY(4px);
-    }
-  }
-
   .cyber-marquee {
     animation: cyber-marquee 42s linear infinite;
   }
@@ -228,97 +223,10 @@
     }
   }
 
-  .cyber-corner-tl,
-  .cyber-corner-br {
-    pointer-events: none;
-  }
-
-  .cyber-corner-tl::before,
-  .cyber-corner-tl::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-color: oklch(0.78 0.14 195 / 0.45);
-    border-style: solid;
-  }
-
-  .cyber-corner-tl::before {
-    top: 0;
-    left: 0;
-    border-width: 2px 0 0 2px;
-  }
-
-  .cyber-corner-tl::after {
-    bottom: 0;
-    right: 0;
-    border-width: 0 2px 2px 0;
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .cyber-scanlines {
-      animation: none;
-    }
-    .cyber-marquee {
-      animation: none;
-    }
-  }
-
-  .cert-vault-card {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cert-vault-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      135deg,
-      oklch(0.78 0.14 195 / 0.45),
-      oklch(0.62 0.18 285 / 0.2),
-      oklch(0.78 0.14 195 / 0.35)
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .cert-vault-scan {
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      oklch(0.78 0.14 195 / 0.12) 50%,
-      transparent 100%
-    );
-    animation: cert-scan-beam 3.5s ease-in-out infinite;
-  }
-
-  @keyframes cert-scan-beam {
-    0% {
-      transform: translateY(-120%);
-      opacity: 0;
-    }
-    15% {
-      opacity: 1;
-    }
-    85% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(120%);
-      opacity: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cert-vault-scan {
+    .cyber-marquee,
+    .security-scanlines,
+    .dev-scanlines {
       animation: none;
     }
   }
@@ -326,26 +234,6 @@
   .deploy-matrix {
     background-image: radial-gradient(oklch(0.78 0.14 195 / 0.12) 1px, transparent 1px);
     background-size: 20px 20px;
-  }
-
-  .cyber-noise {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
-    mix-blend-mode: soft-light;
-    opacity: 0.22;
-  }
-
-  .cyber-frame {
-    position: relative;
-  }
-
-  .cyber-frame::before {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    border: 1px dashed oklch(0.78 0.14 195 / 0.14);
-    pointer-events: none;
-    mask-image: linear-gradient(to bottom, transparent, black 6%, black 94%, transparent);
   }
 
   .cyber-blink {

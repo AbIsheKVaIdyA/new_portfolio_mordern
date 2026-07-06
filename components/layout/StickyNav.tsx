@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Download, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { WeatherWidget } from '@/components/layout/WeatherWidget'
 import { useViewMode } from '@/contexts/ViewModeContext'
 import { getResumeForView } from '@/lib/profile-helpers'
 import { cn } from '@/lib/utils'
@@ -45,8 +46,10 @@ export function StickyNav() {
             : 'border-b border-transparent bg-transparent'
         )}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-end gap-4 px-4 py-3 sm:justify-center sm:px-6">
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <WeatherWidget className="shrink-0" />
+
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex" aria-label="Primary">
             {NAV.map((item) => (
               <a
                 key={item.href}
@@ -61,6 +64,9 @@ export function StickyNav() {
                 {item.label}
               </a>
             ))}
+          </nav>
+
+          <div className="flex items-center gap-2">
             <a
               href={resumeUrl}
               download={view === 'developer' ? 'Abhishek_Vaidya_Developer.pdf' : 'Abhishek_Vaidya_Security.pdf'}
@@ -68,26 +74,26 @@ export function StickyNav() {
               rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ size: 'sm' }),
-                'ml-2 gap-1.5 rounded-full no-underline',
+                'hidden gap-1.5 rounded-full no-underline lg:inline-flex',
                 !isSecurity && 'bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:from-violet-500 hover:to-blue-500'
               )}
             >
               <Download className="size-3.5" />
               Resume
             </a>
-          </nav>
 
-          <button
-            type="button"
-            className={cn(
-              'inline-flex size-10 items-center justify-center rounded-lg border lg:hidden',
-              isSecurity ? 'border-border/60' : 'border-neutral-200'
-            )}
-            onClick={() => setOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu className="size-5" />
-          </button>
+            <button
+              type="button"
+              className={cn(
+                'inline-flex size-10 items-center justify-center rounded-lg border lg:hidden',
+                isSecurity ? 'border-border/60' : 'border-neutral-200'
+              )}
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu className="size-5" />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -106,8 +112,8 @@ export function StickyNav() {
               transition={{ type: 'spring', damping: 28, stiffness: 320 }}
               className="ml-auto flex h-full w-[min(100%,320px)] flex-col bg-background p-6 shadow-2xl"
             >
-              <div className="mb-6 flex items-center justify-between">
-                <span className="text-sm font-semibold">Menu</span>
+              <div className="mb-6 flex items-center justify-between gap-3">
+                <WeatherWidget />
                 <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
                   <X className="size-5" />
                 </button>

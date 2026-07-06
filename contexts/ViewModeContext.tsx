@@ -21,7 +21,6 @@ import {
 type ViewModeContextValue = {
   view: ViewMode
   setView: (view: ViewMode) => void
-  isTransitioning: boolean
 }
 
 const ViewModeContext = createContext<ViewModeContextValue | null>(null)
@@ -48,7 +47,6 @@ export function ViewModeProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
   const [view, setViewState] = useState<ViewMode>(DEFAULT_VIEW)
-  const [isTransitioning, setIsTransitioning] = useState(false)
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
@@ -61,7 +59,6 @@ export function ViewModeProvider({ children }: { children: ReactNode }) {
       setViewState((current) => {
         if (next === current) return current
 
-        setIsTransitioning(true)
         try {
           localStorage.setItem(VIEW_STORAGE_KEY, next)
         } catch {
@@ -77,7 +74,6 @@ export function ViewModeProvider({ children }: { children: ReactNode }) {
         const qs = params.toString()
         router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
 
-        window.setTimeout(() => setIsTransitioning(false), 280)
         return next
       })
     },
@@ -85,8 +81,8 @@ export function ViewModeProvider({ children }: { children: ReactNode }) {
   )
 
   const value = useMemo(
-    () => ({ view: hydrated ? view : DEFAULT_VIEW, setView, isTransitioning }),
-    [view, setView, isTransitioning, hydrated]
+    () => ({ view: hydrated ? view : DEFAULT_VIEW, setView }),
+    [view, setView, hydrated]
   )
 
   return <ViewModeContext.Provider value={value}>{children}</ViewModeContext.Provider>

@@ -29,7 +29,7 @@ export function SectionHeading({
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'mb-10 sm:mb-14',
+        'mb-12 sm:mb-16',
         align === 'center' && 'text-center',
         className
       )}

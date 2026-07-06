@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { Card, CardContent } from '@/components/ui/card'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Link003 } from '@/components/ui/skiper-ui/skiper40'
+import { AnimatedLink } from '@/components/ui/AnimatedLink'
 
 const Contact = () => {
   const contactInfo = [
@@ -84,9 +84,9 @@ const Contact = () => {
           >
             <p className="font-mono text-xs text-muted-foreground">
               Prefer a direct line? Email me —{' '}
-              <Link003 href="mailto:abhishekcv.us@gmail.com" className="text-primary">
+              <AnimatedLink href="mailto:abhishekcv.us@gmail.com" className="text-primary">
                 abhishekcv.us@gmail.com
-              </Link003>
+              </AnimatedLink>
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {socialLinks.map((s) => (

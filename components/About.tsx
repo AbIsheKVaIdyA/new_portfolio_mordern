@@ -21,7 +21,7 @@ const About = () => {
         <SectionHeading
           eyebrow="// operator.profile"
           title="Profile"
-          subtitle="Cybersecurity and full-stack engineering, with security built into architecture, delivery, and operations."
+          subtitle="Cybersecurity and full-stack engineering — security built into architecture and delivery."
           cyber
         />
 
@@ -98,13 +98,18 @@ const About = () => {
 
             <Card className="border-border/60 bg-card/65 backdrop-blur-sm">
               <CardContent className="pt-5">
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  <span className="font-medium text-foreground">Certifications earned:</span>{' '}
-                  {about.certificationPath.completed.join(', ')}.
-                  <br />
-                  <span className="font-medium text-foreground">In progress:</span>{' '}
-                  {about.certificationPath.inProgress.join(', ')}.
-                </p>
+                <div className="flex flex-wrap gap-2">
+                  {about.certificationPath.completed.map((cert) => (
+                    <Badge key={cert} variant="secondary" className="text-xs font-normal">
+                      {cert}
+                    </Badge>
+                  ))}
+                  {about.certificationPath.inProgress.map((cert) => (
+                    <Badge key={cert} variant="outline" className="text-xs font-normal">
+                      {cert} (in progress)
+                    </Badge>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </motion.div>
