@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Box, Code2, Download, GitBranch, Layers, Mail, Rocket } from 'lucide-react'
+import { Download, Mail } from 'lucide-react'
 import TechStack from '@/components/TechStack'
 import { TerminalBlock } from '@/components/TerminalBlock'
 import { getHeroForView, getResumeForView } from '@/lib/profile-helpers'
@@ -20,14 +20,6 @@ const heroStagger = {
     transition: { staggerChildren: 0.08, delayChildren: 0.06 },
   },
 }
-
-const devHudItems = [
-  { icon: Code2, label: 'Frontend', state: 'REACT' },
-  { icon: Layers, label: 'API layer', state: 'TYPED' },
-  { icon: GitBranch, label: 'CI/CD', state: 'GREEN' },
-  { icon: Box, label: 'Containers', state: 'DOCKER' },
-  { icon: Rocket, label: 'Ship cadence', state: 'WEEKLY' },
-] as const
 
 export function DeveloperHero() {
   const hero = getHeroForView('developer')
@@ -101,8 +93,15 @@ export function DeveloperHero() {
             transition={{ duration: 0.55 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg"
           >
-            {hero.subtitle} M.S. Cybersecurity candidate at UT Dallas. Enterprise experience on
-            Boeing&apos;s HR platform at TCS — 5× award recipient and founder of{' '}
+            {hero.subtitle}
+          </motion.p>
+          <motion.p
+            variants={fade}
+            transition={{ duration: 0.55 }}
+            className="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-600 sm:text-base"
+          >
+            {'supportingLine' in hero && hero.supportingLine ? `${hero.supportingLine} ` : ''}
+            Founder of{' '}
             <a
               href="https://www.pixelora.org/"
               target="_blank"
@@ -116,25 +115,6 @@ export function DeveloperHero() {
 
           <motion.div variants={fade} transition={{ duration: 0.45 }}>
             <TerminalBlock variant="developer" />
-          </motion.div>
-
-          <motion.div
-            variants={fade}
-            transition={{ duration: 0.45 }}
-            className="mt-8 flex flex-wrap gap-2 border border-violet-200/80 bg-white/60 px-3 py-2 font-mono text-[10px] backdrop-blur-md sm:gap-3 sm:text-[11px]"
-          >
-            <span className="text-violet-600/90">[ DEV_VIEW ]</span>
-            <span className="hidden text-neutral-400 sm:inline">|</span>
-            {devHudItems.map(({ icon: Icon, label, state }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1.5 rounded border border-neutral-200/80 bg-white/80 px-2 py-1 text-neutral-600"
-              >
-                <Icon className="size-3 shrink-0 text-violet-600" aria-hidden />
-                <span className="hidden sm:inline">{label}</span>
-                <span className="text-violet-700">{state}</span>
-              </span>
-            ))}
           </motion.div>
 
           <motion.div

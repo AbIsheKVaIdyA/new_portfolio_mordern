@@ -22,7 +22,10 @@ export default function Education() {
         />
 
         <ol className="relative space-y-10 border-l border-border/60 pl-6 sm:pl-8">
-          {entries.map((entry, index) => (
+          {entries.map((entry, index) => {
+            const isCurrent = entry.inProgress === true
+
+            return (
             <motion.li
               key={entry.id}
               initial={{ opacity: 0, x: -8 }}
@@ -36,13 +39,19 @@ export default function Education() {
                   'absolute -left-[1.65rem] top-1.5 flex size-3 rounded-full border-2 sm:-left-[2.15rem]',
                   view === 'developer'
                     ? 'border-violet-500 bg-white'
-                    : 'border-primary bg-background'
+                    : 'border-primary bg-background',
+                  isCurrent && (view === 'developer' ? 'bg-violet-500' : 'bg-primary')
                 )}
                 aria-hidden
               />
 
-              <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+              <div className="mb-2 flex flex-wrap items-center gap-2">
                 <p className="font-mono text-xs text-muted-foreground">{entry.period}</p>
+                {isCurrent && (
+                  <Badge variant="outline" className="text-[10px] font-normal uppercase tracking-wider">
+                    In progress
+                  </Badge>
+                )}
               </div>
 
               <h3 className="text-lg font-semibold tracking-tight text-foreground">{entry.title}</h3>
@@ -68,7 +77,8 @@ export default function Education() {
                 ))}
               </div>
             </motion.li>
-          ))}
+            )
+          })}
         </ol>
       </div>
     </section>

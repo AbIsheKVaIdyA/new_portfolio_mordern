@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { Download, Mail } from 'lucide-react'
 import TechStack from '@/components/TechStack'
 import { TerminalBlock } from '@/components/TerminalBlock'
-import { SecurityHud } from '@/components/SecurityHud'
 import { getHeroForView, getResumeForView } from '@/lib/profile-helpers'
 import { buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -91,16 +90,20 @@ export function SecurityHero() {
             transition={{ duration: 0.55 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            {hero.subtitle} M.S. Cybersecurity at UT Dallas (GPA 3.89, May 2027). CompTIA Security+ and
-            ISC2 CC. Former full-stack developer at TCS on Boeing&apos;s HR platform — 5× award recipient.
+            {hero.subtitle}
           </motion.p>
+          {'supportingLine' in hero && hero.supportingLine ? (
+            <motion.p
+              variants={fade}
+              transition={{ duration: 0.55 }}
+              className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+            >
+              {hero.supportingLine}
+            </motion.p>
+          ) : null}
 
           <motion.div variants={fade} transition={{ duration: 0.45 }}>
             <TerminalBlock />
-          </motion.div>
-
-          <motion.div variants={fade} transition={{ duration: 0.45 }}>
-            <SecurityHud />
           </motion.div>
 
           <motion.div

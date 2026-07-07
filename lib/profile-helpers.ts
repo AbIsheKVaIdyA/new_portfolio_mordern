@@ -41,7 +41,7 @@ export function getProjectCaseStudy(project: ProjectEntry) {
       project.id === 'utd-learning-platform'
         ? ['70% faster publishing', '60% faster loads', '16 vulnerabilities caught pre-release']
         : project.id === 'walmart-ecommerce'
-          ? ['Real-time inventory sync', 'Secure Stripe checkout flow']
+          ? ['16 vulnerabilities closed pre-launch', 'OWASP Top 10 controls implemented']
           : ['Production-ready deployment', 'Documented architecture'],
     lessonsLearned: [
       'Security and delivery quality improve when validation is automated early in CI/CD.',

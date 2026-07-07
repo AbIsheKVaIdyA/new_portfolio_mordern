@@ -18,8 +18,8 @@ const ActiveProjects = () => {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Studio"
-          title="Pixelora"
-          subtitle="My product studio — client software, restaurant systems, and full-stack builds shipped to production."
+          title={studio.title}
+          subtitle={studio.description}
           className="text-center"
           align="center"
         />

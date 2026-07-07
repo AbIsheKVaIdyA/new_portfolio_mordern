@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Terminal } from 'lucide-react'
 
 const LINES = [
-  { prompt: 'whoami', out: 'abhishek_vaidya | full-stack engineer · M.S. Cybersecurity @ UT Dallas' },
-  { prompt: 'stack --prod', out: 'React · Next.js 14 · Spring Boot · Firebase · Docker · PostgreSQL' },
-  { prompt: 'recent_ship', out: 'UTD learning platform (university-wide) · Boeing HR rebuild @ TCS' },
+  { prompt: 'whoami', out: 'abhishek_vaidya | full-stack · M.S. Cybersecurity @ UTD (GPA 3.89)' },
+  { prompt: 'stack --prod', out: 'React · Next.js 14 · Spring Boot · Supabase · Docker · PostgreSQL' },
+  { prompt: 'recent_ship', out: 'UTD inventory platform · Boeing HR RBAC + SonarQube @ TCS' },
 ]
 
 type TerminalBlockProps = {

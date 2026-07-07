@@ -45,6 +45,7 @@ export interface ExperienceEntry {
   flagshipBadge?: string
   client?: string
   honor?: string
+  inProgress?: boolean
 }
 
 export interface ProjectCaseStudy {
@@ -80,7 +81,7 @@ export const profile = {
     name: 'Abhishek Vaidya',
     location: 'Dallas, TX',
     school: 'The University of Texas at Dallas',
-    degree: 'M.S. Cybersecurity',
+    degree: 'M.S. Cybersecurity, Technology and Policy',
     links: {
       github: 'https://github.com/AbIsheKVaIdyA',
       linkedin: 'https://www.linkedin.com/in/abhishek-vaidya-73075424a/',
@@ -97,7 +98,7 @@ export const profile = {
       'Cybersecurity Internship',
       'Co-op',
     ],
-    education: 'M.S. Cyber Security — University of Texas at Dallas',
+    education: 'M.S. Cybersecurity — UT Dallas (GPA 3.89, May 2027)',
     certification: 'CompTIA Security+ · ISC2 Certified in Cybersecurity (CC)',
     experience: 'Former Full Stack Developer at Tata Consultancy Services',
     location: 'Dallas, Texas',
@@ -108,27 +109,31 @@ export const profile = {
     developer: {
       headline: 'Abhishek Vaidya.',
       subtitle:
-        'Full Stack Developer specializing in React, Next.js, TypeScript, Java, cloud infrastructure, and AI-powered applications.',
+        'Full-stack developer building secure, production-grade web applications — React/Next.js frontends, Node.js and Spring Boot APIs, and PostgreSQL data layers.',
+      supportingLine:
+        'M.S. Cybersecurity candidate at UT Dallas (GPA 3.89, graduating May 2027). Boeing HR platform experience at TCS (5× award recipient). Open to software engineering internships and co-ops.',
     },
     security: {
       headline: 'Abhishek Vaidya.',
       subtitle:
-        'I build and harden production software — from React/Next.js and Spring Boot APIs to cloud deployments with security gates baked in.',
+        'Cybersecurity M.S. student with enterprise security experience on Boeing\'s HR platform at TCS — RBAC, API hardening, and secure CI/CD gates.',
+      supportingLine:
+        'GPA 3.89 at UT Dallas (May 2027). CompTIA Security+ and ISC2 CC. TryHackMe Top 1%. 5× TCS award recipient; HIPAA manuscript in preparation with faculty.',
     },
     stats: [
       {
-        label: '$400K+ client impact',
-        detail: 'Measured value at Boeing HR platform (TCS)',
+        label: '40+ REST endpoints',
+        detail: 'RBAC enforced across Boeing HR platform at TCS',
       },
       {
-        label: '55%+ faster page loads',
-        detail: 'React/MUI rebuild — Boeing company-wide HR system',
+        label: '6+ auth gaps closed',
+        detail: 'Role checks, scoped payloads, and permission-gated UI',
       },
-      { label: '5× TCS award recipient', detail: 'Recognition across client delivery teams' },
       {
-        label: '16 vulnerabilities closed',
-        detail: 'Caught pre-release via Burp Suite in UTD platform CI/CD',
+        label: '120+ tickets closed',
+        detail: 'Jira & ServiceNow change packages ($5K–$30K each)',
       },
+      { label: '5× TCS award recipient', detail: 'Star of the Month ×2, Best Team ×2, On-the-Spot' },
     ] satisfies StatChip[],
   },
 
@@ -139,20 +144,20 @@ export const profile = {
 
   about: {
     paragraphs: [
-      "Full-stack engineer and M.S. Cybersecurity candidate at UT Dallas.",
-      'Production apps end-to-end — React/Next.js, APIs, Docker CI/CD, and security gates baked into delivery.',
+      'Full-stack developer who builds secure, production-grade web applications end-to-end.',
+      'React/Next.js, Node.js & Spring Boot APIs, PostgreSQL — hardened by default. M.S. Cybersecurity at UT Dallas (GPA 3.89). Founder of Pixelora.',
     ],
     focusAreas: [
       'Full-stack product delivery',
       'React / Next.js & API design',
-      'Cloud + CI/CD pipelines',
-      'Secure system design',
+      'Cloud + CI/CD with security gates',
+      'RBAC, RLS & secure system design',
     ],
     certificationPath: {
-      completed: ['CompTIA Security+', 'ISC2 Certified in Cybersecurity'],
+      completed: ['CompTIA Security+', 'ISC2 Certified in Cybersecurity (CC)'],
       inProgress: ['TryHackMe Penetration Testing'],
     },
-    cardTagline: 'Secure software with engineering discipline and a defense mindset.',
+    cardTagline: 'TryHackMe Top 1% · CompTIA Security+ · ISC2 CC',
   },
 
   skills: {
@@ -180,24 +185,29 @@ export const profile = {
       {
         id: 'databases' as const,
         title: 'Databases',
-        skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'Firebase'],
+        skills: ['PostgreSQL (RLS)', 'MongoDB', 'Redis', 'Supabase', 'Firebase'],
       },
       {
         id: 'devops' as const,
         title: 'DevOps',
-        skills: ['Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Git', 'Jira', 'Agile'],
+        skills: ['Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Git', 'Jira', 'ServiceNow', 'Agile'],
       },
       {
         id: 'security' as const,
         title: 'Security',
         skills: [
           'OWASP Top 10',
-          'Secure coding',
+          'NIST CSF',
+          'Zero Trust',
           'RBAC',
+          'HIPAA',
           'Burp Suite',
           'OWASP ZAP',
+          'SonarQube',
+          'SIEM (Elastic)',
+          'Wireshark',
+          'Nmap',
           'Penetration testing',
-          'HIPAA alignment',
         ],
       },
       {
@@ -227,34 +237,26 @@ export const profile = {
       location: 'Dallas, TX',
       period: 'Nov 2025 – Present',
       featured: true,
-      flagshipBadge: 'university-wide launch',
+      flagshipBadge: 'adopted team-wide by university staff',
       impact: {
-        label: '70% faster publishing',
-        detail: 'Content-publish time cut; page/API load time down 60%',
+        label: 'Inventory platform',
+        detail: 'Consolidated fragmented device datasets into one searchable system',
       },
       bullets: [
         {
-          text: 'Architected a full-stack learning platform (Next.js 14, React, Firebase) launching university-wide.',
+          text: 'Independently designed and built an inventory management application (Next.js, Supabase/PostgreSQL) consolidating fragmented device datasets into one searchable scanning/tracking platform.',
           tag: 'dev' as const,
         },
         {
-          text: 'Cut content-publish time by 70% and page/API load time by 60%.',
-          tag: 'dev' as const,
-        },
-        {
-          text: 'Built multi-role RBAC with Clerk across students, faculty, and admins.',
+          text: 'Implemented authentication and multi-role access control with Supabase, enforced server-side through PostgreSQL Row-Level Security (supervisor-only alert-list exports).',
           tag: 'both' as const,
         },
         {
-          text: 'Implemented Docker CI/CD with integrated Burp Suite scans, catching 16 vulnerabilities pre-release.',
-          tag: 'security' as const,
-        },
-        {
-          text: 'Reduced deployment incidents by 35% through automated security gates in the pipeline.',
+          text: 'Hardened the application with input validation across all user-facing forms and remediated over-permissive API endpoints application-wide.',
           tag: 'security' as const,
         },
       ],
-      skills: ['Next.js', 'Firebase', 'Clerk Auth', 'RBAC', 'Docker CI/CD', 'Burp Suite'],
+      skills: ['Next.js', 'Supabase', 'PostgreSQL RLS', 'RBAC', 'Input validation'],
     },
     {
       id: 'tcs-boeing',
@@ -264,30 +266,30 @@ export const profile = {
       client: 'The Boeing Company',
       location: 'Maharashtra, India',
       period: 'Feb 2024 – May 2025',
-      honor: '5x TCS Award Recipient',
+      honor: '5× TCS Award Recipient',
       impact: {
-        label: '55%+ faster loads',
-        detail: '$400K+ in measured client value across the HR platform',
+        label: 'SonarQube 90%+ gate',
+        detail: 'Security quality gate on every production branch in CI/CD',
       },
       bullets: [
         {
-          text: "Rebuilt the React/Material UI frontend of Boeing's company-wide HR platform, reducing page load time by 55%+.",
-          tag: 'dev' as const,
-        },
-        {
-          text: 'Diagnosed and resolved 200+ production defects across React, Spring Boot, and SQL.',
+          text: 'Developed features across Boeing\'s core HR application (React, Spring Boot, SQL), implementing RBAC across 40+ REST endpoints — closing 6+ authorization gaps across frontend and backend.',
           tag: 'both' as const,
         },
         {
-          text: 'Designed secure REST APIs with input validation and auth controls across 100+ endpoints.',
+          text: 'Redesigned legacy API endpoints to return minimal, role-scoped payloads; introduced lazy loading on data-heavy HR tables to reduce data exposure.',
           tag: 'security' as const,
         },
         {
-          text: 'Enforced secure coding standards across a 10-person team — contributing to $400K+ in measured client value.',
-          tag: 'both' as const,
+          text: 'Enforced a SonarQube quality gate (90%+ required) in CI/CD for every production branch, remediating vulnerabilities and hotspots before release.',
+          tag: 'security' as const,
+        },
+        {
+          text: 'Closed 120+ development and production tickets (Jira, ServiceNow) on change packages valued at $5K–$30K each; earned 2× Star of the Month and an On-the-Spot Award.',
+          tag: 'dev' as const,
         },
       ],
-      skills: ['React', 'Material UI', 'Spring Boot', 'SQL', 'Secure REST APIs'],
+      skills: ['React', 'Spring Boot', 'SQL', 'RBAC', 'SonarQube', 'Jira', 'ServiceNow'],
     },
     {
       id: 'eduskills-palo-alto',
@@ -298,55 +300,60 @@ export const profile = {
       period: 'Mar 2022 – May 2022',
       bullets: [
         {
-          text: 'Hands-on labs in network security, firewall configuration, IDS/IPS, and threat detection.',
+          text: 'Completed hands-on labs in network security, IDS/IPS, and vulnerability assessment.',
           tag: 'security' as const,
         },
         {
-          text: 'Monitored live traffic with Wireshark and Nmap, identifying simulated intrusions via packet-level analysis.',
+          text: 'Monitored traffic with Wireshark and Snort, detecting 8 simulated intrusions via packet-level analysis.',
           tag: 'security' as const,
         },
       ],
-      skills: ['Network Security', 'Firewalls', 'IDS/IPS', 'Wireshark', 'Nmap'],
+      skills: ['Network Security', 'IDS/IPS', 'Wireshark', 'Snort', 'Vulnerability Assessment'],
     },
     {
       id: 'utd-ms',
       type: 'education' as const,
-      title: 'M.S. Cybersecurity, Technology and Policy',
+      title: 'M.S., Cybersecurity, Technology and Policy',
       company: 'University of Texas at Dallas',
       location: 'Dallas, TX',
-      period: '2025 – Expected May 2027 · GPA 3.90/4.0',
+      period: 'Aug 2025 – Expected May 2027 · GPA 3.89/4.0',
+      inProgress: true,
       bullets: [
         {
-          text: 'Founder, Pixelora — active product studio shipping client and side projects.',
+          text: 'Coursework: Cyber Security Essentials, Data Security & Privacy, Digital Forensics & Incident Management, Conflict in Cyberspace.',
+          tag: 'both' as const,
+        },
+        {
+          text: 'Founder, Pixelora — product studio building and shipping real-world client software.',
           tag: 'both' as const,
         },
       ],
-      skills: ['Cybersecurity', 'Technology Policy', 'Risk Management', 'Pixelora'],
+      skills: ['Cybersecurity', 'Digital Forensics', 'Data Security', 'Technology Policy'],
     },
     {
       id: 'vtu-bs',
       type: 'education' as const,
-      title: 'B.S. Electronics and Communications',
+      title: 'B.E., Electronics and Communications',
       company: 'Visvesvaraya Technological University',
       location: 'Karnataka, India',
-      period: 'Completed June 2023 · GPA 3.20/4.0',
+      period: 'Completed June 2023',
       bullets: [
         {
-          text: 'B.S. in Electronics and Communications — systems, protocols, and signal processing.',
+          text: 'B.E. in Electronics and Communications — systems, protocols, and signal processing.',
           tag: 'both' as const,
         },
       ],
-      skills: ['Electronics', 'Communications', 'Signal Processing', 'Digital Systems'],
+      skills: ['Electronics', 'Communications', 'Signal Processing'],
     },
   ] satisfies ExperienceEntry[],
 
   projects: [
     {
       id: 'walmart-ecommerce',
-      title: 'Walmart E-commerce Platform',
+      title: 'Secure E-Commerce Platform',
       description:
-        'Full-stack commerce: catalog, cart, payments, inventory, and secure checkout with real-time stock.',
-      stack: ['React', 'Node.js', 'Express.js', 'PostgreSQL', 'Stripe API', 'Redis'],
+        'Production-grade commerce platform with catalog, cart, real-time inventory, and secure multi-user checkout — hardened against OWASP Top 10 with JWT auth and RBAC.',
+      stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
       image: '/walmart.png',
       github: 'https://github.com/AbIsheKVaIdyA/Walmart-Clone',
       demo: 'https://walmart-clone-jade.vercel.app/',
@@ -355,35 +362,39 @@ export const profile = {
       sortOrder: { developer: 1, security: 5 },
       caseStudy: {
         overview:
-          'Full-stack e-commerce with catalog, cart, Stripe payments, and real-time inventory.',
+          'Production-grade commerce platform with product catalog, shopping cart, real-time inventory, and secure multi-user checkout.',
         problem:
-          'Build a scalable storefront with secure checkout and live stock sync across sessions.',
+          'Deliver a full e-commerce experience while hardening against OWASP Top 10 risks before launch.',
         solution:
-          'React frontend with Express API, PostgreSQL persistence, Redis caching, and Stripe integration.',
+          'React frontend with Node.js API, PostgreSQL/Supabase persistence, JWT authentication, and role-based access control.',
         architecture:
-          'Layered SPA with REST API, relational data store, cache layer, and third-party payment gateway.',
-        architectureLayers: ['Browser', 'React', 'Express API', 'PostgreSQL', 'Redis', 'Stripe API'],
+          'SPA with REST API, relational data store, JWT session layer, and RBAC-enforced checkout flows.',
+        architectureLayers: ['Browser', 'React', 'Node.js API', 'PostgreSQL', 'Supabase', 'JWT + RBAC'],
         keyFeatures: [
-          'Product catalog and search',
-          'Shopping cart and checkout',
-          'Stripe payment processing',
-          'Real-time inventory sync',
+          'Product catalog and shopping cart',
+          'Real-time inventory tracking',
+          'Secure multi-user checkout',
+          'JWT authentication and RBAC',
         ],
         challenges: [
-          'Keeping inventory consistent across concurrent checkout sessions.',
-          'Structuring API boundaries between catalog, cart, and payment flows.',
+          'Closing authentication and authorization gaps before production launch.',
+          'Balancing inventory consistency with concurrent checkout sessions.',
         ],
         securityConsiderations: [
-          'Secure Stripe checkout flow',
-          'Input validation on API endpoints',
-          'Session and authentication hygiene',
+          'OWASP Top 10 hardening (CSRF, injection, broken authentication)',
+          'JWT auth and RBAC across checkout flows',
+          '16 vulnerabilities identified and closed pre-launch',
         ],
-        metrics: ['Real-time inventory sync', 'Secure Stripe checkout flow', '6-stack technologies'],
+        metrics: [
+          '16 vulnerabilities closed pre-launch',
+          'OWASP Top 10 controls implemented',
+          'Live demo deployed on Vercel',
+        ],
         lessonsLearned: [
-          'Cache layers reduce load on high-traffic catalog reads.',
-          'Payment flows need isolated, testable service boundaries.',
+          'Security review before launch is cheaper than post-incident remediation.',
+          'RBAC should be enforced at both API and UI layers from day one.',
         ],
-        categories: ['developer', 'fullstack', 'cloud'],
+        categories: ['developer', 'fullstack', 'cloud', 'security'],
       },
     },
     {
@@ -439,9 +450,9 @@ export const profile = {
     },
     {
       id: 'azure-honeypot-lab',
-      title: 'Azure Honeypot — T-Pot Threat Lab',
+      title: 'Azure Honeypot & Threat Detection Lab',
       description:
-        'Cloud-hosted T-Pot honeypot on Microsoft Azure to capture real-world attack traffic — 200+ SIEM events, 22+ IOCs from SSH brute-force and port scans, analyzed with ElasticStack and Kibana.',
+        'T-Pot honeypot on Azure generating 200+ SIEM events and 22+ IOCs from SSH brute-force and port-scan campaigns — log correlation, OSINT attribution, and Medium write-up.',
       stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'Threat intel'],
       image: '/azure-honeypot-medium.png',
       github: 'https://github.com/AbIsheKVaIdyA',
@@ -460,33 +471,37 @@ export const profile = {
           'Public-facing honeypot feeding logs into ElasticStack with Kibana dashboards for analysis.',
         architectureLayers: ['Attackers', 'T-Pot Honeypot', 'Azure VM', 'ElasticStack', 'Kibana SIEM'],
         keyFeatures: [
-          'Live attack traffic capture',
-          'SIEM event aggregation',
-          'IOC extraction and analysis',
-          'Kibana threat dashboards',
+          'Live attack traffic capture on Azure',
+          'ElasticStack log correlation',
+          'IOC extraction and OSINT attribution',
+          'Threat-intelligence workflow published on Medium',
         ],
         challenges: [
           'Isolating lab environment from production infrastructure.',
-          'Parsing high-volume attack logs into actionable IOCs.',
+          'Correlating high-volume logs into actionable IOCs with OSINT (WHOIS, geolocation).',
         ],
         securityConsiderations: [
           'Isolated lab environment (LAB ENV)',
-          'Threat intel posture monitoring',
-          'SSH brute-force and port scan detection',
+          'SSH brute-force and port-scan detection',
+          'OSINT-based attacker IP attribution',
         ],
-        metrics: ['200+ SIEM events captured', '22+ IOCs identified', 'Deployed on Microsoft Azure'],
+        metrics: [
+          '200+ SIEM events captured',
+          '22+ unique IOCs identified',
+          'Full workflow documented on Medium',
+        ],
         lessonsLearned: [
           'Honeypots surface attack patterns textbooks cannot replicate.',
-          'SIEM tooling turns raw logs into actionable threat intelligence.',
+          'OSINT attribution turns raw IPs into actionable threat intelligence.',
         ],
         categories: ['security', 'cloud'],
       },
     },
     {
       id: 'hipaa-hospital-system',
-      title: 'CarePort — HIPAA Hospital System',
+      title: 'HIPAA-Compliant Hospital Management System',
       description:
-        'HIPAA-aligned hospital platform with six role-separated portals (admin, physician, nursing, front desk, patient, partner hospital), Zero-Trust PHI isolation, AES-256-GCM encryption, and OWASP/Burp security validation.',
+        'HIPAA-aligned hospital platform on a Zero-Trust, six-portal architecture isolating PHI by role — AES-256-GCM encryption, PostgreSQL RLS, and OWASP/Burp validation. Manuscript in preparation with UT Dallas faculty.',
       stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'RBAC', 'AES-256-GCM', 'OWASP ZAP', 'Burp Suite'],
       image: '/careport-hipaa.png',
       github: 'https://github.com/AbIsheKVaIdyA',
@@ -496,45 +511,45 @@ export const profile = {
       sortOrder: { developer: 8, security: 2 },
       caseStudy: {
         overview:
-          'HIPAA-aligned hospital platform with six role-separated portals and Zero-Trust PHI isolation.',
+          'Co-developed a HIPAA-aligned hospital platform in a 4-person team on a Zero-Trust, six-portal architecture isolating PHI by role.',
         problem:
-          'Healthcare workflows require strict PHI protection, role separation, and compliance validation.',
+          'Healthcare workflows require strict PHI protection, role separation, and compliance validation across multiple portals.',
         solution:
-          'Next.js app with Supabase/PostgreSQL, AES-256-GCM encryption, and OWASP/Burp validation.',
+          'Next.js with Supabase/PostgreSQL, AES-256-GCM application-level encryption, PostgreSQL RLS, and doctor-initiated referral module with time-bound links.',
         architecture:
-          'Multi-portal frontend with managed backend, encrypted data layer, and security testing pipeline.',
+          'Multi-portal frontend with encrypted data layer, RLS-enforced backend, and security testing pipeline.',
         architectureLayers: [
           'Browser',
           'Next.js',
           'Supabase API',
-          'PostgreSQL',
+          'PostgreSQL + RLS',
           'AES-256-GCM',
           'OWASP ZAP / Burp Suite',
         ],
         keyFeatures: [
-          'Six role-separated portals',
-          'Zero-Trust PHI isolation',
-          'AES-256-GCM encryption at rest',
-          'Partner hospital data exchange',
+          'Six-portal Zero-Trust PHI isolation',
+          'AES-256-GCM application-level encryption',
+          'PostgreSQL Row-Level Security policies',
+          '72-hour encrypted referral links',
         ],
         challenges: [
-          'Mapping six distinct roles to least-privilege access patterns.',
-          'Validating HIPAA alignment across all data flows.',
+          'Designing complete PostgreSQL schema and hospital management APIs.',
+          'Validating RLS enforcement through Postman API fuzzing.',
         ],
         securityConsiderations: [
-          'HIPAA compliance alignment',
-          'AES-256-GCM encryption',
-          'OWASP ZAP and Burp Suite validation',
-          'Zero-Trust PHI isolation',
+          'HIPAA-aligned architecture; manuscript in preparation',
+          'AES-256-GCM — PHI unreadable if database is compromised',
+          'OWASP ZAP, Burp Suite, and Postman fuzzing validation',
+          'Doctor-initiated referrals with time-bound encrypted links',
         ],
         metrics: [
-          '6 role-separated portals',
-          'AES-256-GCM encryption',
-          'OWASP + Burp security validation',
+          '6-portal Zero-Trust architecture',
+          'AES-256-GCM encryption layer',
+          'OWASP ZAP + Burp Suite validation',
         ],
         lessonsLearned: [
-          'Healthcare security requires role design before feature development.',
-          'Automated security scanning validates compliance assumptions early.',
+          'Application-level encryption adds defense even if the database is breached.',
+          'RLS policies must be validated with API-level fuzzing, not assumptions.',
         ],
         categories: ['security', 'fullstack', 'cloud'],
       },
@@ -681,8 +696,6 @@ export const profile = {
       title: 'Pixelora',
       description:
         'My product studio — client software, restaurant systems, and full-stack builds shipped to production.',
-      status: 'Studio' as const,
-      stack: ['React', 'Next.js', 'Node.js', 'Supabase', 'Client delivery'],
       link: 'https://www.pixelora.org/',
     },
   ],
