@@ -39,7 +39,11 @@ export function getProjectCaseStudy(project: ProjectEntry) {
       : ['Input validation', 'Authentication/session hygiene', 'Secure API design', project.posture],
     metrics:
       project.id === 'utd-learning-platform'
-        ? ['70% faster publishing', '60% faster loads', '16 vulnerabilities caught pre-release']
+        ? [
+            '70% faster publishing',
+            '60% faster loads',
+            'Hardened auth flow and input validation against OWASP Top 10',
+          ]
         : project.id === 'walmart-ecommerce'
           ? ['16 vulnerabilities closed pre-launch', 'OWASP Top 10 controls implemented']
           : ['Production-ready deployment', 'Documented architecture'],

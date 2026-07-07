@@ -3,13 +3,13 @@
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, Github, Maximize2 } from 'lucide-react'
+import { Maximize2 } from 'lucide-react'
 import { SectionHeading } from '@/components/SectionHeading'
 import { ArchitectureDiagram } from '@/components/ArchitectureDiagram'
 import { CaseStudyList, CaseStudySection } from '@/components/CaseStudyAccordion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -20,6 +20,7 @@ import { ViewTransition } from '@/components/ViewTransition'
 import { cn } from '@/lib/utils'
 import { getProjectCaseStudy, getProjectsForView, getSectionCopy } from '@/lib/profile-helpers'
 import { useViewMode } from '@/contexts/ViewModeContext'
+import { ProjectLinkActions } from '@/components/ProjectLinkActions'
 import type { ProjectEntry } from '@/data/profile'
 
 const FILTERS = ['all', 'developer', 'security'] as const
@@ -156,26 +157,7 @@ const Projects = () => {
                           ))}
                         </div>
 
-                        <div className="flex flex-wrap gap-2 pt-1">
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'gap-1 no-underline')}
-                          >
-                            <Github className="size-3.5" /> GitHub
-                          </a>
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className={cn(buttonVariants({ size: 'sm' }), 'gap-1 no-underline')}
-                          >
-                            <ExternalLink className="size-3.5" /> Demo
-                          </a>
-                        </div>
+                        <ProjectLinkActions project={project} size="sm" className="pt-1" />
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -272,26 +254,7 @@ const Projects = () => {
                   </CaseStudySection>
                 </div>
 
-                <div className="flex flex-wrap gap-2 border-t border-border/50 pt-4">
-                  <a
-                    href={selected.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(buttonVariants({ variant: 'outline' }), 'no-underline')}
-                  >
-                    <Github className="mr-2 size-4" />
-                    GitHub
-                  </a>
-                  <a
-                    href={selected.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(buttonVariants(), 'no-underline')}
-                  >
-                    <ExternalLink className="mr-2 size-4" />
-                    Live demo
-                  </a>
-                </div>
+                <ProjectLinkActions project={selected} size="default" className="border-t border-border/50 pt-4" />
               </>
             )}
           </DialogContent>

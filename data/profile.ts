@@ -1,5 +1,16 @@
 export type ViewMode = 'developer' | 'security'
 
+/** Shared availability copy for metadata and on-page panels */
+export const AVAILABILITY_MESSAGE =
+  'Available for Software Engineering and Security internships & co-ops (Summer/Fall 2026 · Spring 2027)'
+
+// Project URL constants — edit here when repos or demos change
+export const HONEYPOT_ARTICLE_URL =
+  'https://medium.com/@abhishekcv.us/building-a-cloud-hosted-honeypot-with-t-pot-on-microsoft-azure-a-hands-on-cybersecurity-project-8af5fd57ed4a'
+
+export const MOVIEFY_LIVE_URL = 'https://moviefy-gules.vercel.app/'
+export const MOVIEFY_REPO_URL = 'https://github.com/AbIsheKVaIdyA/moviefy'
+
 export type BulletTag = 'dev' | 'security' | 'both'
 
 export type ExperienceType = 'work' | 'education'
@@ -68,8 +79,10 @@ export interface ProjectEntry {
   description: string
   stack: string[]
   image: string
-  github: string
-  demo: string
+  github?: string
+  demo?: string
+  demoLabel?: string
+  privateRepo?: boolean
   posture: string
   clearance: string
   sortOrder: Record<ViewMode, number>
@@ -94,9 +107,9 @@ export const profile = {
   recruiter: {
     headline: 'Open to opportunities',
     availability: [
-      'Software Engineering Internship',
-      'Cybersecurity Internship',
-      'Co-op',
+      'Software Engineering Internship (Summer/Fall 2026 · Spring 2027)',
+      'Cybersecurity Internship (Summer/Fall 2026 · Spring 2027)',
+      'Co-op (Summer/Fall 2026 · Spring 2027)',
     ],
     education: 'M.S. Cybersecurity — UT Dallas (GPA 3.89, May 2027)',
     certification: 'CompTIA Security+ · ISC2 Certified in Cybersecurity (CC)',
@@ -355,7 +368,7 @@ export const profile = {
         'Production-grade commerce platform with catalog, cart, real-time inventory, and secure multi-user checkout — hardened against OWASP Top 10 with JWT auth and RBAC.',
       stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
       image: '/walmart.png',
-      github: 'https://github.com/AbIsheKVaIdyA/Walmart-Clone',
+      github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
       demo: 'https://walmart-clone-jade.vercel.app/',
       posture: 'PAYMENTS',
       clearance: 'PUBLIC RELEASE',
@@ -404,8 +417,9 @@ export const profile = {
         'University-wide student learning dashboard at UT Dallas — structured courses, gamified progress, built-in community channels, and educational podcasts. Built with Next.js 14, Clerk RBAC, and Docker CI/CD with Burp Suite security gates.',
       stack: ['Next.js 14', 'React', 'Firebase', 'Clerk', 'RBAC', 'Docker CI/CD', 'Burp Suite'],
       image: '/utd-upskillr.png',
-      github: 'https://github.com/AbIsheKVaIdyA',
-      demo: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/VirtualLabFinal',
+      demo: 'https://virtual-lab-xi.vercel.app/',
+      demoLabel: 'Live',
       posture: 'RBAC + AUTH',
       clearance: 'ACADEMIC',
       sortOrder: { developer: 2, security: 6 },
@@ -432,13 +446,13 @@ export const profile = {
         securityConsiderations: [
           'Clerk authentication and session management',
           'RBAC with least-privilege access',
-          'Burp Suite scans catching 16 vulnerabilities pre-release',
+          'Hardened auth flow and input validation against OWASP Top 10',
           '35% fewer deployment incidents via security gates',
         ],
         metrics: [
           '70% faster content publishing',
           '60% faster page/API loads',
-          '16 vulnerabilities caught pre-release',
+          'Hardened auth flow and input validation against OWASP Top 10',
           '35% fewer deployment incidents',
         ],
         lessonsLearned: [
@@ -455,8 +469,8 @@ export const profile = {
         'T-Pot honeypot on Azure generating 200+ SIEM events and 22+ IOCs from SSH brute-force and port-scan campaigns — log correlation, OSINT attribution, and Medium write-up.',
       stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'Threat intel'],
       image: '/azure-honeypot-medium.png',
-      github: 'https://github.com/AbIsheKVaIdyA',
-      demo: 'https://medium.com/@abhishekcv.us',
+      demo: HONEYPOT_ARTICLE_URL,
+      demoLabel: 'Write-up',
       posture: 'THREAT INTEL',
       clearance: 'LAB ENV',
       sortOrder: { developer: 7, security: 1 },
@@ -504,8 +518,9 @@ export const profile = {
         'HIPAA-aligned hospital platform on a Zero-Trust, six-portal architecture isolating PHI by role — AES-256-GCM encryption, PostgreSQL RLS, and OWASP/Burp validation. Manuscript in preparation with UT Dallas faculty.',
       stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'RBAC', 'AES-256-GCM', 'OWASP ZAP', 'Burp Suite'],
       image: '/careport-hipaa.png',
-      github: 'https://github.com/AbIsheKVaIdyA',
-      demo: 'https://github.com/AbIsheKVaIdyA',
+      github: 'https://github.com/AbIsheKVaIdyA/HIPPA',
+      demo: 'https://hipaa-app.vercel.app/',
+      demoLabel: 'Live',
       posture: 'COMPLIANCE',
       clearance: 'PROTECTED',
       sortOrder: { developer: 8, security: 2 },
@@ -606,7 +621,7 @@ export const profile = {
         'Dropbox-inspired storage: upload, share, folders, and secure authentication with cloud-backed storage.',
       stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'AWS S3', 'JWT'],
       image: '/dropbox.png',
-      github: 'https://github.com/AbIsheKVaIdyA/dropbox-clone',
+      github: 'https://github.com/AbIsheKVaIdyA/CloudVault-File-Management',
       demo: 'https://dropbox-clone-eta.vercel.app/',
       posture: 'STORAGE',
       clearance: 'PUBLIC RELEASE',
@@ -645,47 +660,53 @@ export const profile = {
       },
     },
     {
-      id: 'portfolio-v1',
-      title: 'Portfolio (previous gen)',
+      id: 'moviefy',
+      title: 'Moviefy: AI-Powered Movie Discovery',
       description:
-        'Earlier portfolio iteration — responsive layout, motion, and component-driven structure.',
-      stack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      image: '/old portfolio.png',
-      github: 'https://github.com/AbIsheKVaIdyA/portfolio1.0',
-      demo: 'https://portfolio-first-eta.vercel.app/',
-      posture: 'UI/X',
-      clearance: 'ARCHIVE',
-      sortOrder: { developer: 5, security: 7 },
+        'AI-powered movie discovery with Gemini recommendations, playlists, and social sharing — optimized Next.js 14 architecture with Supabase RLS and high Lighthouse scores.',
+      stack: ['Next.js 14', 'Supabase', 'Gemini AI', 'Zustand'],
+      image: '/moviefy-hero.png',
+      github: MOVIEFY_REPO_URL,
+      demo: MOVIEFY_LIVE_URL,
+      demoLabel: 'Live',
+      posture: 'AI + RECS',
+      clearance: 'PUBLIC RELEASE',
+      sortOrder: { developer: 5, security: 8 },
       caseStudy: {
         overview:
-          'Earlier portfolio iteration showcasing responsive layout, motion design, and component architecture.',
+          'Movie discovery app with behavior-based Gemini recommendations, trial modes, playlists, and social sharing.',
         problem:
-          'Create a personal site demonstrating frontend craft and modern React patterns.',
+          'Users waste time scrolling across streaming catalogs without a fast, personalized pick.',
         solution:
-          'React/Next.js with TypeScript, Tailwind CSS, and Framer Motion animations.',
+          'Next.js 14 with Gemini AI personalization, Supabase persistence with RLS, and Zustand client state.',
         architecture:
-          'Static/SSR Next.js site with component-driven structure deployed on Vercel.',
-        architectureLayers: ['Browser', 'Next.js', 'React Components', 'Tailwind CSS', 'Vercel'],
+          'SSR frontend with dynamic routing, Supabase API layer, Gemini recommendation service, and RLS-enforced data access.',
+        architectureLayers: ['Browser', 'Next.js 14', 'Zustand', 'Supabase', 'Gemini AI', 'RLS'],
         keyFeatures: [
-          'Responsive multi-section layout',
-          'Framer Motion animations',
-          'Component-driven architecture',
-          'TypeScript throughout',
+          'Google Gemini AI for behavior-based personalized recommendations',
+          'Trial modes, playlist creation, and social sharing',
+          'Optimized API calls and lazy loading (~5s faster page loads)',
+          'Modular SSR architecture with dynamic routing and Supabase RLS',
         ],
         challenges: [
-          'Balancing animation richness with performance budgets.',
-          'Structuring reusable component patterns.',
+          'Balancing Gemini API latency with responsive UI through caching and lazy loading.',
+          'Designing RLS policies that support playlists and shared taste profiles.',
         ],
         securityConsiderations: [
-          'Static site — minimal attack surface',
-          'No sensitive data exposure',
+          'Supabase Row-Level Security on user playlists and taste data',
+          'Input validation on recommendation and sharing flows',
+          'Secure session handling for authenticated features',
         ],
-        metrics: ['5-technology stack', 'Deployed on Vercel', 'Fully responsive'],
+        metrics: [
+          '~5s faster page loads via API optimization and lazy loading',
+          'High Lighthouse performance scores',
+          'SSR + dynamic routing with Supabase RLS',
+        ],
         lessonsLearned: [
-          'Component architecture pays off when iterating on layout.',
-          'Motion should enhance hierarchy, not distract from content.',
+          'Lazy loading and request batching matter as much as model quality for perceived speed.',
+          'RLS should be designed alongside feature schemas, not bolted on later.',
         ],
-        categories: ['developer', 'fullstack'],
+        categories: ['developer', 'fullstack', 'cloud', 'ai'],
       },
     },
   ] satisfies ProjectEntry[],

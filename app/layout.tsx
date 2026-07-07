@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/react'
 import { AppViewModeProvider } from '@/components/ViewModeProvider'
 import { PersonJsonLd } from '@/components/seo/PersonJsonLd'
-import { profile } from '@/data/profile'
+import { profile, AVAILABILITY_MESSAGE } from '@/data/profile'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: `%s | ${profile.identity.name}`,
   },
   description:
-    'Full-stack developer and M.S. Cybersecurity candidate at UT Dallas. React, Next.js, cloud, and secure systems engineering.',
+    `Full-stack developer and M.S. Cybersecurity candidate at UT Dallas. React, Next.js, cloud, and secure systems engineering. ${AVAILABILITY_MESSAGE}`,
   keywords: [
     'Full Stack Developer',
     'Cybersecurity',
@@ -46,13 +46,12 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: profile.identity.name,
     title: `${profile.identity.name} — Full Stack & Cybersecurity Portfolio`,
-    description:
-      'Building scalable software and secure systems. Available for full-time roles.',
+    description: AVAILABILITY_MESSAGE,
   },
   twitter: {
     card: 'summary_large_image',
     title: `${profile.identity.name} — Portfolio`,
-    description: 'Full-stack developer & cybersecurity graduate student at UT Dallas.',
+    description: AVAILABILITY_MESSAGE,
   },
   robots: { index: true, follow: true },
 }
