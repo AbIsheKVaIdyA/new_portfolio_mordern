@@ -2,9 +2,9 @@ export type ViewMode = 'developer' | 'security'
 
 /** Shared availability copy for metadata and on-page panels */
 export const AVAILABILITY_MESSAGE =
-  'Available for Software Engineering and Security internships & co-ops (Summer/Fall 2026 · Spring 2027)'
+  'Open to Software Engineering and Cybersecurity internships and co-ops for Summer and Fall 2026 and Spring 2027 (F-1 CPT/OPT)'
 
-// Project URL constants — edit here when repos or demos change
+// Project URL constants (edit here when repos or demos change)
 export const HONEYPOT_ARTICLE_URL =
   'https://medium.com/@abhishekcv.us/building-a-cloud-hosted-honeypot-with-t-pot-on-microsoft-azure-a-hands-on-cybersecurity-project-8af5fd57ed4a'
 
@@ -91,7 +91,8 @@ export interface ProjectEntry {
 
 export const profile = {
   identity: {
-    name: 'Abhishek Vaidya',
+    name: 'Abhishek Chayadri Vaidya',
+    displayName: 'Abhishek Vaidya',
     location: 'Dallas, TX',
     school: 'The University of Texas at Dallas',
     degree: 'M.S. Cybersecurity, Technology and Policy',
@@ -107,31 +108,31 @@ export const profile = {
   recruiter: {
     headline: 'Open to opportunities',
     availability: [
-      'Software Engineering Internship (Summer/Fall 2026 · Spring 2027)',
-      'Cybersecurity Internship (Summer/Fall 2026 · Spring 2027)',
-      'Co-op (Summer/Fall 2026 · Spring 2027)',
+      'Software Engineering Internship (Summer/Fall 2026, Spring 2027)',
+      'Cybersecurity Internship (Summer/Fall 2026, Spring 2027)',
+      'Co-op (Summer/Fall 2026, Spring 2027)',
     ],
-    education: 'M.S. Cybersecurity — UT Dallas (GPA 3.89, May 2027)',
-    certification: 'CompTIA Security+ · ISC2 Certified in Cybersecurity (CC)',
-    experience: 'Former Full Stack Developer at Tata Consultancy Services',
+    education: 'M.S. Cybersecurity, UT Dallas (GPA 3.89, May 2027)',
+    certification: 'CompTIA Security+, ISC2 CC',
+    experience: 'Former Full Stack Developer at TCS (Boeing)',
     location: 'Dallas, Texas',
-    workAuthorization: 'F-1 OPT/CPT Available',
+    workAuthorization: 'F-1 CPT/OPT Available',
   },
 
   hero: {
     developer: {
-      headline: 'Abhishek Vaidya.',
+      headline: 'Abhishek Vaidya',
       subtitle:
-        'Full-stack developer building secure, production-grade web applications — React/Next.js frontends, Node.js and Spring Boot APIs, and PostgreSQL data layers.',
+        'I build production software that stays secure by default. Full-stack with React/Next.js, Spring Boot/Node, plus the auth, RBAC, and CI/CD checks that keep things safe.',
       supportingLine:
-        'M.S. Cybersecurity candidate at UT Dallas (GPA 3.89, graduating May 2027). Boeing HR platform experience at TCS (5× award recipient). Open to software engineering internships and co-ops.',
+        'M.S. Cybersecurity, UT Dallas (GPA 3.89, May 2027). Enterprise experience on Boeing\'s HR platform at TCS (5x award recipient). Open to Software Engineering and Cybersecurity internships and co-ops (F-1 CPT/OPT).',
     },
     security: {
-      headline: 'Abhishek Vaidya.',
+      headline: 'Abhishek Vaidya',
       subtitle:
-        'Cybersecurity M.S. student with enterprise security experience on Boeing\'s HR platform at TCS — RBAC, API hardening, and secure CI/CD gates.',
+        'Cybersecurity M.S. student (GPA 3.89) with enterprise security experience on Boeing\'s HR platform at TCS: RBAC, API hardening, secure CI/CD gates.',
       supportingLine:
-        'GPA 3.89 at UT Dallas (May 2027). CompTIA Security+ and ISC2 CC. TryHackMe Top 1%. 5× TCS award recipient; HIPAA manuscript in preparation with faculty.',
+        '5x TCS award recipient. TryHackMe Top 1%. HIPAA manuscript in preparation with UT Dallas faculty. CompTIA Security+, ISC2 CC. Open to internships and co-ops.',
     },
     stats: [
       {
@@ -146,7 +147,7 @@ export const profile = {
         label: '120+ tickets closed',
         detail: 'Jira & ServiceNow change packages ($5K–$30K each)',
       },
-      { label: '5× TCS award recipient', detail: 'Star of the Month ×2, Best Team ×2, On-the-Spot' },
+      { label: '5x TCS award recipient', detail: 'Star of the Month x2, Best Team x2, On-the-Spot' },
     ] satisfies StatChip[],
   },
 
@@ -157,8 +158,9 @@ export const profile = {
 
   about: {
     paragraphs: [
-      'Full-stack developer who builds secure, production-grade web applications end-to-end.',
-      'React/Next.js, Node.js & Spring Boot APIs, PostgreSQL — hardened by default. M.S. Cybersecurity at UT Dallas (GPA 3.89). Founder of Pixelora.',
+      'I build production software that stays secure by default. Full-stack work with React/Next.js and Spring Boot/Node, plus the auth, RBAC, and CI/CD checks that keep things safe when real users hit them.',
+      'At TCS I worked on Boeing\'s company-wide HR platform. I closed 6+ authorization gaps across 40+ REST endpoints, tightened APIs so they only return what each role should see, and owned a SonarQube security quality gate (90%+) on every production branch. Closed 120+ tickets on change packages valued at $5K-$30K. 5x TCS award recipient.',
+      'At UT Dallas I\'m a Student Assistant Developer (Next.js/Supabase, adopted team-wide) and an M.S. Cybersecurity student (GPA 3.89, May 2027). CompTIA Security+, ISC2 CC, TryHackMe Top 1%. Through Pixelora I ship client software and my own products like Moviefy and RoamTribe.',
     ],
     focusAreas: [
       'Full-stack product delivery',
@@ -170,40 +172,30 @@ export const profile = {
       completed: ['CompTIA Security+', 'ISC2 Certified in Cybersecurity (CC)'],
       inProgress: ['TryHackMe Penetration Testing'],
     },
-    cardTagline: 'TryHackMe Top 1% · CompTIA Security+ · ISC2 CC',
+    cardTagline: 'CompTIA Security+ · ISC2 CC · TryHackMe Top 1% Global',
   },
 
   skills: {
     categories: [
       {
+        id: 'programming' as const,
+        title: 'Languages',
+        skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL'],
+      },
+      {
         id: 'frontend' as const,
         title: 'Frontend',
-        skills: ['React', 'Next.js 14', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'REST & GraphQL'],
+        skills: ['React', 'Next.js 14', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'Framer Motion', 'Zod', 'REST & GraphQL'],
       },
       {
         id: 'backend' as const,
-        title: 'Backend',
-        skills: ['Node.js', 'Express', 'Spring Boot', 'JWT', 'REST APIs', 'GraphQL', 'Microservices'],
-      },
-      {
-        id: 'programming' as const,
-        title: 'Programming Languages',
-        skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL'],
+        title: 'Backend & Data',
+        skills: ['Node.js', 'Express', 'Spring Boot', 'JWT', 'Supabase', 'Firebase', 'PostgreSQL (RLS)', 'MongoDB', 'Redis'],
       },
       {
         id: 'cloud' as const,
-        title: 'Cloud',
-        skills: ['AWS', 'Azure', 'Vercel'],
-      },
-      {
-        id: 'databases' as const,
-        title: 'Databases',
-        skills: ['PostgreSQL (RLS)', 'MongoDB', 'Redis', 'Supabase', 'Firebase'],
-      },
-      {
-        id: 'devops' as const,
-        title: 'DevOps',
-        skills: ['Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Git', 'Jira', 'ServiceNow', 'Agile'],
+        title: 'Cloud & DevOps',
+        skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Vercel', 'Git', 'Agile'],
       },
       {
         id: 'security' as const,
@@ -211,8 +203,9 @@ export const profile = {
         skills: [
           'OWASP Top 10',
           'NIST CSF',
-          'Zero Trust',
+          'Secure Coding',
           'RBAC',
+          'Zero Trust',
           'HIPAA',
           'Burp Suite',
           'OWASP ZAP',
@@ -220,13 +213,9 @@ export const profile = {
           'SIEM (Elastic)',
           'Wireshark',
           'Nmap',
-          'Penetration testing',
+          'Threat Detection',
+          'Vulnerability Assessment',
         ],
-      },
-      {
-        id: 'ai' as const,
-        title: 'AI / ML',
-        skills: ['Google Gemini AI', 'AI-powered recommendations', 'SSR optimization'],
       },
     ],
     viewLayout: {
@@ -247,8 +236,8 @@ export const profile = {
       type: 'work' as const,
       title: 'Student Assistant Developer',
       company: 'University of Texas at Dallas',
-      location: 'Dallas, TX',
-      period: 'Nov 2025 – Present',
+      location: 'Texas, on-site',
+      period: 'Nov 2025 - Present',
       featured: true,
       flagshipBadge: 'adopted team-wide by university staff',
       impact: {
@@ -257,48 +246,72 @@ export const profile = {
       },
       bullets: [
         {
-          text: 'Independently designed and built an inventory management application (Next.js, Supabase/PostgreSQL) consolidating fragmented device datasets into one searchable scanning/tracking platform.',
+          text: 'Built a Next.js/Supabase inventory app that pulled messy device data into one searchable system. Staff adopted it team-wide.',
           tag: 'dev' as const,
         },
         {
-          text: 'Implemented authentication and multi-role access control with Supabase, enforced server-side through PostgreSQL Row-Level Security (supervisor-only alert-list exports).',
+          text: 'Added Supabase auth and multi-role access, enforced with PostgreSQL Row-Level Security (supervisor-only alert exports).',
           tag: 'both' as const,
         },
         {
-          text: 'Hardened the application with input validation across all user-facing forms and remediated over-permissive API endpoints application-wide.',
+          text: 'Added input validation on forms and fixed over-permissive API endpoints across the app.',
           tag: 'security' as const,
         },
       ],
       skills: ['Next.js', 'Supabase', 'PostgreSQL RLS', 'RBAC', 'Input validation'],
     },
     {
+      id: 'pixelora-founder',
+      type: 'work' as const,
+      title: 'Founder & Lead Developer',
+      company: 'Pixelora',
+      location: 'pixelora.org',
+      period: 'Jan 2025 - Present',
+      featured: true,
+      bullets: [
+        {
+          text: 'Building RoamTribe (AI travel + community for women traveling solo) and Moviefy (AI movie discovery on Next.js/Supabase).',
+          tag: 'dev' as const,
+        },
+        {
+          text: 'Sole developer on real client work, including a live restaurant system (ordering, tables, payments) and several client sites.',
+          tag: 'dev' as const,
+        },
+      ],
+      skills: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Framer Motion', 'Product Development'],
+    },
+    {
       id: 'tcs-boeing',
       type: 'work' as const,
       title: 'Full Stack Developer',
       company: 'Tata Consultancy Services',
-      client: 'The Boeing Company',
-      location: 'Maharashtra, India',
-      period: 'Feb 2024 – May 2025',
-      honor: '5× TCS Award Recipient',
+      client: 'Boeing',
+      location: 'Mumbai, Maharashtra, India',
+      period: 'Feb 2024 - May 2025',
+      honor: '5x TCS Award Recipient',
       impact: {
         label: 'SonarQube 90%+ gate',
         detail: 'Security quality gate on every production branch in CI/CD',
       },
       bullets: [
         {
-          text: 'Developed features across Boeing\'s core HR application (React, Spring Boot, SQL), implementing RBAC across 40+ REST endpoints — closing 6+ authorization gaps across frontend and backend.',
+          text: 'Added RBAC across Boeing\'s core HR app on 40+ REST endpoints; closed 6+ auth gaps.',
           tag: 'both' as const,
         },
         {
-          text: 'Redesigned legacy API endpoints to return minimal, role-scoped payloads; introduced lazy loading on data-heavy HR tables to reduce data exposure.',
+          text: 'Cut data exposure with smaller, role-scoped API payloads and lazy-loaded heavy HR tables.',
           tag: 'security' as const,
         },
         {
-          text: 'Enforced a SonarQube quality gate (90%+ required) in CI/CD for every production branch, remediating vulnerabilities and hotspots before release.',
+          text: 'Owned the SonarQube security gate at 90%+ in CI/CD for every production branch.',
           tag: 'security' as const,
         },
         {
-          text: 'Closed 120+ development and production tickets (Jira, ServiceNow) on change packages valued at $5K–$30K each; earned 2× Star of the Month and an On-the-Spot Award.',
+          text: 'Closed 120+ Jira/ServiceNow tickets on $5K-$30K change packages; received 2x Star of the Month and an On-the-Spot award for production support.',
+          tag: 'both' as const,
+        },
+        {
+          text: 'Helped a 10+ person team with reusable components and secure coding habits in reviews.',
           tag: 'dev' as const,
         },
       ],
@@ -307,21 +320,21 @@ export const profile = {
     {
       id: 'eduskills-palo-alto',
       type: 'work' as const,
-      title: 'Cybersecurity Virtual Intern',
+      title: 'Cybersecurity Intern',
       company: 'EduSkills Foundation (Palo Alto Networks Partner)',
       location: 'Remote',
-      period: 'Mar 2022 – May 2022',
+      period: 'Mar 2022 - May 2022',
       bullets: [
         {
-          text: 'Completed hands-on labs in network security, IDS/IPS, and vulnerability assessment.',
+          text: 'Hands-on labs in network security, firewall configuration, IDS/IPS, and vulnerability assessment using Palo Alto Networks tools.',
           tag: 'security' as const,
         },
         {
-          text: 'Monitored traffic with Wireshark and Snort, detecting 8 simulated intrusions via packet-level analysis.',
+          text: 'Monitored traffic with Wireshark, Snort, and Nmap, detecting 8 simulated intrusions through packet-level analysis.',
           tag: 'security' as const,
         },
       ],
-      skills: ['Network Security', 'IDS/IPS', 'Wireshark', 'Snort', 'Vulnerability Assessment'],
+      skills: ['Network Security', 'IDS/IPS', 'Wireshark', 'Snort', 'Nmap', 'Vulnerability Assessment'],
     },
     {
       id: 'utd-ms',
@@ -329,15 +342,11 @@ export const profile = {
       title: 'M.S., Cybersecurity, Technology and Policy',
       company: 'University of Texas at Dallas',
       location: 'Dallas, TX',
-      period: 'Aug 2025 – Expected May 2027 · GPA 3.89/4.0',
+      period: 'Aug 2025 - May 2027 · GPA 3.89/4.0',
       inProgress: true,
       bullets: [
         {
           text: 'Coursework: Cyber Security Essentials, Data Security & Privacy, Digital Forensics & Incident Management, Conflict in Cyberspace.',
-          tag: 'both' as const,
-        },
-        {
-          text: 'Founder, Pixelora — product studio building and shipping real-world client software.',
           tag: 'both' as const,
         },
       ],
@@ -349,10 +358,10 @@ export const profile = {
       title: 'B.E., Electronics and Communications',
       company: 'Visvesvaraya Technological University',
       location: 'Karnataka, India',
-      period: 'Completed June 2023',
+      period: 'Jun 2019 - Jun 2023',
       bullets: [
         {
-          text: 'B.E. in Electronics and Communications — systems, protocols, and signal processing.',
+          text: 'B.E. in Electronics and Communications.',
           tag: 'both' as const,
         },
       ],
@@ -365,7 +374,7 @@ export const profile = {
       id: 'walmart-ecommerce',
       title: 'Secure E-Commerce Platform',
       description:
-        'Production-grade commerce platform with catalog, cart, real-time inventory, and secure multi-user checkout — hardened against OWASP Top 10 with JWT auth and RBAC.',
+        'Catalog, cart, real-time inventory, and secure checkout; closed 16 OWASP Top 10 issues pre-launch (JWT, RBAC, CSRF/injection hardening).',
       stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
       image: '/walmart.png',
       github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
@@ -412,9 +421,9 @@ export const profile = {
     },
     {
       id: 'utd-learning-platform',
-      title: 'UpSkillr — UTD Learning Platform',
+      title: 'UpSkillr: UTD Learning Platform',
       description:
-        'University-wide student learning dashboard at UT Dallas — structured courses, gamified progress, built-in community channels, and educational podcasts. Built with Next.js 14, Clerk RBAC, and Docker CI/CD with Burp Suite security gates.',
+        'University-wide student learning dashboard at UT Dallas with structured courses, gamified progress, built-in community channels, and educational podcasts. Built with Next.js 14, Clerk RBAC, and Docker CI/CD with Burp Suite security gates.',
       stack: ['Next.js 14', 'React', 'Firebase', 'Clerk', 'RBAC', 'Docker CI/CD', 'Burp Suite'],
       image: '/utd-upskillr.png',
       github: 'https://github.com/AbIsheKVaIdyA/VirtualLabFinal',
@@ -425,7 +434,7 @@ export const profile = {
       sortOrder: { developer: 2, security: 6 },
       caseStudy: {
         overview:
-          'University-wide learning dashboard — courses, gamified progress, community channels, and podcasts.',
+          'University-wide learning dashboard with courses, gamified progress, community channels, and podcasts.',
         problem:
           'UT Dallas needed a scalable platform with role-based access and security validation before release.',
         solution:
@@ -466,8 +475,8 @@ export const profile = {
       id: 'azure-honeypot-lab',
       title: 'Azure Honeypot & Threat Detection Lab',
       description:
-        'T-Pot honeypot on Azure generating 200+ SIEM events and 22+ IOCs from SSH brute-force and port-scan campaigns — log correlation, OSINT attribution, and Medium write-up.',
-      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'Threat intel'],
+        'T-Pot on Azure; 200+ SIEM events; 22+ unique IOCs from SSH brute-force and port-scan campaigns via log analysis and OSINT (WHOIS, geolocation).',
+      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'OSINT'],
       image: '/azure-honeypot-medium.png',
       demo: HONEYPOT_ARTICLE_URL,
       demoLabel: 'Write-up',
@@ -478,7 +487,7 @@ export const profile = {
         overview:
           'Azure-hosted T-Pot honeypot capturing real attack traffic for threat intelligence analysis.',
         problem:
-          'Need observable attack surface data — SSH brute-force, port scans, and IOC extraction.',
+          'Need observable attack surface data: SSH brute-force, port scans, and IOC extraction.',
         solution:
           'Deployed T-Pot on Azure VM with ElasticStack and Kibana for SIEM visualization.',
         architecture:
@@ -515,7 +524,7 @@ export const profile = {
       id: 'hipaa-hospital-system',
       title: 'HIPAA-Compliant Hospital Management System',
       description:
-        'HIPAA-aligned hospital platform on a Zero-Trust, six-portal architecture isolating PHI by role — AES-256-GCM encryption, PostgreSQL RLS, and OWASP/Burp validation. Manuscript in preparation with UT Dallas faculty.',
+        'Zero-Trust six-portal architecture isolating PHI by role; manuscript in preparation with UT Dallas faculty. Owned PostgreSQL schema, core APIs, AES-256-GCM app-level encryption; time-bound (72h) encrypted referral links; validated with ZAP/Burp/Postman.',
       stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'RBAC', 'AES-256-GCM', 'OWASP ZAP', 'Burp Suite'],
       image: '/careport-hipaa.png',
       github: 'https://github.com/AbIsheKVaIdyA/HIPPA',
@@ -553,7 +562,7 @@ export const profile = {
         ],
         securityConsiderations: [
           'HIPAA-aligned architecture; manuscript in preparation',
-          'AES-256-GCM — PHI unreadable if database is compromised',
+          'AES-256-GCM: PHI unreadable if database is compromised',
           'OWASP ZAP, Burp Suite, and Postman fuzzing validation',
           'Doctor-initiated referrals with time-bound encrypted links',
         ],
@@ -573,7 +582,7 @@ export const profile = {
       id: 'linkedin-social',
       title: 'LinkedIn-Style Social Platform',
       description:
-        'Social networking with profiles, connections, posts, and messaging — secure auth and scalable architecture.',
+        'Social networking with profiles, connections, posts, and messaging. Secure auth and scalable architecture.',
       stack: ['React', 'Next.js', 'Spring Boot', 'MongoDB', 'AWS', 'Docker'],
       image: '/linkedin.png',
       github: 'https://github.com/AbIsheKVaIdyA/linkedIn-clone',
@@ -616,7 +625,7 @@ export const profile = {
     },
     {
       id: 'cloudvault',
-      title: 'CloudVault — File Management',
+      title: 'CloudVault: File Management',
       description:
         'Dropbox-inspired storage: upload, share, folders, and secure authentication with cloud-backed storage.',
       stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'AWS S3', 'JWT'],
@@ -628,7 +637,7 @@ export const profile = {
       sortOrder: { developer: 4, security: 3 },
       caseStudy: {
         overview:
-          'Cloud file management — upload, share, folders, and JWT-authenticated access with S3 storage.',
+          'Cloud file management: upload, share, folders, and JWT-authenticated access with S3 storage.',
         problem:
           'Build Dropbox-style storage with secure file access and cloud-backed persistence.',
         solution:
@@ -661,9 +670,9 @@ export const profile = {
     },
     {
       id: 'moviefy',
-      title: 'Moviefy: AI-Powered Movie Discovery',
+      title: 'Moviefy (Pixelora)',
       description:
-        'AI-powered movie discovery with Gemini recommendations, playlists, and social sharing — optimized Next.js 14 architecture with Supabase RLS and high Lighthouse scores.',
+        'Gemini-powered recommendations, playlists, and sharing; cut page load ~5s via API optimization and lazy loading; SSR + Zustand + RLS.',
       stack: ['Next.js 14', 'Supabase', 'Gemini AI', 'Zustand'],
       image: '/moviefy-hero.png',
       github: MOVIEFY_REPO_URL,
@@ -716,7 +725,7 @@ export const profile = {
       id: 'pixelora',
       title: 'Pixelora',
       description:
-        'My product studio — client software, restaurant systems, and full-stack builds shipped to production.',
+        'My product studio. Client software, restaurant systems, and full-stack builds shipped to production.',
       link: 'https://www.pixelora.org/',
     },
   ],
@@ -726,76 +735,76 @@ export const profile = {
       id: 'comptia-security-plus',
       name: 'CompTIA Security+',
       issuer: 'CompTIA',
-      year: '2025',
+      year: 'Nov 2025 - Nov 2028',
       status: 'completed' as const,
       image: '/CompTIA Security+ ce certificate-1.png',
       link: '#',
-      clearance: 'L2 — VALIDATED',
+      clearance: 'CERTIFIED',
       featured: true,
     },
     {
       id: 'isc2-cc',
-      name: 'ISC2 Certified in Cybersecurity',
+      name: 'ISC2 Certified in Cybersecurity (CC)',
       issuer: 'ISC2',
-      year: '2025',
+      year: 'Dec 2025 - Dec 2028',
       status: 'completed' as const,
       image: '/digitalcert.jpg',
       link: '#',
-      clearance: 'L2 — VALIDATED',
+      clearance: 'CERTIFIED',
     },
     {
-      id: 'tryhackme-pentest',
-      name: 'TryHackMe — Penetration Testing',
+      id: 'tryhackme-top-1',
+      name: 'TryHackMe Top 1% Global',
       issuer: 'TryHackMe',
-      year: '2026',
-      status: 'in-progress' as const,
+      year: '2025',
+      status: 'completed' as const,
       image: null,
       link: 'https://tryhackme.com/',
-      clearance: 'IN PROGRESS',
-      pipelineNote: 'Currently working through this learning path',
+      clearance: 'TOP 1%',
+      featured: true,
     },
   ] satisfies CertificationEntry[],
 
   awards: [
     {
-      id: 'appreciation-cert',
-      title: 'Appreciation Certificate',
+      id: 'star-month-feb',
+      title: 'Star of the Month',
       company: 'Tata Consultancy Services',
-      year: '2024',
-      image: '/Appreciation_Certificate_page-0001.jpg',
-      category: 'Recognition',
-    },
-    {
-      id: 'best-team',
-      title: 'Best Team Award',
-      company: 'Tata Consultancy Services',
-      year: '2024',
-      image: '/Best_Team_Award_page-0001.jpg',
-      category: 'Teamwork',
+      year: 'Feb 2025',
+      image: '/Star_of_the_Month_Award_page-0001.jpg',
+      category: 'Individual Performance',
     },
     {
       id: 'on-the-spot',
-      title: 'On the Spot (Team) Award',
+      title: 'On the Spot (Team)',
       company: 'Tata Consultancy Services',
-      year: '2024',
+      year: 'Dec 2024',
       image: '/On_the_Spot_(Team)_Award_page-0001.jpg',
-      category: 'Recognition',
+      category: 'Emergency Production Support',
     },
     {
-      id: 'star-month',
-      title: 'Star of the Month Award',
+      id: 'star-month-oct',
+      title: 'Star of the Month',
       company: 'Tata Consultancy Services',
-      year: '2024',
+      year: 'Oct 2024',
       image: '/Star_of_the_Month_Award_page-0001.jpg',
-      category: 'Performance',
+      category: 'Individual Performance',
     },
     {
       id: 'star-team',
       title: 'Star Team Award',
       company: 'Tata Consultancy Services',
-      year: '2024',
+      year: 'Oct 2024',
       image: '/Star_Team_Award_pages-to-jpg-0001.jpg',
       category: 'Team Excellence',
+    },
+    {
+      id: 'best-team',
+      title: 'Best Team Award',
+      company: 'Tata Consultancy Services',
+      year: 'Jun 2024',
+      image: '/Best_Team_Award_page-0001.jpg',
+      category: 'Teamwork',
     },
   ],
 
@@ -804,7 +813,7 @@ export const profile = {
       eyebrow: '// capability.matrix',
       title: 'Technical skills',
       subtitle: {
-        developer: 'Frontend, backend, and cloud — with security depth underneath.',
+        developer: 'Frontend, backend, and cloud, with security depth underneath.',
         security: 'Offensive tooling, frameworks, and compliance-aware engineering.',
       },
     },
@@ -812,7 +821,7 @@ export const profile = {
       eyebrow: '// mission_log',
       title: 'Experience',
       subtitle: {
-        developer: 'Enterprise and university platforms — production delivery proof.',
+        developer: 'Enterprise and university platforms with production delivery proof.',
         security: 'Security-minded engineering across HR systems, university platforms, and labs.',
       },
     },

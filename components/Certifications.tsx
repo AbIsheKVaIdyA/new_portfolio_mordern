@@ -80,10 +80,11 @@ const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState<CertEntry | null>(null)
 
   const certifications = profile.certifications
-  const completed = certifications.filter((cert) => cert.status === 'completed')
-  const pipeline = certifications.filter((cert) => cert.status === 'in-progress')
+  const completed = certifications
+  const pipeline: typeof certifications = []
   const comptia = completed.find((c) => c.id === 'comptia-security-plus') ?? completed[0]
   const isc2 = completed.find((c) => c.id === 'isc2-cc')
+  const tryhackme = completed.find((c) => c.id === 'tryhackme-top-1')
 
   return (
     <section id="certifications" className="section-bg-alt container-custom relative">
@@ -134,7 +135,7 @@ const Certifications = () => {
                 </div>
                 <p className="mt-3 inline-flex items-center gap-2 font-mono text-[11px] text-muted-foreground">
                   <Clock3 className="size-3.5 text-primary/80" aria-hidden />
-                  {cert.pipelineNote ?? `Target year: ${cert.year}`}
+                  {(cert as any).pipelineNote ?? `Target year: ${cert.year}`}
                 </p>
               </motion.div>
             ))}
