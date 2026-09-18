@@ -34,15 +34,15 @@ export function SecurityHero() {
       <div className="grid-pattern pointer-events-none absolute inset-0" aria-hidden />
       <div className="security-scanlines pointer-events-none absolute inset-0 opacity-60" aria-hidden />
       <div
-        className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-primary/15 blur-[100px]"
+        className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-primary/10 blur-[120px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-24 bottom-1/4 h-64 w-64 rounded-full bg-accent/20 blur-[90px]"
+        className="pointer-events-none absolute -right-24 bottom-1/4 h-64 w-64 rounded-full bg-accent/8 blur-[100px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-border to-transparent"
         aria-hidden
       />
 
@@ -56,10 +56,9 @@ export function SecurityHero() {
           <motion.div variants={fade} transition={{ duration: 0.5 }}>
             <Badge
               variant="outline"
-              className="mb-6 border-primary/35 bg-primary/10 font-mono text-[10px] uppercase tracking-[0.2em] text-primary shadow-[0_0_24px_-4px_oklch(0.78_0.14_195/0.4)]"
+              className="mb-6 border-primary/30 bg-primary/5 font-medium text-xs tracking-wide text-primary"
             >
-              <span className="mr-2 inline-block size-1.5 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-              SESSION_ACTIVE · DALLAS, TX
+              Cybersecurity Engineer
             </Badge>
           </motion.div>
 
@@ -68,35 +67,24 @@ export function SecurityHero() {
             transition={{ duration: 0.5 }}
             className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            <span className="font-mono text-lg text-primary/90 sm:text-xl">
-              [ DEFEND · BUILD · SHIP ] <span className="cyber-blink">_</span>
-            </span>
-            <br />
-            <span className="mt-2 inline-block">
-              Hello, I&apos;m <span className="gradient-text">{hero.headline.replace(/\.$/, '')}</span>
+            <span className="gradient-text">
+              {hero.headline}
             </span>
           </motion.h1>
 
           <motion.h2
             variants={fade}
             transition={{ duration: 0.55 }}
-            className="mt-4 text-2xl font-medium text-muted-foreground sm:text-3xl"
-          >
-            I engineer secure, production-ready systems.
-          </motion.h2>
-
-          <motion.p
-            variants={fade}
-            transition={{ duration: 0.55 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="mt-6 text-xl font-normal text-muted-foreground sm:text-2xl lg:text-3xl"
           >
             {hero.subtitle}
-          </motion.p>
+          </motion.h2>
+
           {'supportingLine' in hero && hero.supportingLine ? (
             <motion.p
               variants={fade}
               transition={{ duration: 0.55 }}
-              className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+              className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
               {hero.supportingLine}
             </motion.p>
@@ -115,7 +103,7 @@ export function SecurityHero() {
               href="#projects"
               className={cn(
                 buttonVariants({ size: 'lg' }),
-                'inline-flex gap-2 rounded-lg shadow-[0_0_28px_-6px_oklch(0.78_0.14_195/0.45)] no-underline'
+                'inline-flex gap-2 bg-primary text-primary-foreground no-underline hover:bg-primary/90'
               )}
             >
               View Projects
@@ -125,7 +113,7 @@ export function SecurityHero() {
               download="Abhishek_Vaidya_Security.pdf"
               className={cn(
                 buttonVariants({ variant: 'outline', size: 'lg' }),
-                'inline-flex gap-2 rounded-lg border-primary/25 bg-background/50 no-underline hover:border-primary/45'
+                'inline-flex gap-2 no-underline'
               )}
             >
               <Download className="size-4" />
@@ -135,7 +123,7 @@ export function SecurityHero() {
               href="#contact"
               className={cn(
                 buttonVariants({ variant: 'ghost', size: 'lg' }),
-                'inline-flex gap-2 rounded-lg no-underline'
+                'inline-flex gap-2 no-underline'
               )}
             >
               <Mail className="size-4" />
@@ -146,14 +134,14 @@ export function SecurityHero() {
           <motion.ul
             variants={fade}
             transition={{ duration: 0.5 }}
-            className="mt-10 space-y-2 font-mono text-sm text-muted-foreground"
+            className="mt-10 space-y-2 text-sm text-muted-foreground"
           >
             {hero.stats.map((stat) => (
               <li key={stat.label} className="flex gap-3">
-                <span className="text-primary">▹</span>
+                <span className="text-primary">•</span>
                 <span>
-                  <span className="text-foreground">{stat.label}</span>
-                  {stat.detail ? <span className="text-muted-foreground"> — {stat.detail}</span> : null}
+                  <span className="font-medium text-foreground">{stat.label}</span>
+                  {stat.detail ? <span> — {stat.detail}</span> : null}
                 </span>
               </li>
             ))}
@@ -167,7 +155,7 @@ export function SecurityHero() {
           className="mx-auto mt-14 max-w-3xl"
         >
           <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            {'// toolchain_signal'}
+            Technology Stack
           </p>
           <TechStack />
         </motion.div>

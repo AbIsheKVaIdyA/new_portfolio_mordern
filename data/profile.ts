@@ -91,7 +91,8 @@ export interface ProjectEntry {
 
 export const profile = {
   identity: {
-    name: 'Abhishek Vaidya',
+    name: 'Abhishek Chayadri Vaidya',
+    displayName: 'Abhishek Vaidya',
     location: 'Dallas, TX',
     school: 'The University of Texas at Dallas',
     degree: 'M.S. Cybersecurity, Technology and Policy',
@@ -120,18 +121,18 @@ export const profile = {
 
   hero: {
     developer: {
-      headline: 'Abhishek Vaidya.',
+      headline: 'Abhishek Vaidya',
       subtitle:
-        'Full-stack developer building secure, production-grade web applications — React/Next.js frontends, Node.js and Spring Boot APIs, and PostgreSQL data layers.',
+        'Full-stack engineer who ships secure production software. TypeScript, React/Next.js, Java/Spring Boot, PostgreSQL.',
       supportingLine:
-        'M.S. Cybersecurity candidate at UT Dallas (GPA 3.89, graduating May 2027). Boeing HR platform experience at TCS (5× award recipient). Open to software engineering internships and co-ops.',
+        'M.S. Cybersecurity, UT Dallas (GPA 3.89, May 2027). Enterprise experience on Boeing\'s HR platform at TCS (5x award recipient). Seeking software engineering and cybersecurity internships / co-ops (CPT).',
     },
     security: {
-      headline: 'Abhishek Vaidya.',
+      headline: 'Abhishek Vaidya',
       subtitle:
-        'Cybersecurity M.S. student with enterprise security experience on Boeing\'s HR platform at TCS — RBAC, API hardening, and secure CI/CD gates.',
+        'Cybersecurity M.S. student (GPA 3.89) with enterprise security experience on Boeing\'s HR platform at TCS: RBAC, API hardening, secure CI/CD gates.',
       supportingLine:
-        'GPA 3.89 at UT Dallas (May 2027). CompTIA Security+ and ISC2 CC. TryHackMe Top 1%. 5× TCS award recipient; HIPAA manuscript in preparation with faculty.',
+        '5x TCS award recipient. TryHackMe Top 1%. HIPAA manuscript in preparation with UT Dallas faculty. CompTIA Security+ · ISC2 CC.',
     },
     stats: [
       {
@@ -146,7 +147,7 @@ export const profile = {
         label: '120+ tickets closed',
         detail: 'Jira & ServiceNow change packages ($5K–$30K each)',
       },
-      { label: '5× TCS award recipient', detail: 'Star of the Month ×2, Best Team ×2, On-the-Spot' },
+      { label: '5x TCS award recipient', detail: 'Star of the Month x2, Best Team x2, On-the-Spot' },
     ] satisfies StatChip[],
   },
 
@@ -157,8 +158,8 @@ export const profile = {
 
   about: {
     paragraphs: [
-      'Full-stack developer who builds secure, production-grade web applications end-to-end.',
-      'React/Next.js, Node.js & Spring Boot APIs, PostgreSQL — hardened by default. M.S. Cybersecurity at UT Dallas (GPA 3.89). Founder of Pixelora.',
+      'Full-stack engineer (TypeScript, React/Next.js, Java/Spring Boot, PostgreSQL) who ships secure production software.',
+      'M.S. Cybersecurity, UT Dallas (GPA 3.89, May 2027). Enterprise experience on Boeing\'s HR platform at TCS (5x award recipient). Founder of Pixelora.',
     ],
     focusAreas: [
       'Full-stack product delivery',
@@ -176,34 +177,24 @@ export const profile = {
   skills: {
     categories: [
       {
+        id: 'programming' as const,
+        title: 'Languages',
+        skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL'],
+      },
+      {
         id: 'frontend' as const,
         title: 'Frontend',
-        skills: ['React', 'Next.js 14', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'REST & GraphQL'],
+        skills: ['React', 'Next.js 14', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'Framer Motion', 'Zod', 'REST & GraphQL'],
       },
       {
         id: 'backend' as const,
-        title: 'Backend',
-        skills: ['Node.js', 'Express', 'Spring Boot', 'JWT', 'REST APIs', 'GraphQL', 'Microservices'],
-      },
-      {
-        id: 'programming' as const,
-        title: 'Programming Languages',
-        skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'SQL'],
+        title: 'Backend & Data',
+        skills: ['Node.js', 'Express', 'Spring Boot', 'JWT', 'Supabase', 'Firebase', 'PostgreSQL (RLS)', 'MongoDB', 'Redis'],
       },
       {
         id: 'cloud' as const,
-        title: 'Cloud',
-        skills: ['AWS', 'Azure', 'Vercel'],
-      },
-      {
-        id: 'databases' as const,
-        title: 'Databases',
-        skills: ['PostgreSQL (RLS)', 'MongoDB', 'Redis', 'Supabase', 'Firebase'],
-      },
-      {
-        id: 'devops' as const,
-        title: 'DevOps',
-        skills: ['Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Git', 'Jira', 'ServiceNow', 'Agile'],
+        title: 'Cloud & DevOps',
+        skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Vercel', 'Git', 'Agile'],
       },
       {
         id: 'security' as const,
@@ -211,8 +202,9 @@ export const profile = {
         skills: [
           'OWASP Top 10',
           'NIST CSF',
-          'Zero Trust',
+          'Secure Coding',
           'RBAC',
+          'Zero Trust',
           'HIPAA',
           'Burp Suite',
           'OWASP ZAP',
@@ -220,13 +212,9 @@ export const profile = {
           'SIEM (Elastic)',
           'Wireshark',
           'Nmap',
-          'Penetration testing',
+          'Threat Detection',
+          'Vulnerability Assessment',
         ],
-      },
-      {
-        id: 'ai' as const,
-        title: 'AI / ML',
-        skills: ['Google Gemini AI', 'AI-powered recommendations', 'SSR optimization'],
       },
     ],
     viewLayout: {
@@ -272,6 +260,26 @@ export const profile = {
       skills: ['Next.js', 'Supabase', 'PostgreSQL RLS', 'RBAC', 'Input validation'],
     },
     {
+      id: 'pixelora-founder',
+      type: 'work' as const,
+      title: 'Founder & Lead Developer',
+      company: 'Pixelora',
+      location: 'pixelora.org',
+      period: '2025 – Present',
+      featured: true,
+      bullets: [
+        {
+          text: 'Building RoamTribe (AI travel) and Moviefy (AI movie discovery) on Next.js/Supabase; ship client products as sole developer.',
+          tag: 'dev' as const,
+        },
+        {
+          text: 'Delivered a production restaurant management system (ordering, tables, payments) and multiple client sites (Next.js, TypeScript, Tailwind, Framer Motion).',
+          tag: 'dev' as const,
+        },
+      ],
+      skills: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Framer Motion', 'Product Development'],
+    },
+    {
       id: 'tcs-boeing',
       type: 'work' as const,
       title: 'Full Stack Developer',
@@ -279,27 +287,31 @@ export const profile = {
       client: 'The Boeing Company',
       location: 'Maharashtra, India',
       period: 'Feb 2024 – May 2025',
-      honor: '5× TCS Award Recipient',
+      honor: '5x TCS Award Recipient',
       impact: {
         label: 'SonarQube 90%+ gate',
         detail: 'Security quality gate on every production branch in CI/CD',
       },
       bullets: [
         {
-          text: 'Developed features across Boeing\'s core HR application (React, Spring Boot, SQL), implementing RBAC across 40+ REST endpoints — closing 6+ authorization gaps across frontend and backend.',
+          text: 'Closed 6+ authorization vulnerabilities by implementing RBAC across 40+ REST endpoints (React, Spring Boot, SQL) — role checks, role-filtered API responses, permission-gated UI.',
           tag: 'both' as const,
         },
         {
-          text: 'Redesigned legacy API endpoints to return minimal, role-scoped payloads; introduced lazy loading on data-heavy HR tables to reduce data exposure.',
+          text: 'Owned SonarQube security quality gate (90%+ threshold) in CI/CD for every production branch; remediated vulnerabilities and hotspots before release.',
           tag: 'security' as const,
         },
         {
-          text: 'Enforced a SonarQube quality gate (90%+ required) in CI/CD for every production branch, remediating vulnerabilities and hotspots before release.',
+          text: 'Cut data exposure and improved performance with role-scoped API payloads and lazy-loaded HR tables.',
           tag: 'security' as const,
         },
         {
-          text: 'Closed 120+ development and production tickets (Jira, ServiceNow) on change packages valued at $5K–$30K each; earned 2× Star of the Month and an On-the-Spot Award.',
+          text: 'Raised code quality across a 10+ person team via reusable components and secure coding standards in review.',
           tag: 'dev' as const,
+        },
+        {
+          text: 'Closed 120+ Jira/ServiceNow tickets on $5K–$30K change packages; 2x Star of the Month and On-the-Spot Award.',
+          tag: 'both' as const,
         },
       ],
       skills: ['React', 'Spring Boot', 'SQL', 'RBAC', 'SonarQube', 'Jira', 'ServiceNow'],
@@ -336,10 +348,6 @@ export const profile = {
           text: 'Coursework: Cyber Security Essentials, Data Security & Privacy, Digital Forensics & Incident Management, Conflict in Cyberspace.',
           tag: 'both' as const,
         },
-        {
-          text: 'Founder, Pixelora — product studio building and shipping real-world client software.',
-          tag: 'both' as const,
-        },
       ],
       skills: ['Cybersecurity', 'Digital Forensics', 'Data Security', 'Technology Policy'],
     },
@@ -365,7 +373,7 @@ export const profile = {
       id: 'walmart-ecommerce',
       title: 'Secure E-Commerce Platform',
       description:
-        'Production-grade commerce platform with catalog, cart, real-time inventory, and secure multi-user checkout — hardened against OWASP Top 10 with JWT auth and RBAC.',
+        'Catalog, cart, real-time inventory, and secure checkout; closed 16 OWASP Top 10 issues pre-launch (JWT, RBAC, CSRF/injection hardening).',
       stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
       image: '/walmart.png',
       github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
@@ -466,8 +474,8 @@ export const profile = {
       id: 'azure-honeypot-lab',
       title: 'Azure Honeypot & Threat Detection Lab',
       description:
-        'T-Pot honeypot on Azure generating 200+ SIEM events and 22+ IOCs from SSH brute-force and port-scan campaigns — log correlation, OSINT attribution, and Medium write-up.',
-      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'Threat intel'],
+        'T-Pot on Azure; 200+ SIEM events; 22+ unique IOCs from SSH brute-force and port-scan campaigns via log analysis and OSINT (WHOIS, geolocation).',
+      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'OSINT'],
       image: '/azure-honeypot-medium.png',
       demo: HONEYPOT_ARTICLE_URL,
       demoLabel: 'Write-up',
@@ -515,7 +523,7 @@ export const profile = {
       id: 'hipaa-hospital-system',
       title: 'HIPAA-Compliant Hospital Management System',
       description:
-        'HIPAA-aligned hospital platform on a Zero-Trust, six-portal architecture isolating PHI by role — AES-256-GCM encryption, PostgreSQL RLS, and OWASP/Burp validation. Manuscript in preparation with UT Dallas faculty.',
+        'Zero-Trust six-portal architecture isolating PHI by role; manuscript in preparation with UT Dallas faculty. Owned PostgreSQL schema, core APIs, AES-256-GCM app-level encryption; time-bound (72h) encrypted referral links; validated with ZAP/Burp/Postman.',
       stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'RBAC', 'AES-256-GCM', 'OWASP ZAP', 'Burp Suite'],
       image: '/careport-hipaa.png',
       github: 'https://github.com/AbIsheKVaIdyA/HIPPA',
@@ -661,9 +669,9 @@ export const profile = {
     },
     {
       id: 'moviefy',
-      title: 'Moviefy: AI-Powered Movie Discovery',
+      title: 'Moviefy (Pixelora)',
       description:
-        'AI-powered movie discovery with Gemini recommendations, playlists, and social sharing — optimized Next.js 14 architecture with Supabase RLS and high Lighthouse scores.',
+        'Gemini-powered recommendations, playlists, and sharing; cut page load ~5s via API optimization and lazy loading; SSR + Zustand + RLS.',
       stack: ['Next.js 14', 'Supabase', 'Gemini AI', 'Zustand'],
       image: '/moviefy-hero.png',
       github: MOVIEFY_REPO_URL,
