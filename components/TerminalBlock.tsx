@@ -4,9 +4,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
 const HIGHLIGHTS = [
-  { label: 'Full-Stack Engineer', detail: 'M.S. Cybersecurity @ UT Dallas (GPA 3.89)' },
-  { label: 'Production Stack', detail: 'React · Next.js 14 · Spring Boot · Supabase · PostgreSQL' },
-  { label: 'Recent Work', detail: 'UTD inventory platform · Boeing HR RBAC + SonarQube @ TCS' },
+  { label: 'Full-Stack Engineer', detail: 'M.S. Cybersecurity @ UT Dallas (GPA 3.89, May 2027)' },
+  { label: 'Production Stack', detail: 'React, Next.js 14, Spring Boot, Supabase, PostgreSQL' },
+  { label: 'Recent Work', detail: 'UTD inventory platform (Next.js/Supabase), Boeing HR RBAC + SonarQube @ TCS' },
 ]
 
 type TerminalBlockProps = {
