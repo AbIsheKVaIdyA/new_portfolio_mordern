@@ -123,16 +123,16 @@ export const profile = {
     developer: {
       headline: 'Abhishek Vaidya',
       subtitle:
-        'I build production software that stays secure by default. Full-stack with React/Next.js, Spring Boot/Node, plus the auth, RBAC, and CI/CD checks that keep things safe.',
+        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships / co-ops for Summer and Fall 2026 and Spring 2027.',
       supportingLine:
-        'M.S. Cybersecurity, UT Dallas (GPA 3.89, May 2027). Enterprise experience on Boeing\'s HR platform at TCS (5x award recipient). Open to Software Engineering and Cybersecurity internships and co-ops (F-1 CPT/OPT).',
+        'Dallas, TX · F-1 CPT/OPT available · M.S. Cybersecurity @ UT Dallas (GPA 3.89, May 2027) · CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
     },
     security: {
       headline: 'Abhishek Vaidya',
       subtitle:
-        'Cybersecurity M.S. student (GPA 3.89) with enterprise security experience on Boeing\'s HR platform at TCS: RBAC, API hardening, secure CI/CD gates.',
+        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships / co-ops for Summer and Fall 2026 and Spring 2027.',
       supportingLine:
-        '5x TCS award recipient. TryHackMe Top 1%. HIPAA manuscript in preparation with UT Dallas faculty. CompTIA Security+, ISC2 CC. Open to internships and co-ops.',
+        'Dallas, TX · F-1 CPT/OPT available · M.S. Cybersecurity @ UT Dallas (GPA 3.89, May 2027) · CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
     },
     stats: [
       {
@@ -178,41 +178,37 @@ export const profile = {
   skills: {
     categories: [
       {
-        id: 'programming' as const,
-        title: 'Languages',
-        skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL'],
-      },
-      {
-        id: 'frontend' as const,
-        title: 'Frontend',
-        skills: ['React', 'Next.js 14', 'Tailwind CSS', 'shadcn/ui', 'Zustand', 'Framer Motion', 'Zod', 'REST & GraphQL'],
-      },
-      {
-        id: 'backend' as const,
-        title: 'Backend & Data',
-        skills: ['Node.js', 'Express', 'Spring Boot', 'JWT', 'Supabase', 'Firebase', 'PostgreSQL (RLS)', 'MongoDB', 'Redis'],
-      },
-      {
-        id: 'cloud' as const,
-        title: 'Cloud & DevOps',
-        skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Vercel', 'Git', 'Agile'],
+        id: 'engineering' as const,
+        title: 'Engineering',
+        skills: [
+          'React',
+          'Next.js',
+          'TypeScript',
+          'Node.js',
+          'Spring Boot',
+          'PostgreSQL',
+          'AWS',
+          'Docker',
+          'CI/CD',
+          'Git',
+          'Supabase',
+          'REST APIs',
+        ],
       },
       {
         id: 'security' as const,
         title: 'Security',
         skills: [
-          'OWASP Top 10',
-          'NIST CSF',
-          'Secure Coding',
           'RBAC',
-          'Zero Trust',
-          'HIPAA',
+          'OWASP Top 10',
+          'SonarQube',
           'Burp Suite',
           'OWASP ZAP',
-          'SonarQube',
-          'SIEM (Elastic)',
+          'SIEM',
           'Wireshark',
           'Nmap',
+          'Zero Trust',
+          'HIPAA',
           'Threat Detection',
           'Vulnerability Assessment',
         ],
@@ -246,15 +242,15 @@ export const profile = {
       },
       bullets: [
         {
-          text: 'Built a Next.js/Supabase inventory app that pulled messy device data into one searchable system. Staff adopted it team-wide.',
-          tag: 'dev' as const,
-        },
-        {
-          text: 'Added Supabase auth and multi-role access, enforced with PostgreSQL Row-Level Security (supervisor-only alert exports).',
+          text: 'Built Next.js/Supabase inventory platform consolidating fragmented device data; adopted team-wide by university staff.',
           tag: 'both' as const,
         },
         {
-          text: 'Added input validation on forms and fixed over-permissive API endpoints across the app.',
+          text: 'Implemented multi-role auth with PostgreSQL Row-Level Security (supervisor-only exports).',
+          tag: 'both' as const,
+        },
+        {
+          text: 'Hardened app with input validation and fixed over-permissive API endpoints.',
           tag: 'security' as const,
         },
       ],
@@ -270,11 +266,11 @@ export const profile = {
       featured: true,
       bullets: [
         {
-          text: 'Building RoamTribe (AI travel + community for women traveling solo) and Moviefy (AI movie discovery on Next.js/Supabase).',
+          text: 'Building RoamTribe (AI travel + solo-travel community for women) and Moviefy (AI movie discovery) on Next.js/Supabase.',
           tag: 'dev' as const,
         },
         {
-          text: 'Sole developer on real client work, including a live restaurant system (ordering, tables, payments) and several client sites.',
+          text: 'Delivered production restaurant system (ordering, tables, payments) and multiple client sites as sole developer.',
           tag: 'dev' as const,
         },
       ],
@@ -295,24 +291,16 @@ export const profile = {
       },
       bullets: [
         {
-          text: 'Added RBAC across Boeing\'s core HR app on 40+ REST endpoints; closed 6+ auth gaps.',
+          text: 'Implemented RBAC across 40+ REST endpoints, closed 6+ authorization gaps (React, Spring Boot, SQL).',
           tag: 'both' as const,
         },
         {
-          text: 'Cut data exposure with smaller, role-scoped API payloads and lazy-loaded heavy HR tables.',
+          text: 'Owned SonarQube security gate (90%+) in CI/CD for every production branch.',
           tag: 'security' as const,
         },
         {
-          text: 'Owned the SonarQube security gate at 90%+ in CI/CD for every production branch.',
-          tag: 'security' as const,
-        },
-        {
-          text: 'Closed 120+ Jira/ServiceNow tickets on $5K-$30K change packages; received 2x Star of the Month and an On-the-Spot award for production support.',
+          text: 'Closed 120+ tickets on $5K-$30K change packages; 2x Star of the Month, On-the-Spot award (5x TCS awards total).',
           tag: 'both' as const,
-        },
-        {
-          text: 'Helped a 10+ person team with reusable components and secure coding habits in reviews.',
-          tag: 'dev' as const,
         },
       ],
       skills: ['React', 'Spring Boot', 'SQL', 'RBAC', 'SonarQube', 'Jira', 'ServiceNow'],
@@ -326,11 +314,11 @@ export const profile = {
       period: 'Mar 2022 - May 2022',
       bullets: [
         {
-          text: 'Hands-on labs in network security, firewall configuration, IDS/IPS, and vulnerability assessment using Palo Alto Networks tools.',
+          text: 'Completed hands-on labs in network security, IDS/IPS, and vulnerability assessment with Palo Alto Networks tools.',
           tag: 'security' as const,
         },
         {
-          text: 'Monitored traffic with Wireshark, Snort, and Nmap, detecting 8 simulated intrusions through packet-level analysis.',
+          text: 'Detected 8 simulated intrusions using Wireshark, Snort, and Nmap packet analysis.',
           tag: 'security' as const,
         },
       ],
@@ -371,308 +359,50 @@ export const profile = {
 
   projects: [
     {
-      id: 'walmart-ecommerce',
-      title: 'Secure E-Commerce Platform',
-      description:
-        'Catalog, cart, real-time inventory, and secure checkout; closed 16 OWASP Top 10 issues pre-launch (JWT, RBAC, CSRF/injection hardening).',
-      stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
-      image: '/walmart.png',
-      github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
-      demo: 'https://walmart-clone-jade.vercel.app/',
-      posture: 'PAYMENTS',
-      clearance: 'PUBLIC RELEASE',
-      sortOrder: { developer: 1, security: 5 },
-      caseStudy: {
-        overview:
-          'Production-grade commerce platform with product catalog, shopping cart, real-time inventory, and secure multi-user checkout.',
-        problem:
-          'Deliver a full e-commerce experience while hardening against OWASP Top 10 risks before launch.',
-        solution:
-          'React frontend with Node.js API, PostgreSQL/Supabase persistence, JWT authentication, and role-based access control.',
-        architecture:
-          'SPA with REST API, relational data store, JWT session layer, and RBAC-enforced checkout flows.',
-        architectureLayers: ['Browser', 'React', 'Node.js API', 'PostgreSQL', 'Supabase', 'JWT + RBAC'],
-        keyFeatures: [
-          'Product catalog and shopping cart',
-          'Real-time inventory tracking',
-          'Secure multi-user checkout',
-          'JWT authentication and RBAC',
-        ],
-        challenges: [
-          'Closing authentication and authorization gaps before production launch.',
-          'Balancing inventory consistency with concurrent checkout sessions.',
-        ],
-        securityConsiderations: [
-          'OWASP Top 10 hardening (CSRF, injection, broken authentication)',
-          'JWT auth and RBAC across checkout flows',
-          '16 vulnerabilities identified and closed pre-launch',
-        ],
-        metrics: [
-          '16 vulnerabilities closed pre-launch',
-          'OWASP Top 10 controls implemented',
-          'Live demo deployed on Vercel',
-        ],
-        lessonsLearned: [
-          'Security review before launch is cheaper than post-incident remediation.',
-          'RBAC should be enforced at both API and UI layers from day one.',
-        ],
-        categories: ['developer', 'fullstack', 'cloud', 'security'],
-      },
-    },
-    {
-      id: 'utd-learning-platform',
-      title: 'UpSkillr: UTD Learning Platform',
-      description:
-        'University-wide student learning dashboard at UT Dallas with structured courses, gamified progress, built-in community channels, and educational podcasts. Built with Next.js 14, Clerk RBAC, and Docker CI/CD with Burp Suite security gates.',
-      stack: ['Next.js 14', 'React', 'Firebase', 'Clerk', 'RBAC', 'Docker CI/CD', 'Burp Suite'],
-      image: '/utd-upskillr.png',
-      github: 'https://github.com/AbIsheKVaIdyA/VirtualLabFinal',
-      demo: 'https://virtual-lab-xi.vercel.app/',
-      demoLabel: 'Live',
-      posture: 'RBAC + AUTH',
-      clearance: 'ACADEMIC',
-      sortOrder: { developer: 2, security: 6 },
-      caseStudy: {
-        overview:
-          'University-wide learning dashboard with courses, gamified progress, community channels, and podcasts.',
-        problem:
-          'UT Dallas needed a scalable platform with role-based access and security validation before release.',
-        solution:
-          'Next.js 14 app with Clerk RBAC, Firebase backend, and Docker CI/CD with Burp Suite gates.',
-        architecture:
-          'SSR frontend with managed auth, document store, and automated security scanning in the pipeline.',
-        architectureLayers: ['Browser', 'Next.js 14', 'Clerk Auth', 'Firebase', 'Docker CI/CD', 'Burp Suite'],
-        keyFeatures: [
-          'Multi-role RBAC (students, faculty, admins)',
-          'Gamified course progress',
-          'Community channels and podcasts',
-          'Automated security scans in CI/CD',
-        ],
-        challenges: [
-          'Designing RBAC across three distinct user personas.',
-          'Integrating security tooling without slowing deployment velocity.',
-        ],
-        securityConsiderations: [
-          'Clerk authentication and session management',
-          'RBAC with least-privilege access',
-          'Hardened auth flow and input validation against OWASP Top 10',
-          '35% fewer deployment incidents via security gates',
-        ],
-        metrics: [
-          '70% faster content publishing',
-          '60% faster page/API loads',
-          'Hardened auth flow and input validation against OWASP Top 10',
-          '35% fewer deployment incidents',
-        ],
-        lessonsLearned: [
-          'Security gates in CI/CD catch issues before they reach production.',
-          'Role separation early prevents costly access-control refactors.',
-        ],
-        categories: ['developer', 'security', 'fullstack', 'cloud'],
-      },
-    },
-    {
-      id: 'azure-honeypot-lab',
-      title: 'Azure Honeypot & Threat Detection Lab',
-      description:
-        'T-Pot on Azure; 200+ SIEM events; 22+ unique IOCs from SSH brute-force and port-scan campaigns via log analysis and OSINT (WHOIS, geolocation).',
-      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM', 'OSINT'],
-      image: '/azure-honeypot-medium.png',
-      demo: HONEYPOT_ARTICLE_URL,
-      demoLabel: 'Write-up',
-      posture: 'THREAT INTEL',
-      clearance: 'LAB ENV',
-      sortOrder: { developer: 7, security: 1 },
-      caseStudy: {
-        overview:
-          'Azure-hosted T-Pot honeypot capturing real attack traffic for threat intelligence analysis.',
-        problem:
-          'Need observable attack surface data: SSH brute-force, port scans, and IOC extraction.',
-        solution:
-          'Deployed T-Pot on Azure VM with ElasticStack and Kibana for SIEM visualization.',
-        architecture:
-          'Public-facing honeypot feeding logs into ElasticStack with Kibana dashboards for analysis.',
-        architectureLayers: ['Attackers', 'T-Pot Honeypot', 'Azure VM', 'ElasticStack', 'Kibana SIEM'],
-        keyFeatures: [
-          'Live attack traffic capture on Azure',
-          'ElasticStack log correlation',
-          'IOC extraction and OSINT attribution',
-          'Threat-intelligence workflow published on Medium',
-        ],
-        challenges: [
-          'Isolating lab environment from production infrastructure.',
-          'Correlating high-volume logs into actionable IOCs with OSINT (WHOIS, geolocation).',
-        ],
-        securityConsiderations: [
-          'Isolated lab environment (LAB ENV)',
-          'SSH brute-force and port-scan detection',
-          'OSINT-based attacker IP attribution',
-        ],
-        metrics: [
-          '200+ SIEM events captured',
-          '22+ unique IOCs identified',
-          'Full workflow documented on Medium',
-        ],
-        lessonsLearned: [
-          'Honeypots surface attack patterns textbooks cannot replicate.',
-          'OSINT attribution turns raw IPs into actionable threat intelligence.',
-        ],
-        categories: ['security', 'cloud'],
-      },
-    },
-    {
       id: 'hipaa-hospital-system',
       title: 'HIPAA-Compliant Hospital Management System',
       description:
-        'Zero-Trust six-portal architecture isolating PHI by role; manuscript in preparation with UT Dallas faculty. Owned PostgreSQL schema, core APIs, AES-256-GCM app-level encryption; time-bound (72h) encrypted referral links; validated with ZAP/Burp/Postman.',
-      stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'RBAC', 'AES-256-GCM', 'OWASP ZAP', 'Burp Suite'],
+        'Zero-Trust six-portal architecture isolating PHI by role. AES-256-GCM encryption, PostgreSQL RLS. Manuscript in preparation with UT Dallas faculty.',
+      stack: ['Next.js', 'Supabase', 'PostgreSQL', 'TypeScript', 'AES-256-GCM'],
       image: '/careport-hipaa.png',
       github: 'https://github.com/AbIsheKVaIdyA/HIPPA',
       demo: 'https://hipaa-app.vercel.app/',
       demoLabel: 'Live',
       posture: 'COMPLIANCE',
       clearance: 'PROTECTED',
-      sortOrder: { developer: 8, security: 2 },
-      caseStudy: {
-        overview:
-          'Co-developed a HIPAA-aligned hospital platform in a 4-person team on a Zero-Trust, six-portal architecture isolating PHI by role.',
-        problem:
-          'Healthcare workflows require strict PHI protection, role separation, and compliance validation across multiple portals.',
-        solution:
-          'Next.js with Supabase/PostgreSQL, AES-256-GCM application-level encryption, PostgreSQL RLS, and doctor-initiated referral module with time-bound links.',
-        architecture:
-          'Multi-portal frontend with encrypted data layer, RLS-enforced backend, and security testing pipeline.',
-        architectureLayers: [
-          'Browser',
-          'Next.js',
-          'Supabase API',
-          'PostgreSQL + RLS',
-          'AES-256-GCM',
-          'OWASP ZAP / Burp Suite',
-        ],
-        keyFeatures: [
-          'Six-portal Zero-Trust PHI isolation',
-          'AES-256-GCM application-level encryption',
-          'PostgreSQL Row-Level Security policies',
-          '72-hour encrypted referral links',
-        ],
-        challenges: [
-          'Designing complete PostgreSQL schema and hospital management APIs.',
-          'Validating RLS enforcement through Postman API fuzzing.',
-        ],
-        securityConsiderations: [
-          'HIPAA-aligned architecture; manuscript in preparation',
-          'AES-256-GCM: PHI unreadable if database is compromised',
-          'OWASP ZAP, Burp Suite, and Postman fuzzing validation',
-          'Doctor-initiated referrals with time-bound encrypted links',
-        ],
-        metrics: [
-          '6-portal Zero-Trust architecture',
-          'AES-256-GCM encryption layer',
-          'OWASP ZAP + Burp Suite validation',
-        ],
-        lessonsLearned: [
-          'Application-level encryption adds defense even if the database is breached.',
-          'RLS policies must be validated with API-level fuzzing, not assumptions.',
-        ],
-        categories: ['security', 'fullstack', 'cloud'],
-      },
+      sortOrder: { developer: 1, security: 1 },
     },
     {
-      id: 'linkedin-social',
-      title: 'LinkedIn-Style Social Platform',
+      id: 'azure-honeypot-lab',
+      title: 'Azure Honeypot & Threat Detection Lab',
       description:
-        'Social networking with profiles, connections, posts, and messaging. Secure auth and scalable architecture.',
-      stack: ['React', 'Next.js', 'Spring Boot', 'MongoDB', 'AWS', 'Docker'],
-      image: '/linkedin.png',
-      github: 'https://github.com/AbIsheKVaIdyA/linkedIn-clone',
-      demo: 'https://linkedin-clone-zeta-one.vercel.app/',
-      posture: 'AUTH + DATA',
-      clearance: 'PUBLIC RELEASE',
-      sortOrder: { developer: 3, security: 4 },
-      caseStudy: {
-        overview:
-          'Social networking platform with profiles, connections, posts, and real-time messaging.',
-        problem:
-          'Deliver scalable social features with secure authentication and reliable data persistence.',
-        solution:
-          'React/Next.js frontend with Spring Boot API, MongoDB storage, and AWS deployment.',
-        architecture:
-          'SPA with Java backend, document database, and cloud-hosted containerized services.',
-        architectureLayers: ['Browser', 'React / Next.js', 'Spring Boot API', 'MongoDB', 'AWS', 'Docker'],
-        keyFeatures: [
-          'User profiles and connections',
-          'Post feed and interactions',
-          'Direct messaging',
-          'Dockerized deployment',
-        ],
-        challenges: [
-          'Balancing real-time messaging with scalable API design.',
-          'Managing auth sessions across frontend and backend boundaries.',
-        ],
-        securityConsiderations: [
-          'Secure authentication and session management',
-          'Input validation on API endpoints',
-          'Auth + data posture controls',
-        ],
-        metrics: ['Dockerized AWS deployment', 'Spring Boot + MongoDB stack', 'Live demo on Vercel'],
-        lessonsLearned: [
-          'Clear API contracts between SPA and backend reduce integration bugs.',
-          'Containerization simplifies environment parity across dev and prod.',
-        ],
-        categories: ['developer', 'fullstack', 'cloud'],
-      },
+        'T-Pot on Azure; 200+ SIEM events; 22+ unique IOCs from SSH brute-force and port-scan campaigns.',
+      stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM'],
+      image: '/azure-honeypot-medium.png',
+      demo: HONEYPOT_ARTICLE_URL,
+      demoLabel: 'Write-up',
+      posture: 'THREAT INTEL',
+      clearance: 'LAB ENV',
+      sortOrder: { developer: 2, security: 2 },
     },
     {
-      id: 'cloudvault',
-      title: 'CloudVault: File Management',
+      id: 'walmart-ecommerce',
+      title: 'Secure E-Commerce Platform',
       description:
-        'Dropbox-inspired storage: upload, share, folders, and secure authentication with cloud-backed storage.',
-      stack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'AWS S3', 'JWT'],
-      image: '/dropbox.png',
-      github: 'https://github.com/AbIsheKVaIdyA/CloudVault-File-Management',
-      demo: 'https://dropbox-clone-eta.vercel.app/',
-      posture: 'STORAGE',
+        'Production e-commerce with catalog, cart, real-time inventory. Closed 16 OWASP Top 10 issues pre-launch.',
+      stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
+      image: '/walmart.png',
+      github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
+      demo: 'https://walmart-clone-jade.vercel.app/',
+      posture: 'PAYMENTS',
       clearance: 'PUBLIC RELEASE',
-      sortOrder: { developer: 4, security: 3 },
-      caseStudy: {
-        overview:
-          'Cloud file management: upload, share, folders, and JWT-authenticated access with S3 storage.',
-        problem:
-          'Build Dropbox-style storage with secure file access and cloud-backed persistence.',
-        solution:
-          'React frontend with Express API, MongoDB metadata, AWS S3 blobs, and JWT authentication.',
-        architecture:
-          'Web client with REST API, document metadata store, object storage, and token-based auth.',
-        architectureLayers: ['Browser', 'React', 'Express API', 'MongoDB', 'AWS S3', 'JWT Auth'],
-        keyFeatures: [
-          'File upload and download',
-          'Folder organization',
-          'Secure file sharing',
-          'Cloud-backed S3 storage',
-        ],
-        challenges: [
-          'Separating file metadata from blob storage efficiently.',
-          'Enforcing access control on shared file links.',
-        ],
-        securityConsiderations: [
-          'JWT authentication',
-          'Secure file access controls',
-          'Storage posture with encrypted transit',
-        ],
-        metrics: ['AWS S3 cloud storage', 'JWT authentication', 'Live demo deployed'],
-        lessonsLearned: [
-          'Object storage + metadata DB is the right split for file systems.',
-          'JWT scopes should map directly to file/folder permissions.',
-        ],
-        categories: ['developer', 'fullstack', 'cloud'],
-      },
+      sortOrder: { developer: 3, security: 3 },
     },
     {
       id: 'moviefy',
       title: 'Moviefy (Pixelora)',
       description:
-        'Gemini-powered recommendations, playlists, and sharing; cut page load ~5s via API optimization and lazy loading; SSR + Zustand + RLS.',
+        'AI movie discovery with Gemini recommendations, playlists, sharing. Cut page load ~5s via optimization.',
       stack: ['Next.js 14', 'Supabase', 'Gemini AI', 'Zustand'],
       image: '/moviefy-hero.png',
       github: MOVIEFY_REPO_URL,
@@ -680,43 +410,7 @@ export const profile = {
       demoLabel: 'Live',
       posture: 'AI + RECS',
       clearance: 'PUBLIC RELEASE',
-      sortOrder: { developer: 5, security: 8 },
-      caseStudy: {
-        overview:
-          'Movie discovery app with behavior-based Gemini recommendations, trial modes, playlists, and social sharing.',
-        problem:
-          'Users waste time scrolling across streaming catalogs without a fast, personalized pick.',
-        solution:
-          'Next.js 14 with Gemini AI personalization, Supabase persistence with RLS, and Zustand client state.',
-        architecture:
-          'SSR frontend with dynamic routing, Supabase API layer, Gemini recommendation service, and RLS-enforced data access.',
-        architectureLayers: ['Browser', 'Next.js 14', 'Zustand', 'Supabase', 'Gemini AI', 'RLS'],
-        keyFeatures: [
-          'Google Gemini AI for behavior-based personalized recommendations',
-          'Trial modes, playlist creation, and social sharing',
-          'Optimized API calls and lazy loading (~5s faster page loads)',
-          'Modular SSR architecture with dynamic routing and Supabase RLS',
-        ],
-        challenges: [
-          'Balancing Gemini API latency with responsive UI through caching and lazy loading.',
-          'Designing RLS policies that support playlists and shared taste profiles.',
-        ],
-        securityConsiderations: [
-          'Supabase Row-Level Security on user playlists and taste data',
-          'Input validation on recommendation and sharing flows',
-          'Secure session handling for authenticated features',
-        ],
-        metrics: [
-          '~5s faster page loads via API optimization and lazy loading',
-          'High Lighthouse performance scores',
-          'SSR + dynamic routing with Supabase RLS',
-        ],
-        lessonsLearned: [
-          'Lazy loading and request batching matter as much as model quality for perceived speed.',
-          'RLS should be designed alongside feature schemas, not bolted on later.',
-        ],
-        categories: ['developer', 'fullstack', 'cloud', 'ai'],
-      },
+      sortOrder: { developer: 4, security: 4 },
     },
   ] satisfies ProjectEntry[],
 

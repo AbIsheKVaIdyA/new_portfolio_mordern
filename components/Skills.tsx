@@ -182,7 +182,7 @@ const Skills = () => {
                     title={category.title}
                     skills={category.skills}
                     categoryId={category.id}
-                    large={category.id === 'frontend' || category.id === 'backend'}
+                    large={false}
                     index={index}
                   />
                 ))}
