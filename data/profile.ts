@@ -4,12 +4,7 @@ export type ViewMode = 'developer' | 'security'
 export const AVAILABILITY_MESSAGE =
   'Open to Software Engineering and Cybersecurity internships and co-ops for Summer and Fall 2026 and Spring 2027 (F-1 CPT/OPT)'
 
-// Project URL constants (edit here when repos or demos change)
-export const HONEYPOT_ARTICLE_URL =
-  'https://medium.com/@abhishekcv.us/building-a-cloud-hosted-honeypot-with-t-pot-on-microsoft-azure-a-hands-on-cybersecurity-project-8af5fd57ed4a'
-
-export const MOVIEFY_LIVE_URL = 'https://moviefy-gules.vercel.app/'
-export const MOVIEFY_REPO_URL = 'https://github.com/AbIsheKVaIdyA/moviefy'
+// Project URL constants removed - all URLs now inline in projects array for clarity
 
 export type BulletTag = 'dev' | 'security' | 'both'
 
@@ -83,6 +78,7 @@ export interface ProjectEntry {
   demo?: string
   demoLabel?: string
   privateRepo?: boolean
+  mediumArticle?: string
   posture: string
   clearance: string
   sortOrder: Record<ViewMode, number>
@@ -223,7 +219,7 @@ export const profile = {
       location: 'Texas, on-site',
       period: 'Nov 2025 - Present',
       featured: true,
-      flagshipBadge: 'adopted team-wide by university staff',
+      flagshipBadge: 'adopted team-wide by university staff · live at inventory-six-chi-82.vercel.app',
       impact: {
         label: 'Inventory platform',
         detail: 'Consolidated fragmented device datasets into one searchable system',
@@ -371,7 +367,7 @@ export const profile = {
         'T-Pot on Azure; 200+ SIEM events; 22+ unique IOCs from SSH brute-force and port-scan campaigns.',
       stack: ['Microsoft Azure', 'T-Pot', 'ElasticStack', 'Kibana', 'SIEM'],
       image: '/azure-honeypot-medium.png',
-      demo: HONEYPOT_ARTICLE_URL,
+      demo: 'https://medium.com/@abhishekcv.us/building-a-cloud-hosted-honeypot-with-t-pot-on-microsoft-azure-a-hands-on-cybersecurity-project-8af5fd57ed4a',
       demoLabel: 'Write-up',
       posture: 'THREAT INTEL',
       clearance: 'LAB ENV',
@@ -384,8 +380,10 @@ export const profile = {
         'Production e-commerce with catalog, cart, real-time inventory. Closed 16 OWASP Top 10 issues pre-launch.',
       stack: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'JWT', 'RBAC'],
       image: '/walmart.png',
-      github: 'https://github.com/AbIsheKVaIdyA/Secure-E-Commerce-Platform',
+      github: 'https://github.com/AbIsheKVaIdyA/Walmart-Clone',
       demo: 'https://walmart-clone-jade.vercel.app/',
+      demoLabel: 'Live',
+      mediumArticle: 'https://medium.com/@abhishekcv.us/secure-walmart-style-e-commerce-platform-full-stack-cybersecurity-implementation-de6330f33566',
       posture: 'PAYMENTS',
       clearance: 'PUBLIC RELEASE',
       sortOrder: { developer: 3, security: 3 },
@@ -397,8 +395,8 @@ export const profile = {
         'AI movie discovery with Gemini recommendations, playlists, sharing. Cut page load ~5s via optimization.',
       stack: ['Next.js 14', 'Supabase', 'Gemini AI', 'Zustand'],
       image: '/moviefy-hero.png',
-      github: MOVIEFY_REPO_URL,
-      demo: MOVIEFY_LIVE_URL,
+      github: 'https://github.com/AbIsheKVaIdyA/moviefy',
+      demo: 'https://moviefy-gules.vercel.app/',
       demoLabel: 'Live',
       posture: 'AI + RECS',
       clearance: 'PUBLIC RELEASE',
