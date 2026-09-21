@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Download, Mail } from 'lucide-react'
 import TechStack from '@/components/TechStack'
-import { TerminalBlock } from '@/components/TerminalBlock'
 import { getHeroForView, getResumeForView } from '@/lib/profile-helpers'
 import { buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -89,10 +88,6 @@ export function SecurityHero() {
               {hero.supportingLine}
             </motion.p>
           ) : null}
-
-          <motion.div variants={fade} transition={{ duration: 0.45 }}>
-            <TerminalBlock />
-          </motion.div>
 
           <motion.div
             variants={fade}
