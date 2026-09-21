@@ -254,19 +254,19 @@ export const profile = {
       featured: true,
       bullets: [
         {
-          text: 'Building RoamTribe (AI travel + community for women traveling solo) and Moviefy (AI movie discovery) on Next.js/Supabase.',
+          text: 'Shipped Moviefy, an AI movie-discovery app on Next.js/Supabase with Gemini recommendations; cut page load by about 5s through API optimization and lazy loading.',
           tag: 'both' as const,
         },
         {
-          text: 'Delivered a production restaurant management system (ordering, tables, payments) and multiple client sites as sole developer.',
+          text: 'Built and still run a live restaurant management system for a real client (VD Cafe): menu ordering, table management, and payments, used by customers in production (React, Node.js, MongoDB).',
           tag: 'both' as const,
         },
         {
-          text: 'Shipping client software with security treated as default in delivery.',
+          text: 'Building RoamTribe, an AI travel product with personalized itineraries and a solo-travel community for women, while delivering multiple client websites end-to-end as sole developer.',
           tag: 'both' as const,
         },
       ],
-      skills: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Framer Motion', 'Product Development'],
+      skills: ['Next.js', 'TypeScript', 'Supabase', 'React', 'Node.js', 'MongoDB', 'Gemini AI', 'Product Development'],
     },
     {
       id: 'tcs-boeing',
