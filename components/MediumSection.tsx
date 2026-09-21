@@ -6,7 +6,6 @@ import { ArrowUpRight, BookOpen } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Badge } from '@/components/ui/badge'
-import { HONEYPOT_ARTICLE_URL } from '@/data/profile'
 
 type Post = {
   title: string
@@ -21,7 +20,7 @@ const MEDIUM_ARTICLES: Post[] = [
   {
     title:
       'Building a Cloud-Hosted Honeypot with T-Pot on Microsoft Azure: A Hands-On Cybersecurity Project',
-    link: HONEYPOT_ARTICLE_URL,
+    link: 'https://medium.com/@abhishekcv.us/building-a-cloud-hosted-honeypot-with-t-pot-on-microsoft-azure-a-hands-on-cybersecurity-project-8af5fd57ed4a',
     pubDate: '2026-03-29',
     snippet:
       'Deploying a honeypot reveals how attackers behave in the wild — SIEM events, IOC extraction, and OSINT attribution on Azure.',
