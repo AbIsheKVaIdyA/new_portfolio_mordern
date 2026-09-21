@@ -97,8 +97,8 @@ export function RecruiterCTA() {
                 href={resumeUrl}
                 download={
                   view === 'developer'
-                    ? 'Abhishek_Vaidya_Developer.pdf'
-                    : 'Abhishek_Vaidya_Security.pdf'
+                    ? 'Abhishek_Vaidya_SWE_Resume.pdf'
+                    : 'Abhishek_Vaidya_Security_Resume.pdf'
                 }
                 className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2.5 text-xs font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
               >

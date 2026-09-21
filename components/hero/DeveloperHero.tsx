@@ -7,6 +7,7 @@ import { getHeroForView, getResumeForView } from '@/lib/profile-helpers'
 import { buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
+import { profile } from '@/data/profile'
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -84,17 +85,15 @@ export function DeveloperHero() {
             transition={{ duration: 0.55 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            {'supportingLine' in hero && hero.supportingLine ? `${hero.supportingLine} ` : ''}
-            Founder of{' '}
-            <a
-              href="https://www.pixelora.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline-offset-4 hover:underline"
-            >
-              Pixelora
-            </a>
-            .
+            {'supportingLine' in hero && hero.supportingLine ? hero.supportingLine : ''}
+          </motion.p>
+
+          <motion.p
+            variants={fade}
+            transition={{ duration: 0.55 }}
+            className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+          >
+            {'certs' in hero && hero.certs ? hero.certs : ''}
           </motion.p>
 
           <motion.div
@@ -103,52 +102,73 @@ export function DeveloperHero() {
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
             <a
-              href="#projects"
+              href={resumeUrl}
+              download="Abhishek_Vaidya_SWE_Resume.pdf"
               className={cn(
                 buttonVariants({ size: 'lg' }),
                 'inline-flex gap-2 bg-primary text-primary-foreground no-underline hover:bg-primary/90'
-              )}
-            >
-              View Projects
-            </a>
-            <a
-              href={resumeUrl}
-              download="Abhishek_Vaidya_Developer.pdf"
-              className={cn(
-                buttonVariants({ variant: 'outline', size: 'lg' }),
-                'inline-flex gap-2 no-underline'
               )}
             >
               <Download className="size-4" />
               Download Resume
             </a>
             <a
-              href="#contact"
+              href={`mailto:${profile.contact.email}`}
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'lg' }),
+                'inline-flex gap-2 no-underline'
+              )}
+            >
+              <Mail className="size-4" />
+              Email
+            </a>
+            <a
+              href={profile.identity.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'lg' }),
+                'inline-flex gap-2 no-underline'
+              )}
+            >
+              LinkedIn
+            </a>
+            <a
+              href={profile.identity.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'lg' }),
+                'inline-flex gap-2 no-underline'
+              )}
+            >
+              GitHub
+            </a>
+            <a
+              href={`tel:${profile.contact.phone}`}
               className={cn(
                 buttonVariants({ variant: 'ghost', size: 'lg' }),
                 'inline-flex gap-2 no-underline'
               )}
             >
-              <Mail className="size-4" />
-              Contact
+              Phone
             </a>
           </motion.div>
 
-          <motion.ul
+          <motion.p
             variants={fade}
             transition={{ duration: 0.5 }}
-            className="mt-10 space-y-2 text-sm text-muted-foreground"
+            className="mt-6 text-sm text-muted-foreground"
           >
-            {hero.stats.map((stat) => (
-              <li key={stat.label} className="flex gap-3">
-                <span className="text-primary">•</span>
-                <span>
-                  <span className="font-medium text-foreground">{stat.label}</span>
-                  {stat.detail ? <span> — {stat.detail}</span> : null}
-                </span>
-              </li>
-            ))}
-          </motion.ul>
+            Also available:{' '}
+            <a
+              href={profile.identity.links.resumeSecurity}
+              download="Abhishek_Vaidya_Security_Resume.pdf"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              Security Resume
+            </a>
+          </motion.p>
         </motion.div>
 
         <motion.div

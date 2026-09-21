@@ -77,76 +77,22 @@ function AwardThumb({
 }
 
 const Awards = () => {
-  const [selectedAward, setSelectedAward] = useState<(typeof AWARDS)[number] | null>(null)
-  const [reduceMotion, setReduceMotion] = useState(false)
-
-  useEffect(() => {
-    setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
-
-  const loop = [...AWARDS, ...AWARDS]
-
   return (
     <section id="awards" className="section-bg container-custom">
       <div className="container-wide">
         <SectionHeading
           eyebrow="// intel.artifacts"
-          title="Awards & attestations"
-          subtitle="Recognition from TCS — hover the strip to pause the scroll. Click any tile for full certificate view."
+          title="Awards"
+          subtitle="Recognition from TCS"
           cyber
         />
 
-        {!reduceMotion && (
-          <p className="mb-4 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            ◈ live_feed — hover to hold ◈
+        <div className="mx-auto max-w-2xl">
+          <p className="text-center text-base leading-relaxed text-muted-foreground">
+            Star of the Month x2 (Oct 2024, Feb 2025) · On the Spot (Team) Dec 2024 · Star Team Oct 2024 · Best Team Jun 2024
           </p>
-        )}
-
-        {reduceMotion ? (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {AWARDS.map((award, index) => (
-              <motion.div
-                key={award.title}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.05 }}
-              >
-                <AwardThumb layout="grid" award={award} onOpen={() => setSelectedAward(award)} />
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <div className="relative -mx-4 overflow-hidden py-2 sm:mx-0">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-20" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent sm:w-20" />
-            <div className="cyber-marquee flex w-max gap-5 pl-4 sm:gap-6 sm:pl-0">
-              {loop.map((award, i) => (
-                <AwardThumb key={`${award.title}-${i}`} award={award} onOpen={() => setSelectedAward(award)} />
-              ))}
-            </div>
-          </div>
-        )}
+        </div>
       </div>
-
-      <Dialog open={!!selectedAward} onOpenChange={(open) => !open && setSelectedAward(null)}>
-        <DialogContent className="flex max-h-[95vh] w-[min(98vw,72rem)] max-w-[min(98vw,72rem)] flex-col gap-3 overflow-hidden border-primary/20 bg-card p-3 sm:p-4">
-          {selectedAward && (
-            <>
-              <DialogHeader className="shrink-0 px-1">
-                <DialogTitle className="text-left text-base sm:text-lg">{selectedAward.title}</DialogTitle>
-              </DialogHeader>
-              <div className="min-h-0 flex-1 overflow-auto rounded-lg border border-border/40 bg-background/50 p-2 sm:p-3">
-                <img
-                  src={selectedAward.image}
-                  alt={selectedAward.title}
-                  className="mx-auto h-auto max-h-[calc(95vh-6rem)] w-full object-contain"
-                />
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   )
 }
