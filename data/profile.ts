@@ -99,8 +99,8 @@ export const profile = {
     links: {
       github: 'https://github.com/AbIsheKVaIdyA',
       linkedin: 'https://www.linkedin.com/in/abhishek-vaidya-73075424a/',
-      resumeDeveloper: '/Abhishek_Vaidya_Developer.pdf',
-      resumeSecurity: '/Abhishek_Vaidya_Security.pdf',
+      resumeDeveloper: '/resumes/Abhishek_Vaidya_SWE_Resume.pdf',
+      resumeSecurity: '/resumes/Abhishek_Vaidya_Security_Resume.pdf',
       medium: 'https://medium.com/@abhishekcv.us',
     },
   },
@@ -123,32 +123,20 @@ export const profile = {
     developer: {
       headline: 'Abhishek Vaidya',
       subtitle:
-        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships / co-ops for Summer and Fall 2026 and Spring 2027.',
+        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships and co-ops for Summer and Fall 2026 and Spring 2027.',
       supportingLine:
-        'Dallas, TX · F-1 CPT/OPT available · M.S. Cybersecurity @ UT Dallas (GPA 3.89, May 2027) · CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
+        'Dallas, TX · F-1 CPT/OPT available',
+      certs: 'CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
     },
     security: {
       headline: 'Abhishek Vaidya',
       subtitle:
-        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships / co-ops for Summer and Fall 2026 and Spring 2027.',
+        'Full-stack engineer with AppSec focus. Open to Software Engineering and Cybersecurity internships and co-ops for Summer and Fall 2026 and Spring 2027.',
       supportingLine:
-        'Dallas, TX · F-1 CPT/OPT available · M.S. Cybersecurity @ UT Dallas (GPA 3.89, May 2027) · CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
+        'Dallas, TX · F-1 CPT/OPT available',
+      certs: 'CompTIA Security+ · ISC2 CC · TryHackMe Top 1%',
     },
-    stats: [
-      {
-        label: '40+ REST endpoints',
-        detail: 'RBAC enforced across Boeing HR platform at TCS',
-      },
-      {
-        label: '6+ auth gaps closed',
-        detail: 'Role checks, scoped payloads, and permission-gated UI',
-      },
-      {
-        label: '120+ tickets closed',
-        detail: 'Jira & ServiceNow change packages ($5K–$30K each)',
-      },
-      { label: '5x TCS award recipient', detail: 'Star of the Month x2, Best Team x2, On-the-Spot' },
-    ] satisfies StatChip[],
+    stats: [] satisfies StatChip[],
   },
 
   contact: {
@@ -159,7 +147,7 @@ export const profile = {
   about: {
     paragraphs: [
       'I build production software that stays secure by default. Full-stack work with React/Next.js and Spring Boot/Node, plus the auth, RBAC, and CI/CD checks that keep things safe when real users hit them.',
-      'At TCS I worked on Boeing\'s company-wide HR platform. I closed 6+ authorization gaps across 40+ REST endpoints, tightened APIs so they only return what each role should see, and owned a SonarQube security quality gate (90%+) on every production branch. Closed 120+ tickets on change packages valued at $5K-$30K. 5x TCS award recipient.',
+      'At TCS I worked on Boeing\'s company-wide HR platform. I closed 6+ authorization gaps across 40+ REST endpoints, tightened APIs so they only return what each role should see, and owned a SonarQube security quality gate (90%+) on every production branch. Closed 120+ tickets on change packages valued at $5K to $30K. 5x TCS award recipient.',
       'At UT Dallas I\'m a Student Assistant Developer (Next.js/Supabase, adopted team-wide) and an M.S. Cybersecurity student (GPA 3.89, May 2027). CompTIA Security+, ISC2 CC, TryHackMe Top 1%. Through Pixelora I ship client software and my own products like Moviefy and RoamTribe.',
     ],
     focusAreas: [
@@ -266,12 +254,16 @@ export const profile = {
       featured: true,
       bullets: [
         {
-          text: 'Building RoamTribe (AI travel + solo-travel community for women) and Moviefy (AI movie discovery) on Next.js/Supabase.',
-          tag: 'dev' as const,
+          text: 'Building RoamTribe (AI travel + community for women traveling solo) and Moviefy (AI movie discovery) on Next.js/Supabase.',
+          tag: 'both' as const,
         },
         {
-          text: 'Delivered production restaurant system (ordering, tables, payments) and multiple client sites as sole developer.',
-          tag: 'dev' as const,
+          text: 'Delivered a production restaurant management system (ordering, tables, payments) and multiple client sites as sole developer.',
+          tag: 'both' as const,
+        },
+        {
+          text: 'Shipping client software with security treated as default in delivery.',
+          tag: 'both' as const,
         },
       ],
       skills: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Framer Motion', 'Product Development'],
@@ -461,32 +453,32 @@ export const profile = {
 
   awards: [
     {
-      id: 'star-month-feb',
-      title: 'Star of the Month',
-      company: 'Tata Consultancy Services',
-      year: 'Feb 2025',
-      image: '/Star_of_the_Month_Award_page-0001.jpg',
-      category: 'Individual Performance',
-    },
-    {
-      id: 'on-the-spot',
-      title: 'On the Spot (Team)',
-      company: 'Tata Consultancy Services',
-      year: 'Dec 2024',
-      image: '/On_the_Spot_(Team)_Award_page-0001.jpg',
-      category: 'Emergency Production Support',
-    },
-    {
       id: 'star-month-oct',
-      title: 'Star of the Month',
+      title: 'Star of the Month (Oct 2024)',
       company: 'Tata Consultancy Services',
       year: 'Oct 2024',
       image: '/Star_of_the_Month_Award_page-0001.jpg',
       category: 'Individual Performance',
     },
     {
+      id: 'star-month-feb',
+      title: 'Star of the Month (Feb 2025)',
+      company: 'Tata Consultancy Services',
+      year: 'Feb 2025',
+      image: '/Star_of_the_Month_Award_2_pages-to-jpg-0001.jpg',
+      category: 'Individual Performance',
+    },
+    {
+      id: 'on-the-spot',
+      title: 'On the Spot (Team) Dec 2024',
+      company: 'Tata Consultancy Services',
+      year: 'Dec 2024',
+      image: '/On_the_Spot_(Team)_Award_page-0001.jpg',
+      category: 'Emergency Production Support',
+    },
+    {
       id: 'star-team',
-      title: 'Star Team Award',
+      title: 'Star Team Award Oct 2024',
       company: 'Tata Consultancy Services',
       year: 'Oct 2024',
       image: '/Star_Team_Award_pages-to-jpg-0001.jpg',
@@ -494,7 +486,7 @@ export const profile = {
     },
     {
       id: 'best-team',
-      title: 'Best Team Award',
+      title: 'Best Team Award Jun 2024',
       company: 'Tata Consultancy Services',
       year: 'Jun 2024',
       image: '/Best_Team_Award_page-0001.jpg',
