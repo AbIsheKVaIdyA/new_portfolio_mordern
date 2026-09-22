@@ -153,8 +153,8 @@ export const profile = {
       'RBAC, RLS & secure system design',
     ],
     certificationPath: {
-      completed: ['CompTIA Security+', 'ISC2 Certified in Cybersecurity (CC)'],
-      inProgress: ['TryHackMe Penetration Testing'],
+      completed: ['CompTIA Security+', 'ISC2 Certified in Cybersecurity (CC)', 'TryHackMe Top 1% Global'],
+      inProgress: [],
     },
     cardTagline: 'CompTIA Security+ · ISC2 CC · TryHackMe Top 1% Global',
   },
